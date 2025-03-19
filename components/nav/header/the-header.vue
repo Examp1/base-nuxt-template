@@ -3,7 +3,7 @@ import HeaderBody from "./header-body.vue";
 import HeaderTopSide from "./header-top-side.vue";
 import { useSettingStore } from "~/store/app-settings.js";
 
-const { contactSettings, logosSettings, headerMenu } =
+const { contactSettings, logosSettings, headerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
 
 </script>
@@ -12,7 +12,7 @@ const { contactSettings, logosSettings, headerMenu } =
     <header>
         <HeaderTopSide
             :contacts-info="contactSettings"
-            :top-menu="headerMenu"
+            :nav-menu="navBarMenu"
         ></HeaderTopSide>
         <HeaderBody
             :logos="logosSettings"

@@ -11,7 +11,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.hook("i18n:localeSwitched", async ({ oldLocale, newLocale }) => {
         console.log("onLanguageSwitched", oldLocale, newLocale);
         const locale = nuxtApp.$i18n.locale.value;
-        const { menuCount, settings, headerMenu, footerMenu } =
+        const { menuCount, settings, headerMenu, footerMenu, navBarMenu } =
             storeToRefs(useSettingStore());
 
         const data = await fetchSettings(locale);
@@ -21,9 +21,10 @@ export default defineNuxtPlugin((nuxtApp) => {
             title: settings.value.sitename,
         });
 
-        const menus = await fetchMenus([54, 55], locale);
+        const menus = await fetchMenus([54, 55, 61], locale);
         menuCount.value = menus.length;
         headerMenu.value = menus[54];
+        navBarMenu.value = menus[61];
         footerMenu.value = menus[55];
     });
 });

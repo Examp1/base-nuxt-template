@@ -9,7 +9,7 @@ import {
 
 export default defineNuxtPlugin(async (nuxtApp) => {
     const locale = nuxtApp.$i18n.locale.value;
-    const { menuCount, settings, headerMenu, footerMenu } =
+    const { menuCount, settings, headerMenu, footerMenu, navBarMenu } =
         storeToRefs(useSettingStore());
 
     if (!settings.value?.seo) {
@@ -28,9 +28,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     });
 
     if (!menuCount.value) {
-        const menus = await fetchMenus([54, 55], locale);
+        const menus = await fetchMenus([54, 55, 61], locale);
         menuCount.value = menus.length;
         headerMenu.value = menus[54];
+        navBarMenu.value = menus[61];
         footerMenu.value = menus[55];
     }
 

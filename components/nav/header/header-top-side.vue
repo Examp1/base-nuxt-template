@@ -6,7 +6,7 @@ defineProps({
         type: Object,
         default: () => {},
     },
-    topMenu: {
+    navMenu: {
         type: Object,
         default: () => {},
     },
@@ -15,23 +15,24 @@ defineProps({
 <template>
     <div class="header-top-side bg-dark">
         <div class="container jcsb">
-            <div class="col-l aic" v-if="false">
+            <div class="col-l aic">
                 <a
+                    v-if="contactsInfo.phone?.[0]"
                     :href="`tel:${contactsInfo.phone[0].number}`"
                     class="nav-link sm text-light"
                     >{{ contactsInfo.phone[0].title }}</a
                 >
-                <div class="block-text sm-m text-light">
+                <div class="block-text sm-m text-light" v-if="contactsInfo.address">
                     {{ contactsInfo.address }}
                 </div>
-                <div class="block-text sm-m text-light">
+                <div class="block-text sm-m text-light" v-if="contactsInfo.schedule?.[0].title">
                     {{ contactsInfo.schedule[0].title }}
                     {{ contactsInfo.schedule[0].time }}
                 </div>
-                <nav class="menu">
+                <nav class="menu" v-if="navMenu">
                     <nuxt-link
                         :to="link.url"
-                        v-for="link in topMenu"
+                        v-for="link in navMenu"
                         class="nav-link sm text-light"
                         >{{ link.name }}</nuxt-link
                     >

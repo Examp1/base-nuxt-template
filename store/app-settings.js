@@ -6,6 +6,7 @@ export const useSettingStore = defineStore("setting-store", {
         settings: null,
         headerMenu: null,
         footerMenu: null,
+        navBarMenu: null,
     }),
     getters: {
         contactSettings: (state) => {
