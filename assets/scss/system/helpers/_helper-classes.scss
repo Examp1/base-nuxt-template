@@ -1,0 +1,34 @@
+.df {
+    display: flex;
+}
+.jcsb {
+    display: flex;
+    justify-content: space-between;
+}
+.aic {
+    display: flex;
+    align-items: center;
+}
+.tac {
+    text-align: center;
+}
+.no-margins {
+    margin: 0;
+}
+.no-paddings {
+    padding: 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

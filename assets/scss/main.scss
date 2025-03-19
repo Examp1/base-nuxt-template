@@ -1,0 +1,7 @@
+// global common
+@use "./common/normalize.scss";
+// figma
+@use "./figma/figma-varaibles.scss";
+// system common and helpers
+@use "./system/common/_common-index.scss";
+@use "./system/helpers/_helpers-index.scss";

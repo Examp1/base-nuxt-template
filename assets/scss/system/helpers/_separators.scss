@@ -1,0 +1,30 @@
+@use "sass:map";
+// Смотрим по макету какие отступы нужны
+// Определите отступы в карте
+$spaces: (
+    LG: (
+        base: var(--separator-lg),
+    ),
+    MD: (
+        base: var(--separator-md),
+    ),
+    SM: (
+        base: var(--separator-sm),
+    ),
+    XS: (
+        base: var(--separator-xs),
+    ),
+    NON: (
+        base: var(--separator-non, 0px),
+    ),
+);
+// Цикл для создания классов .top_separator и .bottom_separator
+@each $size, $values in $spaces {
+    .mt-#{$size} {
+        padding-top: map.get($values, base);
+    }
+
+    .mb-#{$size} {
+        padding-bottom: map.get($values, base);
+    }
+}

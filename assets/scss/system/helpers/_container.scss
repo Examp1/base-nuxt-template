@@ -1,0 +1,63 @@
+@use "../../mixinsAndVariables/breakpoints.scss" as *;
+
+@mixin container-base {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  height: 100%;
+}
+.container {
+  @include container-base;
+  max-width: var(--container-max-width-lg);
+}
+
+.container-xl {
+  @include container-base;
+  max-width: var(--container-max-width-xl);
+}
+.container-md {
+  @include container-base;
+  max-width: var(--container-max-width-md);
+}
+
+.container-sm {
+  @include container-base;
+  max-width: var(--container-max-width-sm);
+}
+.container-xs {
+  @include container-base;
+  max-width: var(--container-max-width-xs);
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 var(--container-padding);
+}
+.container-full {
+  width: 100%;
+}
+
+$container-x-padding: max(
+  var(--container-padding),
+  calc(
+    (100% - (var(--container-max-width-lg) - (var(--container-padding) * 2))) /
+      2
+  )
+);
+
+.container,
+.container-fluid,
+.container-full {
+  &.left-container-padding {
+    padding-left: $container-x-padding;
+    @include bp-768 {
+      padding: 0 var(--container-padding);
+    }
+  }
+  &.right-container-padding {
+    padding-right: $container-x-padding;
+    @include bp-768 {
+      padding: 0 var(--container-padding);
+    }
+  }
+}

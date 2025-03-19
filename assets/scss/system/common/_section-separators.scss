@@ -1,0 +1,33 @@
+@use "~/assets/scss/mixinsAndVariables/breakpoints.scss" as *;
+.section-separator-TOP {
+    position: relative;
+    &::before {
+        content: "";
+        background-color: var(--bg-default);
+        width: 100%;
+        border-radius: 50px 50px 0px 0px;
+        height: 100px;
+        position: absolute;
+        top: -100px;
+    }
+    @include bp-768{
+        height: 40px;
+        top: -40px;
+    }
+}
+.section-separator-BOTTOM {
+    position: relative;
+    &::before {
+        content: "";
+        background-color: var(--bg-default);
+        width: 100%;
+        border-radius: 0px 0px 50px 50px;
+        height: 100px;
+        position: absolute;
+        bottom: -100px;
+    }
+    @include bp-768{
+        height: 40px;
+        bottom: -40px;
+    }
+}

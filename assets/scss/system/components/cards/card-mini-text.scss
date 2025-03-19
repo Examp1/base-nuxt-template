@@ -1,0 +1,102 @@
+@use '../../../mixinsAndVariables/breakpoints.scss' as *;
+@use '../../../mixinsAndVariables/mixins.scss' as *;
+.card-mini-text {
+  img {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 320px auto;
+    grid-gap: 40px;
+
+    @include bp-1024 {
+      grid-template-columns: 1fr;
+    }
+  }
+  .cards-wrapper {
+    display: grid;
+    &.card-in-row-2 {
+      grid-gap: 16px;
+    }
+    &.card-in-row-1 {
+      grid-gap: 45px;
+    }
+  }
+  .card {
+    .title-wrp {
+      i {
+        font-size: 24px;
+        color: #007aff;
+      }
+    }
+    h2 {
+      padding-bottom: 4px;
+    }
+
+    &:nth-child(odd):last-of-type {
+      grid-column: 1 / -1;
+
+      @include bp-1024 {
+        grid-column: unset;
+      }
+    }
+  }
+
+  .btns-container {
+    margin-left: auto;
+    margin-top: 0;
+
+    @include bp-1024 {
+      grid-column: unset;
+    }
+  }
+
+  .arrow-icon {
+    margin-left: auto;
+  }
+  .mini-text {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+
+    @include bp-1024 {
+      position: unset;
+    }
+
+    h2 {
+      padding-bottom: var(--spacing-page-headline-h2-bottom, 24px);
+      @include bp-576 {
+        padding-bottom: 0;
+      }
+    }
+
+    .redactor > * {
+      @include set-typography(
+        16px,
+        400,
+        var(--text-on-light-bg-lighter-high),
+        160%
+      );
+    }
+  }
+  .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    & > * {
+      @include set-typography(
+        15px,
+        400,
+        var(--text-on-light-bg-lighter-high),
+        160%
+      );
+      margin-bottom: 4px;
+    }
+  }
+  .btn {
+    margin-top: 4px;
+  }
+}

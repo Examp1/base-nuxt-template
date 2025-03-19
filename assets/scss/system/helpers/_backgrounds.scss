@@ -1,0 +1,60 @@
+.block {
+  padding: 50px;
+}
+.bg-light,
+.bg-light-2,
+.bg-dark,
+.bg-color,
+.bg-none {
+  background: var(--bg-default);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  code,
+  span,
+  .redactor > * {
+    color: var(--text-default);
+  }
+
+  a:not([class]),
+  .redactor a:not([class]) {
+    color: var(--text-link);
+    transition: 0.3s;
+    &:visited {
+      color: var(--text-link-vizited);
+    }
+    &:hover {
+      color: var(--text-link-hover);
+    }
+  }
+
+  .accent, .redactor.accent > * {
+    color: var(--text-accent);
+  }
+  .text-brand, .redactor.text-brand > * {
+    color: var(--text-brand);
+  }
+  .text-brand-dark, .redactor.text-brand-dark > * {
+    color: var(--text-brand-dark);
+  }
+  .text-light, .redactor.text-light > * {
+    color: var(--text-light);
+  }
+  .text-light-2, .redactor.text-light-2 > * {
+    color: var(--text-light-2);
+  }
+  .bg-transparent {
+    background-color: var(--bg-transparent);
+  }
+  .disabled-text {
+    color: var(--text-disabled);
+  }
+  hr {
+    background: var(--border-light);
+    margin: var(--text-editor-body-padding-y-sm) 0px;
+  }
+}
