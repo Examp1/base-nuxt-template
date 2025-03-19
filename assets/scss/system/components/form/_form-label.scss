@@ -1,0 +1,18 @@
+.form-label {
+  display: inline-block;
+  color: var(--text-default, #3a3a3c);
+  font-size: var(--typography-title-font-size-md);
+  padding-bottom: var(--form-label-padding-y-md);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  grid-gap: 4px;
+  &.lg {
+    font-size: var(--typography-title-font-size-lg);
+    padding-bottom: var(--form-label-padding-y-lg);
+  }
+  &.sm {
+    font-size: var(--typography-title-font-size-sm);
+    padding-bottom: var(--form-label-padding-y-sm);
+  }
+}

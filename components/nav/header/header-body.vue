@@ -59,6 +59,7 @@ defineProps({
 .header-logo {
     img {
         width: 58px;
+        object-fit: contain;
     }
 }
 .header-body {

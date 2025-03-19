@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     },
 
     css: ["~/assets/scss/main.scss"],
+    
     modules: [
         "@vueuse/nuxt",
         "@nuxtjs/i18n",
@@ -49,12 +50,10 @@ export default defineNuxtConfig({
         ],
         defaultLocale: "uk",
     },
-    // googleFonts: {
-    //     families: {
-    //         "Roboto": true,
-    //         "SF Pro": [400, 500, 700],
-
-    //         display: "swap",
-    //     },
-    // },
+    googleFonts: {
+        families: {
+            "Great Vibes": true,
+            display: "swap",
+        },
+    },
 });

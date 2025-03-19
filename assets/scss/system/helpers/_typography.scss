@@ -8,7 +8,7 @@ body {
 .page-title {
     @include set-typography(
         var(--typography-display-font-size-h1-md),
-        500,
+        400,
         var(--text-default),
         120%
     );
@@ -23,7 +23,7 @@ body {
 .section-title {
     @include set-typography(
         var(--typography-display-font-size-h2-md),
-        500,
+        400,
         var(--text-default),
         120%
     );
@@ -40,8 +40,8 @@ body {
 .block-title {
     color: var(--text-default);
     font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
+    font-weight: 400;
+    line-height: 130%;
     &.xxxxl {
         font-size: var(--typography-title-font-size-xxxxl);
     }
@@ -101,7 +101,7 @@ body {
     }
 }
 .nav-link {
-    color: var(--text-default);
+    color: var(--nav-link-label-default-light);
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -141,7 +141,7 @@ body {
     h1 {
         @include set-typography(
             var(--typography-heading-font-size-h1),
-            500,
+            400,
             var(--text-default),
             120%
         );
@@ -149,7 +149,7 @@ body {
     h2 {
         @include set-typography(
             var(--typography-heading-font-size-h2),
-            500,
+            400,
             var(--text-default),
             120%
         );
@@ -157,7 +157,7 @@ body {
     h3 {
         @include set-typography(
             var(--typography-heading-font-size-h3),
-            500,
+            400,
             var(--text-default),
             120%
         );
@@ -165,7 +165,7 @@ body {
     h4 {
         @include set-typography(
             var(--typography-heading-font-size-h4),
-            500,
+            400,
             var(--text-default),
             120%
         );
@@ -173,7 +173,7 @@ body {
     h5 {
         @include set-typography(
             var(--typography-heading-font-size-h5),
-            500,
+            400,
             var(--text-default),
             120%
         );
@@ -181,7 +181,7 @@ body {
     h6 {
         @include set-typography(
             var(--typography-heading-font-size-h6),
-            500,
+            400,
             var(--text-default),
             120%
         );
