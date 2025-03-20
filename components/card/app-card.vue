@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+import type { ICard } from "~/interfaces/i-card.ts";
 import { computed } from "vue";
 import { NuxtLink } from "#components";
 import CardImage from "./cards-elements/card-image.vue";
@@ -10,6 +11,8 @@ import CardTitle from "./cards-elements/card-title.vue";
 import CardColorText from "./cards-elements/card-color-text.vue";
 import CardText from "./cards-elements/card-text.vue";
 import CardAdditionalInfo from "./cards-elements/card-aditional-info.vue";
+
+// defineProps<{id: number}>()
 
 const props = defineProps({
     card: {
@@ -137,7 +140,6 @@ const hasText = computed(() => {
                 v-if="card.additionalInfo"
                 :info="card.additionalInfo"
             />
-
         </div>
     </div>
 </template>

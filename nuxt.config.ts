@@ -50,10 +50,10 @@ export default defineNuxtConfig({
         ],
         defaultLocale: "uk",
     },
-    googleFonts: {
-        families: {
-            "Great Vibes": true,
-            display: "swap",
-        },
-    },
+    // googleFonts: {
+    //     families: {
+    //         "Great Vibes": true,
+    //         display: "swap",
+    //     },
+    // },
 });

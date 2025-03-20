@@ -1,6 +1,7 @@
 <script setup>
 import { useSettingStore } from "~/store/app-settings.js";
-const { contactSettings, logosSettings, footerMenu } =
+import LangSwitcherV2 from "../lang-switcher-v-2.vue";
+const { contactSettings, logosSettings, footerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
 </script>
 <template>
@@ -59,7 +60,7 @@ const { contactSettings, logosSettings, footerMenu } =
                     Узнавайте першими про оновлення та важливі новини БукКіпер
                 </div>
                 <form class="form-cta" data-form="4385">
-                    <div class="form-field required sm-md" id="form-cta-input">
+                    <div class="form-field required md" id="form-cta-input">
                         <input
                             type="email"
                             placeholder="name@company.com"
@@ -67,14 +68,22 @@ const { contactSettings, logosSettings, footerMenu } =
                         />
                         <span class="error"></span>
                     </div>
-                    <button
-                        type="submit"
-                        class="btn sm-md fill"
-                        id="form-cta-btn"
-                    >
+                    <button type="submit" class="btn md fill" id="form-cta-btn">
                         Підписатись
                     </button>
                 </form>
+            </div>
+            <div class="footer-bottom-side">
+                <div class="footer-bottom-menu">
+                    <LangSwitcherV2/>
+                    <div v-for="li in footerMenu" class="nav-link sm">
+                        {{ li.name }}
+                    </div>
+                </div>
+                <div class="nav-link sm">
+                    Зроблено з любовʼю в Україні <span>💛💙</span> Sisi.dev©
+                    2025
+                </div>
             </div>
         </div>
     </footer>
@@ -119,6 +128,25 @@ footer {
         }
         .block-title {
             padding: var(--nav-link-padding-md);
+        }
+    }
+    .footer-cta {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--footer-form-wrap-gap);
+        .form-cta {
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    .footer-bottom-side {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid var(--border-light);
+        padding: var(--footer-bottom-padding-y, 16px) 0px;
+        .footer-bottom-menu {
+            display: flex;
         }
     }
 }

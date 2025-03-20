@@ -29,6 +29,7 @@
   - xl
   - lg
   - md
+  - sm
   - non ( можно ничего не передавать ) **_default_**
     >
         gap юзаем когда нужен гап между card-header, card-body, card-footer
@@ -46,7 +47,7 @@
 - contentPosition
   - center
   - right
-  - left/none **_default_**
+  - left **_default_**
     >
           contentPosition юзаем когда нужен сместить контект карточки по центру/вправо
 
@@ -94,11 +95,11 @@
     >
             если нужно не рендерить .card-header
 - imgSize
-  - xs
-  - sm
-  - md **_default_**
-  - lg
   - xl
+  - lg
+  - md **_default_**
+  - sm
+  - xs
     >
             выбор размера картинки
 - bodyGap
