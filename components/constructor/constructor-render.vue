@@ -73,8 +73,8 @@ onMounted(() => {
                 ></component>
             </section>
         </div>
-        <div class="constructor-container bg-light-2">
-            <div class="separator-container">
+        <div class="constructor-container">
+            <div class="separator-container bg-light-2">
                 <svg
                     viewBox="0 0 1440 415"
                     fill="none"
@@ -82,20 +82,24 @@ onMounted(() => {
                 >
                     <path
                         d="M715.913 380.32C721.342 253.3 650.756 0.458008 324.976 0.458008L0.0869141 0.458008L0.0869141 414.844L1439.91 414.844V0.458008L1115.51 0.458008C789.735 0.458008 719.148 253.3 724.577 380.32H715.913Z"
-                        fill="#EBEBF0"
+                    fill="#EBEBF0"
                     />
                 </svg>
             </div>
-            <section
-                v-for="({ component, visible, content }, idx) in constructor"
-                :key="`${component}-${idx}`"
-                :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
-            >
-                <component
-                    :is="asyncComponents[component]"
-                    :content="content"
-                ></component>
-            </section>
+            <div class="block-wrapper bg-light-2">
+                <section
+                    v-for="(
+                        { component, visible, content }, idx
+                    ) in constructor"
+                    :key="`${component}-${idx}`"
+                    :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
+                >
+                    <component
+                        :is="asyncComponents[component]"
+                        :content="content"
+                    ></component>
+                </section>
+            </div>
         </div>
     </div>
 </template>
@@ -105,7 +109,10 @@ onMounted(() => {
     width: 100%;
     height: auto;
     margin-bottom: -5px;
-    background-color: #000;
+    background-color: transparent;
+    svg path{
+        fill: var(--bg-default);
+    }
 }
 .index {
     .main-screen-container {

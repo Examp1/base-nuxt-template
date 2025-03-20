@@ -14,7 +14,7 @@ const enhanceCard = (cardObj) => {
         ...cardObj,
         bodyPadding: "none",
         noBg: true,
-        gap: 'md',
+        gap: "md",
         imageReverse: true,
     };
 };
@@ -23,6 +23,7 @@ const enhanceCard = (cardObj) => {
 <template>
     <div class="container">
         <AppSectionTitle
+            :title-position="'tac'"
             v-if="content?.title"
             :title="content.title"
         ></AppSectionTitle>

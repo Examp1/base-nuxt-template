@@ -11,13 +11,13 @@ const transformedImagesList = computed(() => {
     const originalList = props.content.list;
     const listLength = originalList.length;
 
-    if (listLength >= 20) {
+    if (listLength >= 10) {
         return originalList;
     }
 
     const extendedList = [...originalList];
 
-    while (extendedList.length < 20) {
+    while (extendedList.length < 10) {
         const indexToCopy = extendedList.length % listLength;
         extendedList.push({ ...originalList[indexToCopy] });
     }
@@ -27,10 +27,18 @@ const transformedImagesList = computed(() => {
 </script>
 <template>
     <div v-if="content?.title" class="container">
-        <AppSectionTitle :title="content.title"></AppSectionTitle>
+        <AppSectionTitle :title="content.title" :title-position="'tac'"></AppSectionTitle>
     </div>
     <div class="marquee-infinite">
         <div class="marquee">
+            <div class="marquee-wrp">
+                <img
+                    v-for="(item, index) in transformedImagesList"
+                    :src="path(item.img)"
+                    alt="image"
+                    :key="index"
+                />
+            </div>
             <div class="marquee-wrp">
                 <img
                     v-for="(item, index) in transformedImagesList"
@@ -64,7 +72,7 @@ const transformedImagesList = computed(() => {
     overflow: hidden;
     position: relative;
     white-space: nowrap;
-    animation: marquee-infinite 30s linear infinite;
+    animation: marquee-infinite 10s linear infinite;
 
     &-wrp {
         width: 100%;
@@ -72,19 +80,21 @@ const transformedImagesList = computed(() => {
         justify-content: space-around;
         align-items: center;
         padding: 10px;
+        gap: 10px; 
         img {
             max-height: 100px;
             object-fit: contain;
         }
     }
+    
+  @media (max-width: 650px) {
+    width: 600%;
 
-    @media (max-width: 650px) {
-        width: 600%;
-
-        &-wrp {
-            width: 300%;
-        }
+    &-wrp {
+      width: 300%;
     }
+  }
+
 }
 
 @keyframes marquee-infinite {
