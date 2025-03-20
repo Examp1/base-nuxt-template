@@ -25,6 +25,9 @@ const asyncComponents = {
     "card-2": defineAsyncComponent(
         () => import("~/components/constructor/card-2.vue")
     ),
+    "card-4": defineAsyncComponent(
+        () => import("~/components/constructor/card-4.vue")
+    ),
     "first-screen": defineAsyncComponent(
         () => import("~/components/first-screens/first-screen.vue")
     ),
@@ -48,51 +51,6 @@ onMounted(() => {
             markers: true,
         },
     });
-
-    // gsap.to(".ass", {
-    //     clipPath: `polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%)`,
-    //     scrollTrigger: {
-    //         trigger: ".ass",
-    //         start: "top center",
-    //         end: "bottom+=300 center",
-    //         scrub: true,
-    //         pin: true,
-    //         anticipatePin: 1,
-    //         pinSpacing: false,
-    //         markers: true,
-    //     },
-    // });
-    // const timeline = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: ".ass", // Триггер для анимации
-    //         start: "top center", // Начало анимации
-    //         end: "bottom+=300 center", // Конец анимации
-    //         scrub: true, // Плавная анимация, привязанная к скроллу
-    //         pin: true, // Фиксируем контейнер на время анимации
-    //         anticipatePin: 1, // Улучшает плавность фиксации
-    //         markers: true, // Для отладки (можно убрать в production)
-    //     },
-    // });
-    // timeline.to(".ass", {
-    //     clipPath: `polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%)`,
-    // });
-    // timeline.to('.ass', {
-    //     x: 400,
-    //     rotate: 360 
-    // })
-    // timeline.to('.ass', {
-    //     x: -400,
-    //     rotate: 0 
-    // })
-
-    // // Анимация для .ass2
-    // timeline.to(
-    //     ".ass2",
-    //     {
-    //         clipPath: `polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%)`,
-    //     },
-    //     "<" // Запускаем одновременно с предыдущей анимацией
-    // );
 });
 </script>
 
@@ -112,9 +70,7 @@ onMounted(() => {
                 ></component>
             </section>
         </div>
-        <div class="constructor-container">
-            <!-- <div class="ass"></div>
-            <div class="ass2"></div> -->
+        <div class="constructor-container bg-light-2">
             <div class="separator-container">
                 <svg
                     viewBox="0 0 1440 415"
@@ -146,33 +102,7 @@ onMounted(() => {
     width: 100%;
     height: auto;
     margin-bottom: -5px;
-    background-color: transparent;
-}
-.ass {
-    width: 200px;
-    height: 200px;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background-color: red;
-}
-.ass2 {
-    width: 200px;
-    height: 200px;
-    clip-path: polygon(
-        10% 25%,
-        35% 25%,
-        35% 0%,
-        65% 0%,
-        65% 25%,
-        90% 25%,
-        90% 50%,
-        65% 50%,
-        65% 100%,
-        35% 100%,
-        35% 50%,
-        10% 50%
-    );
-    background-color: green;
-    /* polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%) */
+    background-color: #000;
 }
 .index {
     .main-screen-container {
