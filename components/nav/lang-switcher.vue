@@ -17,7 +17,7 @@ const lolizedValue = {
             <AppSprite :id="locale"></AppSprite>{{ lolizedValue[locale] }}
         </div>
         <div class="other-langs">
-            <NuxtLnk
+            <NuxtLink
                 v-for="locale in availableLocales"
                 :key="locale.code"
                 :to="locale.code"
@@ -26,7 +26,7 @@ const lolizedValue = {
             >
                 <AppSprite :id="locale.code"></AppSprite
                 >{{ lolizedValue[locale.code] }}
-            </NuxtLnk>
+            </NuxtLink>
         </div>
     </div>
 </template>

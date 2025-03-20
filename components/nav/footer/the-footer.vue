@@ -46,7 +46,7 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
                 <div class="footer-contacts-info">
                     <div class="block-title md">Пишіть нам в месенджери:</div>
                     <a
-                        v-for="messenger in contactSettings.messengers"
+                        v-for="(messenger, idx) in contactSettings.messengers"
                         :key="'messanger' + idx"
                         :to="messenger.link"
                         class="nav-link md"
@@ -75,7 +75,7 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
             </div>
             <div class="footer-bottom-side">
                 <div class="footer-bottom-menu">
-                    <LangSwitcherV2/>
+                    <LangSwitcherV2 />
                     <div v-for="li in footerMenu" class="nav-link sm">
                         {{ li.name }}
                     </div>

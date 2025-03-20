@@ -17,7 +17,7 @@ const lolizedValue = {
             {{ lolizedValue[locale] }}
         </div>
         <div class="btn tint sm other-langs">
-            <NuxtLnk
+            <NuxtLink
                 v-for="locale in availableLocales"
                 :key="locale.code"
                 :to="locale.code"
@@ -25,7 +25,7 @@ const lolizedValue = {
                 class="other-lang"
             >
                 {{ lolizedValue[locale.code] }}
-            </NuxtLnk>
+            </NuxtLink>
         </div>
     </div>
 </template>
