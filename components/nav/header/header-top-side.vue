@@ -22,18 +22,25 @@ defineProps({
                     class="nav-link sm text-light"
                     >{{ contactsInfo.phone[0].title }}</a
                 >
-                <div class="block-text sm-m text-light" v-if="contactsInfo.address">
+                <div
+                    class="block-text sm-m text-light"
+                    v-if="contactsInfo.address"
+                >
                     {{ contactsInfo.address }}
                 </div>
-                <div class="block-text sm-m text-light" v-if="contactsInfo.schedule?.[0].title">
+                <div
+                    class="block-text sm-m text-light"
+                    v-if="contactsInfo.schedule?.[0].title"
+                >
                     {{ contactsInfo.schedule[0].title }}
                     {{ contactsInfo.schedule[0].time }}
                 </div>
                 <nav class="menu" v-if="navMenu">
                     <nuxt-link
                         :to="link.url"
-                        v-for="link in navMenu"
-                        class="nav-link sm text-light"
+                        v-for="(link, idx) in navMenu"
+                        :key="'navMenuLink' + idx"
+                        class="nav-link md text-light"
                         >{{ link.name }}</nuxt-link
                     >
                 </nav>

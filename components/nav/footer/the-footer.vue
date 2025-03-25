@@ -34,13 +34,12 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
                 ></a>
             </div>
             <div class="footer-body">
-                <div class="footer-menu">
-                    <NuxtLink
-                        v-for="(li, idx) in footerMenu"
-                        :to="li.url"
-                        :key="'footerMenuLink' + idx"
-                        class="block-title md"
-                    >
+                <div
+                    v-for="(li, idx) in footerMenu"
+                    :key="'footerMenuLink' + idx"
+                    class="footer-menu"
+                >
+                    <NuxtLink :to="li.url" class="block-title md">
                         {{ li.name }}
                     </NuxtLink>
                 </div>
@@ -110,6 +109,10 @@ footer {
         gap: 60px;
         .credo {
             gap: 24px;
+            @include bp-768 {
+                flex-direction: column;
+                text-align: center;
+            }
         }
         .accent {
             text-align: center;
@@ -119,13 +122,15 @@ footer {
             display: grid;
             gap: 20px;
         }
+        @include bp-768 {
+            grid-template-columns: 1fr;
+        }
     }
     .footer-body {
         display: grid;
-        grid-template-columns: 3fr 1fr;
-        .footer-menu {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        @include bp-768 {
+            grid-template-columns: repeat(2, 1fr);
         }
         .block-title {
             padding: var(--nav-link-padding-md);
@@ -139,6 +144,9 @@ footer {
             display: flex;
             gap: 8px;
         }
+        @include bp-768 {
+            grid-template-columns: 1fr;
+        }
     }
 
     .footer-bottom-side {
@@ -146,8 +154,16 @@ footer {
         justify-content: space-between;
         border-top: 1px solid var(--border-light);
         padding: var(--footer-bottom-padding-y, 16px) 0px;
+        @include bp-768 {
+            flex-direction: column;
+            align-items: center;
+        }
         .footer-bottom-menu {
             display: flex;
+            @include bp-768 {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     }
 }

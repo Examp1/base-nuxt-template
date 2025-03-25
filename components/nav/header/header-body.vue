@@ -31,7 +31,7 @@ defineProps({
                     :to="link.url"
                     v-for="(link, idx) in headerMenu"
                     :key="'link' + idx"
-                    class="nav-link sm text-light"
+                    class="nav-link md text-light"
                     >{{ link.name }}</nuxt-link
                 >
             </div>
