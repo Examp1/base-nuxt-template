@@ -36,8 +36,9 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
             <div class="footer-body">
                 <div class="footer-menu">
                     <NuxtLink
-                        v-for="li in footerMenu"
+                        v-for="(li, idx) in footerMenu"
                         :to="li.url"
+                        :key="'footerMenuLink' + idx"
                         class="block-title md"
                     >
                         {{ li.name }}

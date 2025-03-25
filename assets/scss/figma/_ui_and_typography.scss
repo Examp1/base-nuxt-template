@@ -1,4 +1,9 @@
 [data-windowsize="desktop"] {
+  /* color */
+  --typography-default: #000000;
+  --typography-default-2: #000000;
+  --typography-default-3: #000000;
+  --typography-default-4: #000000;
   /* number */
   --breakpoint: 1440px;
   --accordeon-list-gap: 2px;
@@ -100,6 +105,11 @@
   --card-gap-lg: 24px;
   --card-gap-xl: 32px;
   --card-gap-xxl: 60px;
+  --card-img-width-xs: 60px;
+  --card-img-width-sm: 75px;
+  --card-img-width-md: 80px;
+  --card-img-width-lg: 120px;
+  --card-img-width-xl: 240px;
   --card-wrap-padding-non: 0px;
   --card-wrap-padding-xs: 8px;
   --card-wrap-padding-sm: 12px;
@@ -361,6 +371,10 @@
   --text-editor-body-padding-y-lg: 32px;
   --text-editor-body-padding-y-md: 32px;
   --text-editor-body-padding-y-xl: 32px;
+  --typography-h1: 400px;
+  --typography-h1-2: 400px;
+  --typography-h1-3: 400px;
+  --typography-h1-4: 400px;
   --typography-body-font-size-sm-m: 13px;
   --typography-body-font-size-sm: 14px;
   --typography-body-font-size-md: 16px;
@@ -376,7 +390,7 @@
   --typography-button-font-size-lg: 18px;
   --typography-display-font-size-h1-sm: 36px;
   --typography-display-font-size-h1-md: 48px;
-  --typography-display-font-size-h1-lg: 60px;
+  --typography-display-font-size-h1-lg: 64px;
   --typography-display-font-size-h2-sm: 22px;
   --typography-display-font-size-h2-md: 28px;
   --typography-display-font-size-h2-lg: 42px;
@@ -393,7 +407,7 @@
   --typography-heading-font-size-h4: 22px;
   --typography-heading-font-size-h3: 24px;
   --typography-heading-font-size-h2: 42px;
-  --typography-heading-font-size-h1: 48px;
+  --typography-heading-font-size-h1: 64px;
   --typography-nav-font-weight: 400px;
   --typography-nav-font-size-sm: 13px;
   --typography-nav-font-size-sm-m: 13px;
@@ -420,9 +434,14 @@
   --assets-main-header: desktop;
   --assets-top-header: desktop;
   --typography-font-family: SF Pro;
-  --typography-font-family-accent: Zapfino;
+  --typography-font-family-accent: Great Vibes;
 }
 [data-windowsize="tablet-lg"] {
+  /* color */
+  --typography-default: #1e232d;
+  --typography-default-2: #1e232d;
+  --typography-default-3: #1e232d;
+  --typography-default-4: #1e232d;
   /* number */
   --breakpoint: 1024px;
   --accordeon-list-gap: 2px;
@@ -524,6 +543,11 @@
   --card-gap-lg: 24px;
   --card-gap-xl: 32px;
   --card-gap-xxl: 60px;
+  --card-img-width-xs: 60px;
+  --card-img-width-sm: 75px;
+  --card-img-width-md: 80px;
+  --card-img-width-lg: 120px;
+  --card-img-width-xl: 240px;
   --card-wrap-padding-non: 0px;
   --card-wrap-padding-xs: 8px;
   --card-wrap-padding-sm: 12px;
@@ -785,6 +809,10 @@
   --text-editor-body-padding-y-lg: 32px;
   --text-editor-body-padding-y-md: 32px;
   --text-editor-body-padding-y-xl: 32px;
+  --typography-h1: 400px;
+  --typography-h1-2: 400px;
+  --typography-h1-3: 400px;
+  --typography-h1-4: 400px;
   --typography-body-font-size-sm-m: 13px;
   --typography-body-font-size-sm: 14px;
   --typography-body-font-size-md: 16px;
@@ -799,8 +827,8 @@
   --typography-button-font-size-md: 14px;
   --typography-button-font-size-lg: 18px;
   --typography-display-font-size-h1-sm: 36px;
-  --typography-display-font-size-h1-lg: 48px;
   --typography-display-font-size-h1-md: 48px;
+  --typography-display-font-size-h1-lg: 62px;
   --typography-display-font-size-h2-sm: 22px;
   --typography-display-font-size-h2-md: 28px;
   --typography-display-font-size-h2-lg: 42px;
@@ -817,7 +845,7 @@
   --typography-heading-font-size-h4: 22px;
   --typography-heading-font-size-h3: 24px;
   --typography-heading-font-size-h2: 42px;
-  --typography-heading-font-size-h1: 48px;
+  --typography-heading-font-size-h1: 56px;
   --typography-nav-font-weight: 400px;
   --typography-nav-font-size-sm: 13px;
   --typography-nav-font-size-sm-m: 13px;
@@ -844,9 +872,14 @@
   --assets-main-header: tablet-lg;
   --assets-top-header: tablet-lg;
   --typography-font-family: SF Pro;
-  --typography-font-family-accent: Zapfino;
+  --typography-font-family-accent: Great Vibes;
 }
 [data-windowsize="tablet"] {
+  /* color */
+  --typography-default: #ffffff;
+  --typography-default-2: #ffffff;
+  --typography-default-3: #ffffff;
+  --typography-default-4: #ffffff;
   /* number */
   --breakpoint: 768px;
   --accordeon-list-gap: 2px;
@@ -948,6 +981,11 @@
   --card-gap-lg: 24px;
   --card-gap-xl: 32px;
   --card-gap-xxl: 60px;
+  --card-img-width-xs: 60px;
+  --card-img-width-sm: 75px;
+  --card-img-width-lg: 120px;
+  --card-img-width-md: 120px;
+  --card-img-width-xl: 240px;
   --card-wrap-padding-non: 0px;
   --card-wrap-padding-xs: 8px;
   --card-wrap-padding-sm: 12px;
@@ -1209,6 +1247,10 @@
   --text-editor-body-padding-y-lg: 32px;
   --text-editor-body-padding-y-md: 32px;
   --text-editor-body-padding-y-xl: 32px;
+  --typography-h1: 400px;
+  --typography-h1-2: 400px;
+  --typography-h1-3: 400px;
+  --typography-h1-4: 400px;
   --typography-body-font-size-sm-m: 13px;
   --typography-body-font-size-sm: 14px;
   --typography-body-font-size-md: 16px;
@@ -1224,7 +1266,7 @@
   --typography-button-font-size-lg: 18px;
   --typography-display-font-size-h1-md: 36px;
   --typography-display-font-size-h1-sm: 36px;
-  --typography-display-font-size-h1-lg: 42px;
+  --typography-display-font-size-h1-lg: 62px;
   --typography-display-font-size-h2-sm: 22px;
   --typography-display-font-size-h2-md: 28px;
   --typography-display-font-size-h2-lg: 32px;
@@ -1240,7 +1282,7 @@
   --typography-heading-font-size-h5: 20px;
   --typography-heading-font-size-h4: 22px;
   --typography-heading-font-size-h3: 24px;
-  --typography-heading-font-size-h1: 32px;
+  --typography-heading-font-size-h1: 42px;
   --typography-heading-font-size-h2: 42px;
   --typography-nav-font-weight: 400px;
   --typography-nav-font-size-sm: 13px;
@@ -1268,9 +1310,14 @@
   --assets-main-header: tablet;
   --assets-top-header: tablet;
   --typography-font-family: SF Pro;
-  --typography-font-family-accent: Zapfino;
+  --typography-font-family-accent: Great Vibes;
 }
 [data-windowsize="mobile"] {
+  /* color */
+  --typography-default: #ffffff;
+  --typography-default-2: #ffffff;
+  --typography-default-3: #ffffff;
+  --typography-default-4: #ffffff;
   /* number */
   --breakpoint: 360px;
   --accordeon-list-gap: 2px;
@@ -1372,6 +1419,11 @@
   --card-gap-lg: 24px;
   --card-gap-xl: 32px;
   --card-gap-xxl: 60px;
+  --card-img-width-xs: 60px;
+  --card-img-width-sm: 75px;
+  --card-img-width-md: 80px;
+  --card-img-width-lg: 100px;
+  --card-img-width-xl: 100px;
   --card-wrap-padding-non: 0px;
   --card-wrap-padding-xs: 8px;
   --card-wrap-padding-sm: 12px;
@@ -1633,6 +1685,10 @@
   --text-editor-body-padding-y-lg: 32px;
   --text-editor-body-padding-y-md: 32px;
   --text-editor-body-padding-y-xl: 32px;
+  --typography-h1: 400px;
+  --typography-h1-2: 400px;
+  --typography-h1-3: 400px;
+  --typography-h1-4: 400px;
   --typography-body-font-size-sm-m: 13px;
   --typography-body-font-size-sm: 14px;
   --typography-body-font-size-md: 16px;
@@ -1664,8 +1720,8 @@
   --typography-heading-font-size-h5: 18px;
   --typography-heading-font-size-h4: 22px;
   --typography-heading-font-size-h3: 24px;
-  --typography-heading-font-size-h1: 32px;
   --typography-heading-font-size-h2: 32px;
+  --typography-heading-font-size-h1: 42px;
   --typography-nav-font-weight: 400px;
   --typography-nav-font-size-sm: 13px;
   --typography-nav-font-size-sm-m: 13px;
@@ -1692,5 +1748,5 @@
   --assets-main-header: mobile;
   --assets-top-header: mobile;
   --typography-font-family: SF Pro;
-  --typography-font-family-accent: Zapfino;
+  --typography-font-family-accent: Great Vibes;
 }

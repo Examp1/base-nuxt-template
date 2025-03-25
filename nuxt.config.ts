@@ -28,14 +28,14 @@ export default defineNuxtConfig({
             preprocessorOptions: {
                 scss: {
                     api: "modern-compiler",
-                    // additionalData: `@use "@/assets/scss/figma/_colors.scss";`,
+                    additionalData: ` @use "~/assets/scss/mixinsAndVariables/breakpoints.scss" as *;`,
                 },
             },
         },
     },
 
     css: ["~/assets/scss/main.scss"],
-    
+
     modules: [
         "@vueuse/nuxt",
         "@nuxtjs/i18n",
@@ -51,9 +51,10 @@ export default defineNuxtConfig({
         defaultLocale: "uk",
     },
     // googleFonts: {
+    //     // stylePath: 'assets/css/google-fonts.css',
+    //     outputDir: 'assets/',
     //     families: {
-    //         "Great Vibes": true,
-    //         display: "swap",
+    //         "Great+Vibes": true,
     //     },
     // },
 });

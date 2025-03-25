@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppButton from "~/components/common/app-button.vue";
-import type { ICard } from "~/interfaces/i-card.ts";
+// import type { ICard } from "~/interfaces/i-card.ts";
 import { computed } from "vue";
 import { NuxtLink } from "#components";
 import CardImage from "./cards-elements/card-image.vue";
@@ -23,6 +23,10 @@ const props = defineProps({
     content: {
         type: Object,
         default: () => ({}),
+    },
+    loading: {
+        type: Boolean,
+        default: false,
     },
 });
 
@@ -83,7 +87,8 @@ const hasText = computed(() => {
 });
 </script>
 <template>
-    <div :class="cardClasses" :style="styleAttr">
+    <div v-if="loading" class="card loading">loading card</div>
+    <div v-else :class="cardClasses" :style="styleAttr">
         <div v-if="card.backgroundImage" class="overlay"></div>
 
         <component
@@ -156,3 +161,10 @@ const hasText = computed(() => {
     scoped
     src="../../assets/scss/system/components/cards/card-component.scss"
 ></style>
+<style lang="scss" scoped>
+.loading {
+    background-color: #f4f4f4;
+    width: 200px;
+    height: 200px;
+}
+</style>

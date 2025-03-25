@@ -1,4 +1,8 @@
 <script setup>
+import { useWindowSize } from "@vueuse/core";
+import TheThemeCircle from "./the-theme-circle.vue";
+const { width } = useWindowSize();
+
 defineProps({
     logos: {
         type: Object,
@@ -20,18 +24,22 @@ defineProps({
                 <div class="info-text">
                     Розробка корпоративних сайтів та інтернет магазинів
                 </div>
-                <div class="circle">circle</div>
+                <TheThemeCircle v-if="width > 576" />
             </div>
-            <div class="menu aic">
+            <div v-if="width > 1024" class="menu aic">
                 <nuxt-link
                     :to="link.url"
-                    v-for="link in headerMenu"
+                    v-for="(link, idx) in headerMenu"
+                    :key="'link' + idx"
                     class="nav-link sm text-light"
                     >{{ link.name }}</nuxt-link
                 >
             </div>
-            <div class="actions-wrapper">
-                <div class="btn fill md">Почати співпрацю</div>
+            <div class="actions-wrapper df">
+                <div v-if="width > 576" class="btn fill md">
+                    Почати співпрацю
+                </div>
+                <div v-if="width <= 1024" class="btn tint md icon-menu"></div>
             </div>
         </div>
     </div>
@@ -66,6 +74,9 @@ defineProps({
     gap: var(--header-main-gap-outter,);
     display: grid;
     grid-template-columns: auto auto 175px;
+    @include bp-1024 {
+        grid-template-columns: 1fr 1fr;
+    }
     .info-text {
         color: var(--text-default);
         font-size: 13px;
@@ -75,8 +86,14 @@ defineProps({
         letter-spacing: -0.154px;
         max-width: 170px;
     }
-    .custom-feature{
+    .custom-feature {
         gap: 16px;
+    }
+    .actions-wrapper {
+        gap: 4px;
+        @include bp-1024 {
+            justify-content: end;
+        }
     }
 }
 </style>

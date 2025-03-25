@@ -16,13 +16,11 @@ defineProps({
 
 <style lang="scss" scoped>
 .first-screen {
-    aspect-ratio: 2.13;
+    @media (min-width: 1366px) {
+        aspect-ratio: 2.13;
+    }
     .page-title:deep {
         font-style: italic;
-        span {
-            font-family: Zapfino;
-            line-height: 0;
-        }
     }
 }
 </style>

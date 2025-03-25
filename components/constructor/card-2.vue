@@ -1,21 +1,27 @@
 <script setup>
+import { computed } from "vue";
+import { useWindowSize } from "@vueuse/core";
 import AppSectionTitle from "~/components/common/app-section-title.vue";
 import AppButtons from "~/components/common/app-buttons.vue";
 import AppCard from "~/components/card/app-card.vue";
-defineProps({
+
+const { width } = useWindowSize();
+
+const props = defineProps({
     content: {
         type: Object,
         required: true,
     },
 });
 
-const enhanceCard = (cardObj) => {
-    return {
-        ...cardObj,
+const enhancedCards = computed(() => {
+    return props.content.cards_list.map((card) => ({
+        ...card,
         bodyPadding: "md",
-        imageReverse: true,
-    };
-};
+        imageReverse: width.value > 576,
+        cardType: width.value > 576 ? "vertical" : "horizontal",
+    }));
+});
 </script>
 
 <template>
@@ -26,8 +32,8 @@ const enhanceCard = (cardObj) => {
         ></AppSectionTitle>
         <div class="cards-wrapper card-in-row-4 lg">
             <AppCard
-                v-for="(card, idx) in content.cards_list"
-                :card="enhanceCard(card)"
+                v-for="(card, idx) in enhancedCards"
+                :card="card"
                 :key="'card' + idx"
             ></AppCard>
             <div class="custom-cards">
@@ -44,6 +50,18 @@ const enhanceCard = (cardObj) => {
 </template>
 
 <style lang="scss" scoped>
+.card-in-row-4 {
+    grid-template-columns: repeat(4, 1fr);
+    @include bp-1024 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include bp-768 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include bp-576 {
+        grid-template-columns: 1fr;
+    }
+}
 .custom-cards {
     display: flex;
     flex-direction: column;
@@ -57,12 +75,18 @@ const enhanceCard = (cardObj) => {
         img {
             height: 35px;
         }
+        @include bp-1024 {
+            grid-column: 130px;
+        }
     }
     .laravel {
         background: #ff4c30;
     }
     .wordpress {
         background: #00749a;
+    }
+    @include bp-1024 {
+        grid-column: 1/-1;
     }
 }
 .reverse {

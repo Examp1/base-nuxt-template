@@ -2,6 +2,7 @@
 import AppSectionTitle from "~/components/common/app-section-title.vue";
 import AppButtons from "~/components/common/app-buttons.vue";
 import AppCard from "~/components/card/app-card.vue";
+
 defineProps({
     content: {
         type: Object,

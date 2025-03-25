@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, defineAsyncComponent } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -17,47 +17,45 @@ defineProps({
 
 const asyncComponents = {
     "simple-text": defineAsyncComponent(
-        () => import("~/components/constructor//simple-text.vue")
+        () => import("~/components/constructor//simple-text.vue"),
     ),
     "card-1": defineAsyncComponent(
-        () => import("~/components/constructor/card-1.vue")
+        () => import("~/components/constructor/card-1.vue"),
     ),
     "card-2": defineAsyncComponent(
-        () => import("~/components/constructor/card-2.vue")
+        () => import("~/components/constructor/card-2.vue"),
     ),
     "card-4": defineAsyncComponent(
-        () => import("~/components/constructor/card-4.vue")
+        () => import("~/components/constructor/card-4.vue"),
     ),
     "card-5": defineAsyncComponent(
-        () => import("~/components/constructor/card-5.vue")
+        () => import("~/components/constructor/card-5.vue"),
     ),
     promobar: defineAsyncComponent(
-        () => import("~/components/constructor/promobar.vue")
+        () => import("~/components/constructor/promobar.vue"),
     ),
     "first-screen": defineAsyncComponent(
-        () => import("~/components/first-screens/first-screen.vue")
+        () => import("~/components/first-screens/first-screen.vue"),
     ),
 };
 
-const route = useRoute();
+// onMounted(() => {
+//     gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(".constructor-container", {
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".constructor-container",
-            start: "top bottom",
-            end: "bottom bottom",
-            scrub: true,
-            pin: ".main-screen-container",
-            anticipatePin: 1,
-            pinSpacing: false,
-            markers: true,
-        },
-    });
-});
+//     gsap.to(".constructor-container", {
+//         ease: "none",
+//         scrollTrigger: {
+//             trigger: ".constructor-container",
+//             start: "top bottom",
+//             end: "bottom bottom",
+//             scrub: true,
+//             pin: ".main-screen-container",
+//             anticipatePin: 1,
+//             pinSpacing: false,
+//             // markers: true,
+//         },
+//     });
+// });
 </script>
 
 <template>
@@ -85,7 +83,7 @@ onMounted(() => {
                 >
                     <path
                         d="M715.913 380.32C721.342 253.3 650.756 0.458008 324.976 0.458008L0.0869141 0.458008L0.0869141 414.844L1439.91 414.844V0.458008L1115.51 0.458008C789.735 0.458008 719.148 253.3 724.577 380.32H715.913Z"
-                    fill="#EBEBF0"
+                        fill="#EBEBF0"
                     />
                 </svg>
             </div>
@@ -113,7 +111,7 @@ onMounted(() => {
     height: auto;
     margin-bottom: -5px;
     background-color: transparent;
-    svg path{
+    svg path {
         fill: var(--bg-default);
     }
 }
