@@ -55,7 +55,7 @@ a {
 
 .masked-wrapper {
     overflow: hidden;
-    border-radius: var(--img-radius-sm);
+    border-radius: var(--img-radius-md);
 }
 img:not(.logo),
 iframe,
@@ -63,7 +63,7 @@ video {
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: var(--img-radius-sm);
+    border-radius: var(--img-radius-md);
 }
 
 /* Для WebKit-браузеров */

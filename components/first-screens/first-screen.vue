@@ -9,7 +9,7 @@ defineProps({
 </script>
 <template>
     <div class="first-screen container">
-        <h1 v-html="content.title" class="page-title lg"></h1>
+        <h1 v-html="content.title" class="page-title lg zapfino-font"></h1>
         <AppButtons v-if="content?.btns" :btns="content.btns"></AppButtons>
     </div>
 </template>
@@ -18,9 +18,6 @@ defineProps({
 .first-screen {
     @media (min-width: 1366px) {
         aspect-ratio: 2.13;
-    }
-    .page-title:deep {
-        font-style: italic;
     }
 }
 </style>

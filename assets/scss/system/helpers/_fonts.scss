@@ -17,10 +17,10 @@
 @include font("SFProDisplay", "SfProDisplay", "SFProDisplay-Semibold", "600", "normal");
 @include font("SFProDisplay", "SfProDisplay", "SFProDisplay-Regular", "400", "normal");
 
-// @font-face {
-//     font-family: "Zapfino";
-//     font-display: swap;
-//     src: url("~/public/fonts/Zapfino/Zapfino.ttf") format("truetype");
-//     font-weight: 400;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: "Zapfino";
+    font-display: swap;
+    src: url("~/public/fonts/Zapfino/Zapfino.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
