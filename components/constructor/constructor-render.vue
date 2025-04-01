@@ -34,6 +34,9 @@ const asyncComponents = {
     "card-gallery": defineAsyncComponent(
         () => import("~/components/constructor/card-gallery.vue"),
     ),
+    "text-2-columns": defineAsyncComponent(
+        () => import("~/components/constructor/text-2-columns.vue"),
+    ),
     promobar: defineAsyncComponent(
         () => import("~/components/constructor/promobar.vue"),
     ),

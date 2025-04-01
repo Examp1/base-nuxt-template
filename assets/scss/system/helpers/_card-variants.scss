@@ -3,7 +3,7 @@
     @content;
   }
 }
-.cards-wrapper {
+.cards-wrapper, .row {
   display: grid;
   gap: var(--card-list-gap-md);
   --gap-size: var(--card-list-gap-md);
@@ -46,21 +46,21 @@
 
 
 
-.card-in-row-4 {
+.card-in-row-4, .col-in-row-4 {
   @include adaptive-grid(4, (1024: 3, 820: 2, 576: 1));
 }
 
-.card-in-row-3 {
+.card-in-row-3, .col-in-row-3 {
   @include adaptive-grid(3, (820: 2, 576: 1));
 }
 
-.card-in-row-2 {
+.card-in-row-2, .col-in-row-2 {
   @include adaptive-grid(2, (576: 1));
 }
 .card-in-row-2-without-adaptive {
   @include adaptive-grid(2);
 }
 
-.card-in-row-1 {
+.card-in-row-1, .col-in-row-1 {
   @include adaptive-grid(1);
 }
