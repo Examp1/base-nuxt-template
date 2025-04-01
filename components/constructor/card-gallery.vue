@@ -43,7 +43,7 @@ const enhancedCards = computed(() => {
 </script>
 
 <template>
-    <div class="container">
+    <div :class="content.gallery_size">
         <AppSectionTitle
             v-if="content?.title"
             :title="content.title"

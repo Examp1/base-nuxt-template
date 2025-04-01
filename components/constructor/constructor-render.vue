@@ -17,7 +17,7 @@ defineProps({
 
 const asyncComponents = {
     "simple-text": defineAsyncComponent(
-        () => import("~/components/constructor//simple-text.vue"),
+        () => import("~/components/constructor/simple-text.vue"),
     ),
     "card-1": defineAsyncComponent(
         () => import("~/components/constructor/card-1.vue"),
