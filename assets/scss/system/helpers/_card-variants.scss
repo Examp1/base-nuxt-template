@@ -46,6 +46,9 @@
 
 
 
+.card-in-row-5{
+  @include adaptive-grid(5, (1024: 4, 820: 2, 576: 1));
+}
 .card-in-row-4, .col-in-row-4 {
   @include adaptive-grid(4, (1024: 3, 820: 2, 576: 1));
 }
