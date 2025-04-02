@@ -13,6 +13,7 @@ const props = defineProps({
         required: true,
     },
 });
+const breakpointsArray = props?.content.slide_settings.split(",");
 const sliderOptions = {
     spaceBetween: 24,
     centeredSlides: false,
@@ -25,10 +26,10 @@ const sliderOptions = {
         disableOnInteraction: false,
     },
     breakpoints: {
-        380: { slidesPerView: 1.2 },
-        576: { slidesPerView: 2.2 },
-        1024: { slidesPerView: 3 },
-        1440: { slidesPerView: 4.5 },
+        380: { slidesPerView: breakpointsArray[3] },
+        576: { slidesPerView: breakpointsArray[2] },
+        1024: { slidesPerView: breakpointsArray[1] },
+        1440: { slidesPerView: breakpointsArray[0] },
     },
 };
 

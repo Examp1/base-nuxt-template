@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, defineAsyncComponent } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 defineProps({
     constructor: {
@@ -31,8 +31,8 @@ const asyncComponents = {
     "card-5": defineAsyncComponent(
         () => import("~/components/constructor/card-5.vue"),
     ),
-    "card-gallery": defineAsyncComponent(
-        () => import("~/components/constructor/card-gallery.vue"),
+    gallery: defineAsyncComponent(
+        () => import("~/components/constructor/gallery.vue"),
     ),
     "text-2-columns": defineAsyncComponent(
         () => import("~/components/constructor/text-2-columns.vue"),
