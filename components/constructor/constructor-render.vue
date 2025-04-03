@@ -34,6 +34,9 @@ const asyncComponents = {
     "cards-galyzi": defineAsyncComponent(
         () => import("~/components/constructor/cards-galyzi.vue"),
     ),
+    "cards-advantages": defineAsyncComponent(
+        () => import("~/components/constructor/cards-advantages.vue"),
+    ),
     gallery: defineAsyncComponent(
         () => import("~/components/constructor/gallery.vue"),
     ),
@@ -84,7 +87,7 @@ const asyncComponents = {
             </section>
         </div>
         <div class="constructor-container">
-            <div class="separator-container bg-light-2">
+            <!-- <div class="separator-container bg-light-2">
                 <svg
                     viewBox="0 0 1440 415"
                     fill="none"
@@ -95,7 +98,7 @@ const asyncComponents = {
                         fill="#EBEBF0"
                     />
                 </svg>
-            </div>
+            </div> -->
             <div class="block-wrapper bg-light-2">
                 <section
                     v-for="(

@@ -44,11 +44,13 @@ const enhancedCards = computed(() => {
 </script>
 
 <template>
-    <div :class="content.gallery_size">
+    <div class="container">
         <AppSectionTitle
             v-if="content?.title"
             :title="content.title"
         ></AppSectionTitle>
+    </div>
+    <div :class="content.gallery_size">
         <swiper v-bind="sliderOptions" :modules="[Autoplay]">
             <swiper-slide
                 class="slide_item"
