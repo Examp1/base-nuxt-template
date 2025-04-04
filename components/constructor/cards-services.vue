@@ -28,7 +28,7 @@ const enhanceCard = (cardObj) => {
             v-if="content?.title"
             :title="content.title"
         ></AppSectionTitle>
-        <div class="grid-3-3-2-2-2 lg">
+        <div class="grid-3-3-2-2-2">
             <AppCard
                 v-for="(card, idx) in content.cards_list"
                 :card="enhanceCard(card)"
@@ -39,15 +39,4 @@ const enhanceCard = (cardObj) => {
     </div>
 </template>
 
-<style lang="scss" scoped>
-.reverse {
-    justify-content: space-between;
-}
-.cards-wrapper:deep {
-    .card-body {
-        .card-text {
-            margin-top: 120px;
-        }
-    }
-}
-</style>
+<style lang="scss" scoped></style>

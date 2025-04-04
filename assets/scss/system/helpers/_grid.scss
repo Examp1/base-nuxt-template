@@ -7,7 +7,6 @@
 .grid-30-70,
 .grid-70-30,
 .grid-img-1fr,
-.grid-3-3-2-2-2,
 [class*="grid-with-sidebar"] {
     gap: calc(var(--grid-gap-md));
     &.lg {
@@ -83,10 +82,10 @@
         }
     }
     @include bp-820 {
-      grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     @include bp-576 {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 }
 

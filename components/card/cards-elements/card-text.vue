@@ -1,7 +1,9 @@
 <template>
-    <div class="card-text block-text" :class="[textSize, textColorClass]">
-        {{ text }}
-    </div>
+    <div
+        class="card-text block-text"
+        :class="[textSize, textColorClass]"
+        v-html="text"
+    ></div>
 </template>
 
 <script setup>
@@ -10,9 +12,9 @@ defineProps({
     textColorClass: String,
     textSize: {
         typeof: String,
-        default: 'md',
+        default: "md",
     },
-})
+});
 </script>
 
 <style lang="scss" scoped></style>
