@@ -24,5 +24,6 @@ const { contactSettings, logosSettings, headerMenu, navBarMenu } =
 <style lang="scss" scoped>
 header {
     position: relative;
+    z-index: 1;
 }
 </style>

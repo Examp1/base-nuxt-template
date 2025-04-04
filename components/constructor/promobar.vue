@@ -75,7 +75,7 @@ const transformedImagesList = computed(() => {
     overflow: hidden;
     position: relative;
     white-space: nowrap;
-    animation: marquee-infinite 20s linear infinite;
+    animation: marquee-infinite 35s linear infinite;
 
     &-wrp {
         width: 100%;
