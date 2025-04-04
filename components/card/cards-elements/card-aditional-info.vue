@@ -12,7 +12,7 @@ defineProps({
 });
 </script>
 <template>
-    <div v-if="btns.length" class="card-additionl-btns">
+    <div v-if="btns?.length" class="card-additionl-btns">
         <AppButton
             v-for="(btn, index) in btns"
             :key="'btn' + index"
