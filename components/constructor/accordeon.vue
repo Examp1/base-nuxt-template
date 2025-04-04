@@ -25,7 +25,15 @@ defineProps({
                     <div class="block-title xxxl">
                         {{ accordion_item.title }}
                     </div>
-                    теги, надо переделать в админке
+                    <div class="tag-list">
+                        <div
+                            v-for="(tag, idx) in accordion_item.tag_list"
+                            :key="'tag' + idx"
+                            class="btn sm tag"
+                        >
+                            {{ tag }}
+                        </div>
+                    </div>
                 </div>
                 <div
                     hidden
@@ -83,6 +91,16 @@ defineProps({
                 transition: 0.3s;
                 transform-origin: center;
             }
+        }
+    }
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        .tag {
+            border-radius: 100px;
+            border: var(--link-ext-border, 1px) solid
+                var(--button-stroke-neutral-border-default, rgba(0, 0, 0, 0.16));
         }
     }
 }
