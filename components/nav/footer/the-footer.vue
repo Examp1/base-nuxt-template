@@ -91,6 +91,8 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
 
 <style lang="scss" scoped>
 footer {
+    position: relative;
+    z-index: 1;
     .footer-container {
         border-radius: var(--container-border-radius-md)
             var(--container-border-radius-md) 0px 0px;

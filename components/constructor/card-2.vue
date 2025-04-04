@@ -50,6 +50,10 @@ const enhancedCards = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.container > * {
+    position: relative;
+    z-index: 1;
+}
 .card-in-row-4 {
     grid-template-columns: repeat(4, 1fr);
     @include bp-1024 {
@@ -69,6 +73,7 @@ const enhancedCards = computed(() => {
     height: 100%;
     .laravel,
     .wordpress {
+        position: relative;
         min-height: 240px;
         height: 100%;
         border-radius: var(--card-border-radius-sm);

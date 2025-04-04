@@ -13,13 +13,12 @@ onMounted(() => {
             scale: 1,
             ease: "none",
             scrollTrigger: {
-                trigger: ".first-screen", // триггер - родительский контейнер
-                start: "top top", // начинаем при достижении верха first-screen
-                end: () =>
-                    document.querySelector(".constructor-container").offsetTop, // заканчиваем у constructor-container
+                trigger: ".main-screen-container",
+                start: "top top",
+                end: "center top",
                 scrub: true,
                 markers: true,
-                invalidateOnRefresh: true, // важно для пересчёта при изменении размера страницы
+                invalidateOnRefresh: true,
             },
         },
     );
@@ -34,8 +33,9 @@ defineProps({
 </script>
 <template>
     <div class="first-screen container">
-        <h1 v-html="content.title" class="page-title lg zapfino-font"></h1>!
+        <h1 v-html="content.title" class="page-title lg zapfino-font"></h1>
         <div class="bg-video-wrapper">
+            <div class="video-overlay"></div>
             <video
                 class="bg-video"
                 autoplay=""
@@ -66,8 +66,19 @@ defineProps({
     left: 50%;
     transform: translate(-50%, -50%);
     aspect-ratio: 1.4;
+    width: 100%;
+    .video-overlay {
+        background-color: rgba(#000, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
     video {
-        /* transform: scale(0.4); */
+        transform: scale(0.4);
     }
 }
 </style>
