@@ -1,102 +1,126 @@
 @use "../../mixinsAndVariables/breakpoints.scss" as *;
 
 @mixin grid-base {
-  display: grid;
+    display: grid;
 }
 .grid-50-50,
 .grid-30-70,
 .grid-70-30,
 .grid-img-1fr,
+.grid-3-3-2-2-2,
 [class*="grid-with-sidebar"] {
-  gap: calc(var(--grid-gap-md));
-  &.lg {
-    gap: var(--grid-gap-lg);
-  }
-  &.md {
-    gap: var(--grid-gap-md);
-  }
-  &.sm {
-    gap: var(--grid-gap-sm);
-  }
-  &.xs {
-    gap: var(--grid-gap-xs);
-  }
-  &.xxs {
-    gap: var(--grid-gap-xxs);
-  }
-  &.lg-sm {
-    gap: var(--grid-gap-lg);
-    @include bp-768 {
-      gap: var(--grid-gap-sm);
+    gap: calc(var(--grid-gap-md));
+    &.lg {
+        gap: var(--grid-gap-lg);
     }
-  }
-  &.non {
-    gap: 0;
-  }
+    &.md {
+        gap: var(--grid-gap-md);
+    }
+    &.sm {
+        gap: var(--grid-gap-sm);
+    }
+    &.xs {
+        gap: var(--grid-gap-xs);
+    }
+    &.xxs {
+        gap: var(--grid-gap-xxs);
+    }
+    &.lg-sm {
+        gap: var(--grid-gap-lg);
+        @include bp-768 {
+            gap: var(--grid-gap-sm);
+        }
+    }
+    &.non {
+        gap: 0;
+    }
 }
 
 .grid-50-50 {
-  @include grid-base;
-  grid-template-columns: repeat(2, 0.5fr);
+    @include grid-base;
+    grid-template-columns: repeat(2, 0.5fr);
 
-  @include bp-768 {
-    grid-template-columns: 1fr;
-  }
+    @include bp-768 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .grid-30-70 {
-  @include grid-base;
-  grid-template-columns: 0.3fr 0.7fr;
-  @include bp-768 {
-    grid-template-columns: 1fr;
-  }
+    @include grid-base;
+    grid-template-columns: 0.3fr 0.7fr;
+    @include bp-768 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .grid-70-30 {
-  @include grid-base;
-  grid-template-columns: 0.7fr 0.3fr;
-  @include bp-768 {
-    grid-template-columns: 1fr;
-  }
+    @include grid-base;
+    grid-template-columns: 0.7fr 0.3fr;
+    @include bp-768 {
+        grid-template-columns: 1fr;
+    }
 }
 .grid-img-1fr {
-  @include grid-base;
-  grid-template-columns: var(--card-img-width-sm) 1fr;
-  @include bp-768 {
-    grid-template-columns: 1fr;
-  }
+    @include grid-base;
+    grid-template-columns: var(--card-img-width-sm) 1fr;
+    @include bp-768 {
+        grid-template-columns: 1fr;
+    }
+}
+.grid-3-3-2-2-2 {
+    @include grid-base;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+
+    .card {
+        grid-column: span 2;
+        &:nth-child(5n + 1),
+        &:nth-child(5n + 2) {
+            grid-column: span 3;
+        }
+        @include bp-820 {
+            grid-column: unset !important;
+        }
+    }
+    @include bp-820 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include bp-576 {
+      grid-template-columns: 1fr;
+    }
 }
 
 .grid-with-sidebar {
-  &-md {
-    @include grid-base;
-    grid-template-columns: var(--sidebar-width-md) 1fr;
-    @include bp-768 {
-      grid-template-columns: 1fr;
+    &-md {
+        @include grid-base;
+        grid-template-columns: var(--sidebar-width-md) 1fr;
+        @include bp-768 {
+            grid-template-columns: 1fr;
+        }
     }
-  }
-  &-sm {
-    @include grid-base;
-    grid-template-columns: var(--sidebar-width-sm) 1fr;
-    @include bp-768 {
-      grid-template-columns: 1fr;
+    &-sm {
+        @include grid-base;
+        grid-template-columns: var(--sidebar-width-sm) 1fr;
+        @include bp-768 {
+            grid-template-columns: 1fr;
+        }
     }
-  }
-  &-xs {
-    @include grid-base;
-    grid-template-columns: var(--sidebar-width-xs) 1fr;
-    @include bp-768 {
-      grid-template-columns: 1fr;
+    &-xs {
+        @include grid-base;
+        grid-template-columns: var(--sidebar-width-xs) 1fr;
+        @include bp-768 {
+            grid-template-columns: 1fr;
+        }
     }
-  }
 }
 
 $container-x-padding: max(
-  var(--container-padding),
-  calc(
-    (
-        100% - var(--container-max-width-lg) + var(--container-padding) +
-          var(--grid-padding-sm-0)
-      ) / 2
-  )
+    var(--container-padding),
+    calc(
+        (
+                100% - var(--container-max-width-lg) +
+                    var(--container-padding) + var(--grid-padding-sm-0)
+            ) /
+            2
+    )
 );

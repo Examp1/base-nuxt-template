@@ -231,7 +231,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
             gap: var(--card-gap-md);
         }
     }
-    .card-footer {
+    .card-additionl-btns {
         justify-content: flex-end;
         display: flex;
         gap: var(--actions-inner-gap-md);

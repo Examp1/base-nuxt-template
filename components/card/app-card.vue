@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import AppButton from "~/components/common/app-button.vue";
-// import type { ICard } from "~/interfaces/i-card.ts";
+// / import type { ICard } from "~/interfaces/i-card.ts";
 import { computed } from "vue";
 import { NuxtLink } from "#components";
 import CardImage from "./cards-elements/card-image.vue";
@@ -143,17 +142,17 @@ const hasText = computed(() => {
                 />
             </component>
             <CardAdditionalInfo
-                v-if="card.additionalInfo"
                 :info="card.additionalInfo"
+                :btns="card.card_btns"
             />
         </div>
-        <div v-if="card.card_btns" class="card-footer">
+        <!-- <div v-if="card.card_btns" class="card-footer">
             <AppButton
                 v-for="(btn, index) in card.card_btns"
                 :key="'btn' + index"
                 :btn="btn.card_btn"
             ></AppButton>
-        </div>
+        </div> -->
     </div>
 </template>
 

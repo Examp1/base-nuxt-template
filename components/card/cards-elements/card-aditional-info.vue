@@ -1,28 +1,24 @@
-<template>
-    <!-- <?php if ($item['post_date']) : ?>
-    <span class="card-link">
-        <?= $item['post_date'] ?>
-    </span>
-    <?php endif; ?>
-    <?php if ($item['additional-text']) : ?>
-    <span class="card-link">
-        <?= $item['additional-text'] ?>
-    </span>
-    <?php endif; ?>
-    <?php if($item['btns']):?>
-    <div class="btns-container">
-        <?php foreach ($item['btns'] as $btn):?>
-        <a href="<?= $btn['link'] ?>" class="btn sm tint">
-            <?= $btn['name']?>
-        </a>
-        <?php endforeach;?>
-    </div>
-    <?php endif;?> -->
-
-</template>
-
 <script setup>
-
+import AppButton from "~/components/common/app-button.vue";
+defineProps({
+    btns: {
+        type: Object,
+        default: () => ({}),
+    },
+    info: {
+        type: Object,
+        default: () => ({}),
+    },
+});
 </script>
+<template>
+    <div v-if="btns.length" class="card-additionl-btns">
+        <AppButton
+            v-for="(btn, index) in btns"
+            :key="'btn' + index"
+            :btn="btn.card_btn"
+        ></AppButton>
+    </div>
+</template>
 
 <style lang="scss" scoped></style>
