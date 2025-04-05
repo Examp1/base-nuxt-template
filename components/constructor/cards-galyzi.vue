@@ -10,6 +10,7 @@ const props = defineProps({
     },
 });
 const enhancedCards = computed(() => {
+    if (!props.content.cards_list) return;
     return props.content.cards_list.map((card) => ({
         ...card,
         wrapPadding: "sm",

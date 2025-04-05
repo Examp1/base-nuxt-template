@@ -231,6 +231,23 @@ $sizes: "sm", "xs", "md", "lg", "xl";
             gap: var(--card-gap-md);
         }
     }
+    &.img-rounding {
+        &-md {
+            img {
+                border-radius: var(--img-radius-md);
+            }
+        }
+        &-sm {
+            img {
+                border-radius: var(--img-radius-sm);
+            }
+        }
+        &-none {
+            img {
+                border-radius: unset;
+            }
+        }
+    }
     .card-additionl-btns {
         justify-content: flex-end;
         display: flex;

@@ -94,6 +94,12 @@
   - false/null **_default_**
     >
             если нужно не рендерить .card-header
+- imgRounding
+  - md
+  - sm 
+  - none 
+    >
+            если нужно убрать или поставить закругления на картинках
 - imgSize
   - xl
   - lg

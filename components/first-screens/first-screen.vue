@@ -17,7 +17,7 @@ onMounted(() => {
                 start: "top top",
                 end: "center top",
                 scrub: true,
-                markers: true,
+                // markers: true,
                 invalidateOnRefresh: true,
             },
         },

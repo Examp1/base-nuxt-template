@@ -73,6 +73,9 @@ const cardClasses = computed(() => {
             : null,
         props.card.customClass,
         props.card.background,
+        props.card.imgRounding
+            ? `img-rounding-${props.card.imgRounding}`
+            : null,
     ].filter(Boolean);
 });
 

@@ -15,11 +15,13 @@ const props = defineProps({
 });
 
 const enhancedCards = computed(() => {
+    if (!props.content.cards_list) return;
     return props.content.cards_list.map((card) => ({
         ...card,
         bodyPadding: "md",
         imageReverse: width.value > 576,
         cardType: width.value > 576 ? "vertical" : "horizontal",
+        imgRounding: "none",
     }));
 });
 </script>
