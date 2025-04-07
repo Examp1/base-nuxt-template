@@ -1,5 +1,6 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
+import SvgSeparator from "../common/svg-separator.vue";
 
 defineProps({
     constructor: {
@@ -39,6 +40,9 @@ const asyncComponents = {
     "cards-services": defineAsyncComponent(
         () => import("~/components/constructor/cards-services.vue"),
     ),
+    "sisi-dev-cta": defineAsyncComponent(
+        () => import("~/components/constructor/sisi-dev-cta.vue"),
+    ),
     gallery: defineAsyncComponent(
         () => import("~/components/constructor/gallery.vue"),
     ),
@@ -74,18 +78,7 @@ const asyncComponents = {
             </section>
         </div>
         <div class="constructor-container">
-            <div class="separator-container bg-light-2">
-                <svg
-                    viewBox="0 0 1440 415"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M715.913 380.32C721.342 253.3 650.756 0.458008 324.976 0.458008L0.0869141 0.458008L0.0869141 414.844L1439.91 414.844V0.458008L1115.51 0.458008C789.735 0.458008 719.148 253.3 724.577 380.32H715.913Z"
-                        fill="#EBEBF0"
-                    />
-                </svg>
-            </div>
+            <SvgSeparator></SvgSeparator>
             <div class="block-wrapper bg-light-2">
                 <section
                     v-for="(
@@ -105,15 +98,6 @@ const asyncComponents = {
 </template>
 
 <style lang="scss" scoped>
-.separator-container {
-    width: 100%;
-    height: auto;
-    margin-bottom: -5px;
-    background-color: transparent;
-    svg path {
-        fill: var(--bg-default);
-    }
-}
 .index {
     .main-screen-container {
         padding-top: 260px;

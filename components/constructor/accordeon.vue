@@ -27,7 +27,7 @@ defineProps({
                     </div>
                     <div class="tag-list">
                         <div
-                            v-for="(tag, idx) in accordion_item.tag_list"
+                            v-for="({ tag }, idx) in accordion_item.tag_list"
                             :key="'tag' + idx"
                             class="btn sm tag"
                         >

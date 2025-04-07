@@ -4,6 +4,7 @@ import { useWindowSize } from "@vueuse/core";
 import AppSectionTitle from "~/components/common/app-section-title.vue";
 import AppButtons from "~/components/common/app-buttons.vue";
 import AppCard from "~/components/card/app-card.vue";
+import getSpriteImage from "@/utils/getSpriteImage";
 
 const { width } = useWindowSize();
 
@@ -40,10 +41,10 @@ const enhancedCards = computed(() => {
             ></AppCard>
             <div class="custom-cards">
                 <div class="laravel aic">
-                    <img src="~/assets/img/laravel-logo.svg" alt="" />
+                    <img :src="getSpriteImage('laravel-logo')" alt="" />
                 </div>
                 <div class="wordpress aic">
-                    <img src="~/assets/img/wordpres-logo.svg" alt="" />
+                    <img :src="getSpriteImage('wordpres-logo')" alt="" />
                 </div>
             </div>
         </div>
@@ -80,7 +81,7 @@ const enhancedCards = computed(() => {
         height: 100%;
         border-radius: var(--card-border-radius-sm);
         img {
-            height: 35px;
+            height: 45px;
         }
         @include bp-1024 {
             grid-column: 130px;

@@ -101,7 +101,7 @@ const hasText = computed(() => {
         >
             <CardImage
                 v-if="card.image"
-                :image="card.image"
+                :image="card.customImage ? card.image : path(card.image)"
                 :alt="card.imageAlt"
             />
             <CardRating v-if="card.postRating" :rating="card.postRating" />
@@ -109,7 +109,7 @@ const hasText = computed(() => {
             <CardPictogram v-if="card.pictogram" :pictogram="card.pictogram" />
             <CardNumber
                 v-if="card.number"
-                :number="number"
+                :number="card.number"
                 :numberSize="card.numberSize"
             />
         </component>

@@ -134,13 +134,15 @@ $sizes: "sm", "xs", "md", "lg", "xl";
     &.content-position {
         &-center {
             text-align: center;
-            .card-header {
+            .card-header,
+            .card-additionl-btns {
                 justify-content: center;
             }
         }
         &-right {
             text-align: right;
-            .card-header {
+            .card-header,
+            .card-additionl-btns {
                 justify-content: end;
             }
         }
@@ -281,7 +283,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
     }
     @each $size in $sizes {
         &.img-size-#{$size} {
-            .card-image img {
+            .card-image > img {
                 max-width: var(--card-img-width-#{$size});
             }
         }
