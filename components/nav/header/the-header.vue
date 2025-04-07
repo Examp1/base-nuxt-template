@@ -5,7 +5,6 @@ import { useSettingStore } from "~/store/app-settings.js";
 
 const { contactSettings, logosSettings, headerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
-
 </script>
 
 <template>
@@ -24,6 +23,6 @@ const { contactSettings, logosSettings, headerMenu, navBarMenu } =
 <style lang="scss" scoped>
 header {
     position: relative;
-    z-index: 1;
+    z-index: 1000;
 }
 </style>
