@@ -146,7 +146,7 @@ const hasText = computed(() => {
             </component>
             <CardAdditionalInfo
                 :info="card.additionalInfo"
-                :btns="card.card_btns"
+                :btns="card.card_btns || card.btns"
             />
         </div>
         <!-- <div v-if="card.card_btns" class="card-footer">

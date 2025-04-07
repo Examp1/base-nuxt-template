@@ -2,7 +2,7 @@
 import AppButton from "~/components/common/app-button.vue";
 defineProps({
     btns: {
-        type: Object,
+        type: [Object, Array],
         default: () => ({}),
     },
     info: {
@@ -16,7 +16,7 @@ defineProps({
         <AppButton
             v-for="(btn, index) in btns"
             :key="'btn' + index"
-            :btn="btn.card_btn"
+            :btn="btn.card_btn || btn"
         ></AppButton>
     </div>
 </template>

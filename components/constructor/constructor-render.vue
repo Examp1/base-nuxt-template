@@ -32,6 +32,7 @@ const asyncComponents = {
     "cards-galyzi": defineAsyncComponent(
         () => import("~/components/constructor/cards-galyzi.vue"),
     ),
+    cta: defineAsyncComponent(() => import("~/components/constructor/cta.vue")),
     "cards-advantages": defineAsyncComponent(
         () => import("~/components/constructor/cards-advantages.vue"),
     ),
@@ -54,7 +55,6 @@ const asyncComponents = {
         () => import("~/components/first-screens/first-screen.vue"),
     ),
 };
-
 </script>
 
 <template>
