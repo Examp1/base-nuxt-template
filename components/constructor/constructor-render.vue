@@ -43,6 +43,9 @@ const asyncComponents = {
     "sisi-dev-cta": defineAsyncComponent(
         () => import("~/components/constructor/sisi-dev-cta.vue"),
     ),
+    "spotify-widget": defineAsyncComponent(
+        () => import("~/components/constructor/spotify-widget.vue"),
+    ),
     gallery: defineAsyncComponent(
         () => import("~/components/constructor/gallery.vue"),
     ),
