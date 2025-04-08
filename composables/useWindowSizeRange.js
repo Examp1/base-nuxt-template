@@ -17,8 +17,9 @@ export function useWindowSizeRange() {
                 (!r.max || width.value <= r.max) &&
                 (!r.min || width.value >= r.min),
         ) || { value: "unknown" };
-
-        document.body.setAttribute("data-windowsize", foundRange.value);
+        document
+            .querySelector("#__nuxt")
+            .setAttribute("data-windowsize", foundRange.value);
     };
 
     tryOnMounted(() => {
