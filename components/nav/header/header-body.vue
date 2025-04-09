@@ -31,9 +31,24 @@ defineProps({
                     :to="link.url"
                     v-for="(link, idx) in headerMenu"
                     :key="'link' + idx"
-                    class="nav-link md text-light"
-                    >{{ link.name }}</nuxt-link
-                >
+                    class="nav-link md text-light link-1lvl"
+                    >{{ link.name }}
+                    <div v-if="link.children.length" class="dropdown">
+                        <nuxt-link
+                            :to="link2lvl.url"
+                            v-for="(link2lvl, idx) in link.children"
+                            :key="'link' + idx"
+                            class="nav-link md text-light link-1lvl"
+                            >{{ link2lvl.name }}
+                            <div
+                                v-if="link2lvl.children.length"
+                                class="dropdown"
+                            >
+                                {{ link2lvl.children }}
+                            </div>
+                        </nuxt-link>
+                    </div>
+                </nuxt-link>
             </div>
             <div class="actions-wrapper df">
                 <div v-if="width > 576" class="btn fill md">
@@ -93,6 +108,25 @@ defineProps({
         gap: 4px;
         @include bp-1024 {
             justify-content: end;
+        }
+    }
+}
+.link-1lvl {
+    position: relative;
+    .dropdown {
+        position: absolute;
+        border-radius: var(--drop-menu-radius-sm);
+        border: 1px solid var(--drop-menu-border);
+        background: var(--drop-menu-bg);
+        padding: var(--drop-menu-wrap-padding-lg);
+        transition: 0.3s;
+        height: 0;
+        opacity: 0;
+    }
+    &:hover {
+        .dropdown {
+            height: auto;
+            opacity: 1;
         }
     }
 }

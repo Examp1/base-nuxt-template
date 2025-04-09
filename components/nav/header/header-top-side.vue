@@ -1,5 +1,8 @@
 <script setup>
 import LangSwitcher from "../lang-switcher.vue";
+// import { useWindowSize } from "@vueuse/core";
+
+// const { width } = useWindowSize();
 
 defineProps({
     contactsInfo: {
