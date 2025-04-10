@@ -1,3 +1,4 @@
+@use "../../mixinsAndVariables/breakpoints.scss" as *;
 .df {
     display: flex;
 }
@@ -42,7 +43,22 @@
 .show {
     display: block;
 }
-.zapfino-font{
+.zapfino-font {
     font-family: "Zapfino", "SFProDisplay", serif;
     font-style: italic;
+}
+.dn-1024 {
+    @include bp-1024 {
+        display: none;
+    }
+}
+.dn-768 {
+    @include bp-768 {
+        display: none;
+    }
+}
+.dn-576 {
+    @include bp-576 {
+        display: none;
+    }
 }

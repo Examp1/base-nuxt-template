@@ -1,7 +1,10 @@
 <script setup>
 import { useWindowSize } from "@vueuse/core";
 import TheThemeCircle from "./the-theme-circle.vue";
+import { useModalStore } from "~/store/modal";
+
 const { width } = useWindowSize();
+const modal = useModalStore();
 
 defineProps({
     logos: {
@@ -22,11 +25,11 @@ defineProps({
         <div class="header-body">
             <div class="custom-feature aic">
                 <div class="info-text">
-                    Розробка корпоративних сайтів та інтернет магазинів
+                    {{ $t("sisidev-info-text") }}
                 </div>
-                <TheThemeCircle v-if="width > 576" />
+                <TheThemeCircle v-if="width > 576" class="dn-576" />
             </div>
-            <div v-if="width > 1024" class="menu aic">
+            <div v-if="width > 1024" class="menu aic dn-1024">
                 <nuxt-link
                     :to="link.url"
                     v-for="(link, idx) in headerMenu"
@@ -44,17 +47,21 @@ defineProps({
                                 v-if="link2lvl.children.length"
                                 class="dropdown"
                             >
-                                {{ link2lvl.children }}
+                                {{ link2lvl.children }}!
                             </div>
                         </nuxt-link>
                     </div>
                 </nuxt-link>
             </div>
             <div class="actions-wrapper df">
-                <div v-if="width > 576" class="btn fill md">
+                <div v-if="width > 576" class="btn fill md dn-576">
                     Почати співпрацю
                 </div>
-                <div v-if="width <= 1024" class="btn tint md icon-menu"></div>
+                <div
+                    v-if="width <= 1024"
+                    class="btn tint md icon-menu"
+                    @click="modal.openModal('mobile-menu')"
+                ></div>
             </div>
         </div>
     </div>
@@ -71,6 +78,9 @@ defineProps({
     z-index: 100;
     height: fit-content;
     /* top: 100%; */
+    @include bp-576 {
+        grid-template-columns: 80px auto;
+    }
 }
 .header-body,
 .header-logo {
@@ -83,6 +93,9 @@ defineProps({
     img {
         width: 58px;
         object-fit: contain;
+        @include bp-576 {
+            height: 48px;
+        }
     }
 }
 .header-body {
@@ -90,7 +103,7 @@ defineProps({
     display: grid;
     grid-template-columns: auto auto 175px;
     @include bp-1024 {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr auto;
     }
     .info-text {
         color: var(--text-default);

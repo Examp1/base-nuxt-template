@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from "vue";
 import AppSprite from "~/components/common/app-sprite.vue";
 const { locale, locales, setLocale } = useI18n();
 
@@ -47,12 +48,12 @@ const lolizedValue = {
             border-radius: 50%;
         }
     }
-    &:hover .other-langs{
+    &:hover .other-langs {
         opacity: 1;
         visibility: visible;
     }
     .other-langs {
-        transition: .3s;
+        transition: 0.3s;
         opacity: 0;
         visibility: hidden;
         position: absolute;

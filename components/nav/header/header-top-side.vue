@@ -1,8 +1,8 @@
 <script setup>
 import LangSwitcher from "../lang-switcher.vue";
-// import { useWindowSize } from "@vueuse/core";
+import { useWindowSize } from "@vueuse/core";
 
-// const { width } = useWindowSize();
+const { width } = useWindowSize();
 
 defineProps({
     contactsInfo: {
@@ -26,25 +26,34 @@ defineProps({
                     >{{ contactsInfo.phone[0].title }}</a
                 >
                 <div
-                    class="block-text sm-m text-light"
-                    v-if="contactsInfo.address"
+                    class="block-text sm-m text-light dn-768"
+                    v-if="contactsInfo.address && width >= 768"
                 >
                     {{ contactsInfo.address }}
                 </div>
                 <div
-                    class="block-text sm-m text-light"
-                    v-if="contactsInfo.schedule?.[0].title"
+                    class="block-text sm-m text-light dn-768"
+                    v-if="contactsInfo.schedule?.[0].title && width >= 768"
                 >
                     {{ contactsInfo.schedule[0].title }}
                     {{ contactsInfo.schedule[0].time }}
                 </div>
-                <nav class="menu" v-if="navMenu">
+                <nav class="menu dn-768" v-if="navMenu && width >= 768">
                     <nuxt-link
                         :to="link.url"
                         v-for="(link, idx) in navMenu"
                         :key="'navMenuLink' + idx"
                         class="nav-link md text-light"
                         >{{ link.name }}</nuxt-link
+                    >
+                </nav>
+                <nav class="socials" v-if="contactsInfo.socials">
+                    <nuxt-link
+                        :to="link.link"
+                        v-for="(link, idx) in contactsInfo.socials"
+                        :key="'navMenuLink' + idx"
+                        class="nav-link md text-light"
+                        >{{ link.type }}</nuxt-link
                     >
                 </nav>
             </div>

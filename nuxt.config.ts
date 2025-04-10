@@ -36,12 +36,17 @@ export default defineNuxtConfig({
 
     css: ["~/assets/scss/main.scss"],
 
-    modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "@pinia/nuxt", "@nuxtjs/google-fonts"],
+    modules: [
+        "@vueuse/nuxt",
+        "@nuxtjs/i18n",
+        "@pinia/nuxt",
+        "@nuxtjs/google-fonts",
+    ],
     plugins: ["~/plugins/seo-plugin.server.js", "~/plugins/change-locale.js"],
     i18n: {
         locales: [
-            { code: "uk", language: "uk-UK" },
-            { code: "en", language: "en-ES" },
+            { code: "uk", name: "Ukrainian", file: "uk.json" },
+            { code: "en", name: "English", file: "en.json" },
         ],
         defaultLocale: "uk",
     },
