@@ -1,6 +1,6 @@
 <script setup>
 import { useSettingStore } from "~/store/app-settings.js";
-import LangSwitcherV2 from "../lang-switcher-v-2.vue";
+import LangSwitcherV2 from "../lang-switchers/lang-switcher-v-2.vue";
 const { contactSettings, logosSettings, footerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
 </script>

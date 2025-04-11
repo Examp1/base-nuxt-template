@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from "vue";
 import { NuxtLink } from "#components";
 import { useModalStore } from "~/store/modal";
+import langSwitcherRow from "../lang-switchers/lang-switcher-row.vue";
+import otherLvlMenu from "./other-lvl-menu.vue";
 const modal = useModalStore();
+let otherMenuLvl = ref(null);
 defineProps({
     logos: {
         type: Object,
@@ -31,18 +35,23 @@ defineProps({
         </div>
         <div class="mobile-menu-body">
             <component
-                v-for="(li_1_lvl, idx) in headerMenu"
-                :key="'li_1_lvl' + idx"
-                :is="li_1_lvl.children.length ? 'div' : NuxtLink"
+                v-for="(li, idx) in headerMenu"
+                :key="'li' + idx"
+                :is="li.children.length ? 'div' : NuxtLink"
                 class="nav-link xl"
-                :to="li_1_lvl.url"
+                :to="li.url"
+                @click="otherMenuLvl = li"
             >
-                {{ li_1_lvl.name }}
-                <i
-                    v-if="li_1_lvl.children.length"
-                    class="icon-chevron-right"
-                ></i>
+                {{ li.name }}
+                <i v-if="li.children.length" class="icon-chevron-right"></i>
             </component>
+            <transition name="slideInRight" mode="out-in">
+                <otherLvlMenu
+                    v-if="otherMenuLvl"
+                    :menu="otherMenuLvl"
+                    @closeOtherLvlMenu="otherMenuLvl = null"
+                />
+            </transition>
         </div>
         <div class="center">
             <div class="btn fill lg">Почати співпрацю</div>
@@ -73,6 +82,7 @@ defineProps({
                     >{{ link.type }}</nuxt-link
                 >
             </nav>
+            <langSwitcherRow />
         </div>
     </div>
 </template>

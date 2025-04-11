@@ -43,7 +43,7 @@ const enhanceCard = (cardObj) => {
 .reverse {
     justify-content: space-between;
 }
-.cards-wrapper:deep {
+:deep(.cards-wrapper) {
     .card-body {
         .card-text {
             margin-top: 120px;

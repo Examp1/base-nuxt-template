@@ -127,7 +127,7 @@ const themes = ["theme1", "theme2", "theme3", "theme1"];
         }
     }
 }
-.spotify-widget:deep {
+:deep(.spotify-widget) {
     display: flex;
     justify-content: center;
     iframe {

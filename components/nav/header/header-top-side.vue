@@ -1,5 +1,5 @@
 <script setup>
-import LangSwitcher from "../lang-switcher.vue";
+import LangSwitcher from "../lang-switchers/lang-switcher.vue";
 import { useWindowSize } from "@vueuse/core";
 
 const { width } = useWindowSize();

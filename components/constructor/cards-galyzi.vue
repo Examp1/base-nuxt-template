@@ -42,7 +42,7 @@ const enhancedCards = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card:deep {
+:deep(.card) {
     .card-body {
         align-items: center;
     }

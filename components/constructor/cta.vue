@@ -31,7 +31,7 @@ const cardOption = computed(() => {
     </div>
 </template>
 <style lang="scss" scoped>
-.cta-card:deep {
+:deep(.cta-card) {
     .card-body {
         max-width: 390px;
     }

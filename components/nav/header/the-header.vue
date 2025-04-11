@@ -2,7 +2,7 @@
 import { storeToRefs } from "pinia";
 import HeaderBody from "./header-body.vue";
 import HeaderTopSide from "./header-top-side.vue";
-import MobileMenu from "~/components/nav/mobile-menu.vue";
+import MobileMenu from "~/components/nav/mobile-menu/mobile-menu.vue";
 import { useSettingStore } from "~/store/app-settings.js";
 import { useModalStore } from "~/store/modal";
 
@@ -23,12 +23,14 @@ const { contactSettings, logosSettings, headerMenu, navBarMenu } =
             :header-menu="headerMenu"
         ></HeaderBody>
     </header>
-    <MobileMenu
-        v-if="modal.activeModal === 'mobile-menu'"
-        :logos="logosSettings"
-        :header-menu="headerMenu"
-        :contacts-info="contactSettings"
-    />
+    <transition name="slideInRight" mode="out-in">
+        <MobileMenu
+            v-if="modal.activeModal === 'mobile-menu'"
+            :logos="logosSettings"
+            :header-menu="headerMenu"
+            :contacts-info="contactSettings"
+        />
+    </transition>
 </template>
 
 <style lang="scss" scoped>

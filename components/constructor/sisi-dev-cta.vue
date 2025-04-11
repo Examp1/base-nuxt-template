@@ -37,7 +37,7 @@ const cardOption = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card:deep {
+:deep(.card) {
     .card-image img {
         max-width: 115px;
     }

@@ -66,7 +66,7 @@ const enhancedCards = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card:deep {
+:deep(.card) {
     .card-header {
         img {
             aspect-ratio: 0.55;
