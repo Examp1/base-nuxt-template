@@ -38,10 +38,36 @@
         opacity: 0;
     }
 }
+@keyframes slideInL {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideOutL {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
 
 .slideInRight-enter-active {
     animation: slideIn 0.5s ease forwards;
 }
 .slideInRight-leave-active {
     animation: slideOut 0.5s ease forwards;
+}
+.slideInLeft-enter-active {
+    animation: slideInL 0.5s ease forwards;
+}
+.slideInLeft-leave-active {
+    animation: slideOutL 0.5s ease forwards;
 }
