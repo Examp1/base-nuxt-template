@@ -113,6 +113,10 @@ const asyncComponents = {
             position: fixed;
             z-index: 0;
         }
+        @include bp-1440{
+            padding-top: 140px;
+            padding-bottom: 0;
+        }
     }
     .constructor-container {
         z-index: 2;

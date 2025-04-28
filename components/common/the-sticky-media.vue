@@ -5,25 +5,57 @@ const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 const isClose = ref(false);
+
+const videoRef = useTemplateRef("videoRef");
+const isPlay = ref(true);
+
+const playOrPause = () => {
+    isPlay.value = !isPlay.value;
+    if (isPlay.value) {
+        // isPlay.value = false;
+        pauseVideo();
+    } else {
+        // isPlay.value = true;
+        playVideo();
+    }
+};
+
+const playVideo = () => {
+    videoRef.value?.play();
+};
+
+const pauseVideo = () => {
+    videoRef.value?.pause();
+};
 </script>
 
 <template>
     <transition name="slideInLeft" mode="out-in">
         <div v-if="!isClose" class="sticky-media">
             <div class="close icon-x" @click="isClose = !isClose"></div>
+            <div
+                class="playOrPause"
+                :class="isPlay ? 'icon-menu-1' : 'icon-play-filled'"
+                @click="playOrPause"
+            ></div>
+            <img
+                v-if="
+                    settings.company_info_video.includes('jpg') ||
+                    settings.company_info_video.includes('png') ||
+                    settings.company_info_video.includes('webp')
+                "
+                :src="getMediaPath(settings.company_info_video)"
+                alt=""
+            />
             <video
-                v-if="settings.company_info_video.includes('mp4')"
+                v-else
+                ref="videoRef"
                 autoplay=""
                 muted=""
                 playsinline=""
                 loop=""
                 :src="getMediaPath(settings.company_info_video)"
             ></video>
-            <img
-                v-else
-                :src="getMediaPath(settings.company_info_video)"
-                alt=""
-            />
         </div>
     </transition>
 </template>
@@ -44,6 +76,20 @@ const isClose = ref(false);
         top: 10px;
         right: 10px;
         color: #fff;
+        z-index: 1;
+    }
+    .playOrPause {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        color: #fff;
+        z-index: 1;
+        &.icon-menu-1 {
+            transform: rotate(90deg);
+        }
+    }
+    video {
+        object-fit: cover;
     }
 }
 </style>

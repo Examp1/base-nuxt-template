@@ -20,6 +20,7 @@ const enhancedCards = computed(() => {
     return props.content.cards_list.map((card) => ({
         ...card,
         bodyPadding: "md",
+        titleSize: "lg",
         imageReverse: width.value > 576,
         cardType: width.value > 576 ? "vertical" : "horizontal",
         imgRounding: "none",
@@ -77,7 +78,7 @@ const enhancedCards = computed(() => {
     .laravel,
     .wordpress {
         position: relative;
-        min-height: 240px;
+        min-height: 190px;
         height: 100%;
         border-radius: var(--card-border-radius-sm);
         img {
