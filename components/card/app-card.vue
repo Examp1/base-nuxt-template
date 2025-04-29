@@ -2,15 +2,18 @@
 // / import type { ICard } from "~/interfaces/i-card.ts";
 import { computed } from "vue";
 import { NuxtLink } from "#components";
-import CardImage from "./cards-elements/card-image.vue";
-import CardRating from "./cards-elements/card-rating.vue";
-import CardIcon from "./cards-elements/card-icon.vue";
-import CardPictogram from "./cards-elements/card-pictogram.vue";
-import CardNumber from "./cards-elements/card-number.vue";
-import CardTitle from "./cards-elements/card-title.vue";
-import CardColorText from "./cards-elements/card-color-text.vue";
-import CardText from "./cards-elements/card-text.vue";
-import CardAdditionalInfo from "./cards-elements/card-aditional-info.vue";
+import cardImage from "./cards-elements/card-image.vue";
+import cardRating from "./cards-elements/card-rating.vue";
+import cardIcon from "./cards-elements/card-icon.vue";
+import cardPictogram from "./cards-elements/card-pictogram.vue";
+import cardNumber from "./cards-elements/card-number.vue";
+import cardTitle from "./cards-elements/card-title.vue";
+import cardColorText from "./cards-elements/card-color-text.vue";
+import cardText from "./cards-elements/card-text.vue";
+import cardAdditionalInfo from "./cards-elements/card-aditional-info.vue";
+import cardVideo from "./cards-elements/card-video.vue";
+import useUtils from "@/composables/useUtils.js";
+const { getMediaPath } = useUtils();
 
 // defineProps<{id: number}>()
 
@@ -92,22 +95,28 @@ const hasText = computed(() => {
     <div v-if="loading" class="card loading">loading card</div>
     <div v-else :class="cardClasses" :style="styleAttr">
         <div v-if="card.backgroundImage" class="overlay"></div>
-
+        <div v-if="card.top" class="top-label block-text sm">
+            {{ $t("top-label") }}
+        </div>
         <component
             :is="card.link ? NuxtLink : 'div'"
             :to="card.link"
             v-if="card.cardType !== 'bg-card' && !card.hideHeader"
             class="card-header"
         >
-            <CardImage
+            <cardImage
                 v-if="card.image"
-                :image="card.customImage ? card.image : path(card.image)"
+                :image="card.customImage ? card.image : getMediaPath(card.image)"
                 :alt="card.imageAlt"
             />
-            <CardRating v-if="card.postRating" :rating="card.postRating" />
-            <CardIcon v-if="card.icon" :icon="card.icon" />
-            <CardPictogram v-if="card.pictogram" :pictogram="card.pictogram" />
-            <CardNumber
+            <cardVideo
+                v-if="card.video"
+                :video="card.video"
+            />
+            <cardRating v-if="card.postRating" :rating="card.postRating" />
+            <cardIcon v-if="card.icon" :icon="card.icon" />
+            <cardPictogram v-if="card.pictogram" :pictogram="card.pictogram" />
+            <cardNumber
                 v-if="card.number"
                 :number="card.number"
                 :numberSize="card.numberSize"
@@ -126,25 +135,25 @@ const hasText = computed(() => {
                 :to="card.link"
                 class="card-info"
             >
-                <CardTitle
+                <cardTitle
                     v-if="card.title"
                     :title="card.title"
                     :titleSize="card.titleSize"
                     :titleColorClass="card.titleColorClass"
                 />
-                <CardColorText
+                <cardColorText
                     v-if="card.colorText"
                     :colorText="card.colorText"
                     :colorTextSize="card.colorTextSize"
                 />
-                <CardText
+                <cardText
                     v-if="hasText"
                     :text="card.text"
                     :textSize="card.textSize"
                     :textColorClass="card.textColorClass"
                 />
             </component>
-            <CardAdditionalInfo
+            <cardAdditionalInfo
                 :info="card.additionalInfo"
                 :btns="card.card_btns || card.btns"
                 :btn="card.card_btn"
@@ -170,5 +179,14 @@ const hasText = computed(() => {
     background-color: #f4f4f4;
     width: 200px;
     height: 200px;
+}
+.top-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 12px;
+    border-radius: 0px 0px 0px 14px;
+    background: #e54649;
+    color: #fff;
 }
 </style>

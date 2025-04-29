@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import AppCard from "~/components/card/app-card.vue";
+import appCard from "~/components/card/app-card.vue";
 
 const props = defineProps({
     content: {
@@ -27,7 +27,7 @@ const cardOption = computed(() => {
 </script>
 <template>
     <div class="container">
-        <AppCard :card="cardOption"></AppCard>
+        <appCard :card="cardOption"></appCard>
     </div>
 </template>
 <style lang="scss" scoped>

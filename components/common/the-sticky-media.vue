@@ -71,6 +71,10 @@ const pauseVideo = () => {
     width: 130px;
     height: 180px;
     border-radius: var(--img-radius-md);
+    transition: .3s;
+    &:hover{
+        transform: scale(1.2);
+    }
     .close {
         position: absolute;
         top: 10px;

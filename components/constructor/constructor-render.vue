@@ -1,6 +1,6 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
-import SvgSeparator from "../common/svg-separator.vue";
+import svgSeparator from "../common/svg-separator.vue";
 
 defineProps({
     constructor: {
@@ -87,7 +87,7 @@ const asyncComponents = {
             </section>
         </div>
         <div class="constructor-container">
-            <SvgSeparator></SvgSeparator>
+            <svgSeparator></svgSeparator>
             <div class="block-wrapper bg-light-2">
                 <section
                     v-for="(

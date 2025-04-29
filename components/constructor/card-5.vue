@@ -1,7 +1,7 @@
 <script setup>
-import AppSectionTitle from "~/components/common/app-section-title.vue";
-import AppButtons from "~/components/common/app-buttons.vue";
-import AppCard from "~/components/card/app-card.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
+import appButtons from "~/components/common/app-buttons.vue";
+import appCard from "~/components/card/app-card.vue";
 
 defineProps({
     content: {
@@ -23,19 +23,19 @@ const enhanceCard = (cardObj) => {
 
 <template>
     <div class="container">
-        <AppSectionTitle
+        <appSectionTitle
             :title-position="'tac'"
             v-if="content?.title"
             :title="content.title"
-        ></AppSectionTitle>
+        ></appSectionTitle>
         <div class="cards-wrapper card-in-row-4 lg">
-            <AppCard
+            <appCard
                 v-for="(card, idx) in content.cards_list"
                 :card="enhanceCard(card)"
                 :key="'card' + idx"
-            ></AppCard>
+            ></appCard>
         </div>
-        <AppButtons v-if="content?.btns" :btns="content.btns"></AppButtons>
+        <appButtons v-if="content?.btns" :btns="content.btns"></appButtons>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import getSpriteImage from "@/utils/getSpriteImage";
-import AppCard from "~/components/card/app-card.vue";
+import appCard from "~/components/card/app-card.vue";
 // import SvgSeparator from "../common/svg-separator.vue";
 
 const props = defineProps({
@@ -32,7 +32,7 @@ const cardOption = computed(() => {
 <template>
     <!-- <SvgSeparator></SvgSeparator> -->
     <div class="container-sm">
-        <AppCard :card="cardOption"></AppCard>
+        <appCard :card="cardOption"></appCard>
     </div>
 </template>
 

@@ -1,7 +1,6 @@
 <script setup>
-import { computed } from "vue";
-import AppSectionTitle from "~/components/common/app-section-title.vue";
-import AppButton from "~/components/common/app-button.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
+import appButton from "~/components/common/app-button.vue";
 const props = defineProps({
     content: {
         type: Object,
@@ -9,24 +8,21 @@ const props = defineProps({
     },
 });
 
-// const prepearingBtns = computed(() => {
-//     const temp = props
-// })
 </script>
 
 <template>
     <div class="container">
-        <AppSectionTitle
+        <appSectionTitle
             :title-position="'tac'"
             v-if="content?.title"
             :title="content.title"
-        ></AppSectionTitle>
+        ></appSectionTitle>
         <div class="quick-links">
-            <AppButton
+            <appButton
                 v-for="(link, idx) in content.link"
                 :key="'link' + idx"
                 :btn="link.link"
-            ></AppButton>
+            ></appButton>
         </div>
     </div>
 </template>

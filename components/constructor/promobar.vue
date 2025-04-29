@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import AppSectionTitle from "~/components/common/app-section-title.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
 const props = defineProps({
     content: {
         type: Object,
@@ -27,10 +27,10 @@ const transformedImagesList = computed(() => {
 </script>
 <template>
     <div v-if="content?.title" class="container">
-        <AppSectionTitle
+        <appSectionTitle
             :title="content.title"
             :title-position="'tac'"
-        ></AppSectionTitle>
+        ></appSectionTitle>
     </div>
     <div class="marquee-infinite">
         <div class="marquee">

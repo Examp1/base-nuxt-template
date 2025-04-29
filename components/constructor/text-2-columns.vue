@@ -1,5 +1,5 @@
 <script setup>
-import AppSectionTitle from "~/components/common/app-section-title.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
 defineProps({
     content: {
         type: Object,
@@ -10,11 +10,11 @@ defineProps({
 
 <template>
     <div class="container">
-        <AppSectionTitle
+        <appSectionTitle
             :title-position="'tac'"
             v-if="content?.title"
             :title="content.title"
-        ></AppSectionTitle>
+        ></appSectionTitle>
         <div class="row col-in-row-2">
             <div class="redactor" v-html="content.text_1"></div>
             <div class="redactor" v-html="content.text_2"></div>

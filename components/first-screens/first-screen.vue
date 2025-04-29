@@ -1,5 +1,5 @@
 <script setup>
-import AppButtons from "~/components/common/app-buttons.vue";
+import appButtons from "~/components/common/app-buttons.vue";
 import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,7 +45,7 @@ defineProps({
                 src="~/assets/video/first-screen-video.mp4"
             ></video>
         </div>
-        <AppButtons v-if="content?.btns" :btns="content.btns"></AppButtons>
+        <appButtons v-if="content?.btns" :btns="content.btns"></appButtons>
     </div>
 </template>
 

@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from "vue";
-import AppSectionTitle from "~/components/common/app-section-title.vue";
-import AppButtons from "~/components/common/app-buttons.vue";
-import AppCard from "~/components/card/app-card.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
+import appButtons from "~/components/common/app-buttons.vue";
+import appCard from "~/components/card/app-card.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -46,10 +46,10 @@ const enhancedCards = computed(() => {
 
 <template>
     <div class="container">
-        <AppSectionTitle
+        <appSectionTitle
             v-if="content?.title"
             :title="content.title"
-        ></AppSectionTitle>
+        ></appSectionTitle>
     </div>
     <div class="container-fluid">
         <swiper v-bind="sliderOptions" :modules="[Autoplay]">
@@ -58,10 +58,10 @@ const enhancedCards = computed(() => {
                 v-for="(card, idx) in enhancedCards"
                 :key="idx"
             >
-                <AppCard :card="card" :key="'card' + idx"></AppCard>
+                <appCard :card="card" :key="'card' + idx"></appCard>
             </swiper-slide>
         </swiper>
-        <AppButtons v-if="content?.btns" :btns="content.btns"></AppButtons>
+        <appButtons v-if="content?.btns" :btns="content.btns"></appButtons>
     </div>
 </template>
 

@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";
-import AppSectionTitle from "~/components/common/app-section-title.vue";
-import AppButtons from "~/components/common/app-buttons.vue";
-import AppCard from "~/components/card/app-card.vue";
+import appSectionTitle from "~/components/common/app-section-title.vue";
+import appButtons from "~/components/common/app-buttons.vue";
+import appCard from "~/components/card/app-card.vue";
 import getSpriteImage from "@/utils/getSpriteImage";
 
 const { width } = useWindowSize();
@@ -30,16 +30,16 @@ const enhancedCards = computed(() => {
 
 <template>
     <div class="container">
-        <AppSectionTitle
+        <appSectionTitle
             v-if="content?.title"
             :title="content.title"
-        ></AppSectionTitle>
+        ></appSectionTitle>
         <div class="cards-wrapper card-in-row-4 lg">
-            <AppCard
+            <appCard
                 v-for="(card, idx) in enhancedCards"
                 :card="card"
                 :key="'card' + idx"
-            ></AppCard>
+            ></appCard>
             <div class="custom-cards">
                 <div class="laravel aic">
                     <img :src="getSpriteImage('laravel-logo')" alt="" />
@@ -49,7 +49,7 @@ const enhancedCards = computed(() => {
                 </div>
             </div>
         </div>
-        <AppButtons v-if="content?.btns" :btns="content.btns"></AppButtons>
+        <appButtons v-if="content?.btns" :btns="content.btns"></appButtons>
     </div>
 </template>
 
