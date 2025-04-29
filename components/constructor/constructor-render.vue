@@ -55,6 +55,12 @@ const asyncComponents = {
     "text-2-columns": defineAsyncComponent(
         () => import("~/components/constructor/text-2-columns.vue"),
     ),
+    "cards-partners": defineAsyncComponent(
+        () => import("~/components/constructor/cards-partners.vue"),
+    ),
+    "quick-inks": defineAsyncComponent(
+        () => import("~/components/constructor/quick-inks.vue"),
+    ),
     promobar: defineAsyncComponent(
         () => import("~/components/constructor/promobar.vue"),
     ),

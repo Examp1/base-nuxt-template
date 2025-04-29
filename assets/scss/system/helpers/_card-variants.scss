@@ -7,13 +7,16 @@
   display: grid;
   gap: var(--card-list-gap-md);
   --gap-size: var(--card-list-gap-md);
-  &.lg{
-    gap: var(--card-list-gap-lg);
-    --gap-size: var(--card-list-gap-lg)
+  &.none{
+    gap: unset;
   }
   &.sm{
     gap: var(--card-list-gap-sm);
     --gap-size: var(--card-list-gap-sm)
+  }
+  &.lg{
+    gap: var(--card-list-gap-lg);
+    --gap-size: var(--card-list-gap-lg)
   }
   &.xl{
     gap: var(--card-list-gap-xl);

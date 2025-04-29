@@ -232,29 +232,25 @@ $sizes: "sm", "xs", "md", "lg", "xl";
         &-md {
             gap: var(--card-gap-md);
         }
+        &-xxl-xl {
+            gap: var(--card-gap-xxl);
+            @include bp-768 {
+                gap: var(--card-gap-xl);
+            }
+        }
     }
     &.img-rounding {
-        &-md {
-            img {
-                border-radius: var(--img-radius-md);
-            }
+        &-md > img {
+            border-radius: var(--img-radius-md);
         }
         &-sm {
             img {
                 border-radius: var(--img-radius-sm);
             }
         }
-        &-none {
-            img {
-                border-radius: unset;
-            }
+        &-none > img {
+            border-radius: unset;
         }
-    }
-    .card-additionl-btns {
-        justify-content: flex-end;
-        display: flex;
-        gap: var(--actions-inner-gap-md);
-        margin-top: 48px;
     }
     // wp fix
     p > span {
@@ -329,7 +325,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
         .card-header {
             justify-content: center;
         }
-        @include bp-576 {
+        @include bp-768 {
             grid-template-areas:
                 "card-header"
                 "card-body" !important;

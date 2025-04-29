@@ -147,6 +147,7 @@ const hasText = computed(() => {
             <CardAdditionalInfo
                 :info="card.additionalInfo"
                 :btns="card.card_btns || card.btns"
+                :btn="card.card_btn"
             />
         </div>
         <!-- <div v-if="card.card_btns" class="card-footer">
@@ -161,6 +162,7 @@ const hasText = computed(() => {
 
 <style
     scoped
+    lang="scss"
     src="../../assets/scss/system/components/cards/card-component.scss"
 ></style>
 <style lang="scss" scoped>
