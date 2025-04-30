@@ -16,10 +16,27 @@ defineProps({
             :title="content.title"
         ></appSectionTitle>
         <div class="row col-in-row-2">
-            <div class="redactor" v-html="content.text_1"></div>
-            <div class="redactor" v-html="content.text_2"></div>
+            <div class="col-1">
+                <div class="redactor" v-html="content.text_1"></div>
+                <div v-if="content.add_price" class="redactor pt">
+                    <h2
+                        :class="{
+                            'text-brand': content.color_price !== 'default',
+                        }"
+                    >
+                        {{ content.price }}
+                    </h2>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="redactor" v-html="content.text_2"></div>
+            </div>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pt {
+    padding-top: var(--text-editor-heading-padding-y);
+}
+</style>

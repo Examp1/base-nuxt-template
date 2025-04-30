@@ -1,6 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import svgSeparator from "../common/svg-separator.vue";
+import appForm from "../form/app-form.vue";
 
 defineProps({
     constructor: {
@@ -89,6 +90,7 @@ const asyncComponents = {
         <div class="constructor-container">
             <svgSeparator></svgSeparator>
             <div class="block-wrapper bg-light-2">
+                <appForm v-if="false"/>
                 <section
                     v-for="(
                         { component, visible, content }, idx
@@ -119,7 +121,7 @@ const asyncComponents = {
             position: fixed;
             z-index: 0;
         }
-        @include bp-1440{
+        @include bp-1440 {
             padding-top: 140px;
             padding-bottom: 0;
         }
