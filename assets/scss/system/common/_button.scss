@@ -218,6 +218,23 @@
       --button-stroke-ic-disabled
     );
   }
+  &.stroke-neutral {
+    border-radius: 100px;
+    @include set-btn-colors(
+      --button-stroke-neutral-bg-default,
+      --button-stroke-neutral-bg-hover,
+      --button-stroke-neutral-bg-disabled,
+      --button-stroke-neutral-border-disabled,
+      --button-stroke-neutral-border-default,
+      --button-stroke-neutral-border-hover,
+      --button-stroke-neutral-label-default,
+      --button-stroke-neutral-label-hover,
+      --button-stroke-neutral-label-disabled,
+      --button-stroke-neutral-ic-default,
+      --button-stroke-neutral-ic-hover,
+      --button-stroke-neutral-ic-disabled,
+    );
+  }
   &.simple {
     @include set-btn-colors(
       --button-transparent-bg-default,

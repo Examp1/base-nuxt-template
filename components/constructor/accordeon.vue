@@ -1,4 +1,5 @@
 <script setup>
+import appSectionTitle from "~/components/common/app-section-title.vue";
 import { slideToggle } from "@/composables/useSlideAnimations.ts";
 
 defineProps({
@@ -10,6 +11,12 @@ defineProps({
 </script>
 <template>
     <div class="container">
+        <appSectionTitle
+            v-if="content?.title"
+            :title="content.title"
+            :titlePosition="'center'"
+            :titleSize="'sm'"
+        ></appSectionTitle>
         <div
             v-for="(accordion_item, idx) in content.cards_list"
             :key="'accordion_item' + idx"

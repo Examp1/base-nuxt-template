@@ -50,6 +50,9 @@ const asyncComponents = {
     gallery: defineAsyncComponent(
         () => import("~/components/constructor/gallery.vue"),
     ),
+    'gallery-with-tags': defineAsyncComponent(
+        () => import("~/components/constructor/gallery-with-tags.vue"),
+    ),
     accordeon: defineAsyncComponent(
         () => import("~/components/constructor/accordeon.vue"),
     ),
