@@ -13,6 +13,19 @@ const props = defineProps({
         required: true,
     },
 });
+const enhancedCards = computed(() => {
+    if (!props.content.cards_list) return;
+    return props.content.cards_list.map((card) => ({
+        ...card,
+        wrapPadding: "lg",
+        imgSize: "md",
+        titleSize: "sm",
+        colorTextSize: "xxl",
+        // imageReverse: true,
+        gap: "md",
+        hideHeader: true,
+    }));
+});
 
 const sliderOptions = {
     spaceBetween: 24,
@@ -27,22 +40,11 @@ const sliderOptions = {
     },
     breakpoints: {
         576: { slidesPerView: 1.2 },
-        1024: { slidesPerView: 3.1 },
-        1440: { slidesPerView: 4 },
-        1600: { slidesPerView: 5 },
+        1024: { slidesPerView: 2.1 },
+        1440: { slidesPerView: 2.9 },
+        1600: { slidesPerView: 4 },
     },
 };
-
-const enhancedCards = computed(() => {
-    if (!props.content.cards_list) return;
-    return props.content.cards_list.map((card) => ({
-        ...card,
-        wrapPadding: "lg",
-        gap: "xl",
-        imageReverse: true,
-        titleSize: "xl"
-    }));
-});
 </script>
 
 <template>
@@ -50,29 +52,38 @@ const enhancedCards = computed(() => {
         <appSectionTitle
             v-if="content?.title"
             :title="content.title"
+            :titlePosition="'center'"
         ></appSectionTitle>
-    </div>
-    <div class="container-fluid">
         <swiper v-bind="sliderOptions" :modules="[Autoplay]">
+            <!-- <div class="cards-wrapper card-in-row-5 gap-lg"> -->
             <swiper-slide
                 class="slide_item"
                 v-for="(card, idx) in enhancedCards"
-                :key="idx"
             >
                 <appCard :card="card" :key="'card' + idx"></appCard>
             </swiper-slide>
         </swiper>
+        <!-- </div> -->
         <appButtons v-if="content?.btns" :btns="content.btns"></appButtons>
     </div>
 </template>
 
 <style lang="scss" scoped>
 :deep(.card) {
-    .card-header {
-        img {
-            aspect-ratio: 0.55;
-            object-fit: cover;
-        }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        gap: 48px;
     }
+}
+:deep(.swiper-wrapper) {
+    align-items: stretch; // важно!
+}
+
+:deep(.swiper-slide) {
+    display: flex;
+    height: auto !important; // сброс Swiper'а
 }
 </style>

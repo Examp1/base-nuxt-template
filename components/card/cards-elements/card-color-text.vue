@@ -8,7 +8,13 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="card-color-text block-text" :class="colorTextSize">
+    <div class="card-color-text block-title" :class="colorTextSize">
         {{ colorText }}
     </div>
 </template>
+
+<style lang="scss" scoped>
+.card-color-text{
+    display: block !important;
+}
+</style>

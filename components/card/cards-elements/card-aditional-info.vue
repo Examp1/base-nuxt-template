@@ -23,7 +23,7 @@ defineProps({
             :btn="btn.card_btn || btn"
         ></AppButton>
     </div>
-    <div v-if="!!btn" class="card-additional-btn">
+    <div v-if="btn && btn.link" class="card-additional-btn">
         <AppButton :btn="btn"></AppButton>
     </div>
 </template>

@@ -58,6 +58,9 @@ const enhanceCard = (cardObj) => {
                 }
             }
         }
+        .card-image img{
+            object-fit: contain;
+        }
     }
 }
 </style>
