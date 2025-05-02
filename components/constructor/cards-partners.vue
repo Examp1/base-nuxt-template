@@ -42,9 +42,6 @@ const enhanceCard = (cardObj) => {
 </template>
 
 <style lang="scss" scoped>
-.reverse {
-    justify-content: space-between;
-}
 :deep(.cards-wrapper) {
     .card {
         border-radius: var(--card-border-radius-lg);

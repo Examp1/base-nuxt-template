@@ -39,7 +39,4 @@ const enhanceCard = (cardObj) => {
 </template>
 
 <style lang="scss" scoped>
-.reverse {
-    justify-content: space-between;
-}
 </style>

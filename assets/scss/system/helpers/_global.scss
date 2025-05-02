@@ -127,3 +127,12 @@ scrollbar-thumb {
 .helpcrunch-iframe {
     bottom: 90px;
 }
+// swiper fix
+.swiper-wrapper {
+    align-items: stretch;
+}
+
+.swiper-slide {
+    display: flex !important;
+    height: auto !important;
+}

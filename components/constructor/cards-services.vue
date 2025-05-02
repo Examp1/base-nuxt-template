@@ -51,8 +51,5 @@ const enhanceCard = (cardObj) => {
             border-radius: unset;
         }
     }
-    .reverse{
-        justify-content: space-between;
-    }
 }
 </style>

@@ -141,9 +141,8 @@
     .field-title {
         color: var(--text-default);
         text-align: center;
-        font-family: Roboto;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 120%;
         text-transform: uppercase;
     }
@@ -310,7 +309,7 @@
         .select-options {
             display: flex;
             flex-direction: column;
-            background: var(--form-bg-enabled);
+            background: var(--form-select-item-enabled);
             opacity: 0;
             height: 0;
             z-index: 1;
@@ -328,18 +327,18 @@
                 align-items: center;
                 cursor: pointer;
                 transition: 0.3s;
-                background: var(--form-bg-enabled);
+                background: var(--form-select-item-enabled);
                 &:hover {
-                    background: var(--drop-shadow-focused);
+                    background: var(--form-select-item-hover);
                 }
                 &.active {
-                    background: var(--form-bg-selected);
+                    background: var(--form-select-item-selected);
                 }
             }
         }
     }
     .block-text {
-        color: var(--text-light-2);
+        // color: var(--text-light-2);
         * {
             color: inherit;
             margin-bottom: 0;

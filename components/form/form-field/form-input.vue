@@ -8,9 +8,10 @@ const props = defineProps({
     },
 });
 
-const fieldRules = createFiedlValidationRules(props.field)
-const { value, errorMessage } = useField(props.field.name, fieldRules);
-
+const fieldRules = createFiedlValidationRules(props.field);
+const { value, errorMessage } = useField(props.field.name, fieldRules, {
+    initialValue: "",
+});
 </script>
 <template>
     <!-- <?= $item['field_style'] ?: 'outlined' ?></div> -->

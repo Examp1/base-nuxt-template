@@ -25,7 +25,7 @@ defineProps({
 .separator-container {
     width: 100%;
     height: auto;
-    margin-bottom: -5px;
+    margin-bottom: -6px;
     background-color: transparent;
     svg path {
         fill: var(--bg-default);

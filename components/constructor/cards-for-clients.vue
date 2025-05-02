@@ -78,12 +78,4 @@ const sliderOptions = {
         gap: 48px;
     }
 }
-:deep(.swiper-wrapper) {
-    align-items: stretch; // важно!
-}
-
-:deep(.swiper-slide) {
-    display: flex;
-    height: auto !important; // сброс Swiper'а
-}
 </style>

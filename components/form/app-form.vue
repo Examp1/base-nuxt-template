@@ -8,7 +8,7 @@ import { useForm } from "vee-validate";
 //     },
 // });
 
-const components = ["form-input", "form-title", "form-text", "form-select", "form-editor"];
+const components = ["form-input", "form-title", "form-text", "form-select", "form-editor", "form-checkbox"];
 
 const componentMap = components.reduce((map, name) => {
     map[name] = defineAsyncComponent(
@@ -42,8 +42,8 @@ const content = [
         rules: {
             required: true,
             email: false,
-            min: null,
-            max: null,
+            min: 2,
+            max: 12,
         },
         messages: {
             required: "req field",
@@ -86,6 +86,28 @@ const content = [
         rules: {
             required: true,
             email: true,
+            min: null,
+            max: null,
+        },
+        messages: {
+            required: "req",
+            email: "email invalid",
+            min: null,
+            max: null,
+        },
+    },
+    {
+        label: "checkbox",
+        visibility: "1",
+        type: "form-checkbox",
+        name: "agree",
+        title: "agreeagreeagreeagree",
+        placeholder: "agreeagree *",
+        show_in_message: "1",
+        shown_name: null,
+        rules: {
+            required: true,
+            email: false,
             min: null,
             max: null,
         },

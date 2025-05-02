@@ -271,6 +271,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
     }
     &.reverse {
         flex-direction: column-reverse;
+        justify-content: space-between;
     }
     .card-image {
         display: flex;

@@ -50,11 +50,11 @@ export default defineNuxtConfig({
         ],
         defaultLocale: "uk",
     },
-    // googleFonts: {
-    //     // stylePath: 'assets/css/google-fonts.css',
-    //     outputDir: 'assets/',
-    //     families: {
-    //         "Great+Vibes": true,
-    //     },
-    // },
+    googleFonts: {
+        // stylePath: 'assets/css/google-fonts.css',
+        outputDir: 'assets/',
+        families: {
+            "Roboto": true,
+        },
+    },
 });

@@ -98,7 +98,4 @@ const enhancedCards = computed(() => {
         grid-column: 1/-1;
     }
 }
-.reverse {
-    justify-content: space-between;
-}
 </style>

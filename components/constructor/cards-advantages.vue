@@ -70,7 +70,7 @@ const enhancedCards = computed(() => {
 :deep(.card) {
     .card-header {
         img {
-            aspect-ratio: 0.55;
+            /* aspect-ratio: 0.55; */
             object-fit: cover;
         }
     }

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { createFiedlValidationRules } from "~/composables/createFieldValidationSheme";
 import { useField } from "vee-validate";
 import { useClickOutside } from "@/composables/useClickOutside";
@@ -15,11 +15,16 @@ const emit = defineEmits(["update:modelValue"]);
 const isOpen = ref(false);
 const wrapperRef = ref(null);
 
-
-const fieldRules = createFiedlValidationRules(props.field)
-const { value, errorMessage } = useField(props.field.name, fieldRules);
+const fieldRules = createFiedlValidationRules(props.field);
+const { value, errorMessage } = useField(props.field.name, fieldRules, {
+    initialValue: "",
+});
 
 useClickOutside(wrapperRef, () => {
+    isOpen.value = false;
+});
+
+watch(value, () => {
     isOpen.value = false;
 });
 </script>

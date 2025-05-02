@@ -162,6 +162,9 @@
   --form-ic-filled: #0000005c;
   --form-label-enabled: #000000;
   --form-label-filled: #00000075;
+  --form-select-item-enabled: #ffffff;
+  --form-select-item-hover: #f6f6f8;
+  --form-select-item-selected: #ebebf0;
   --header-main-bg: #f6f6f8;
   --header-main-border: #f4f4f9db;
   --header-top-bg: #ffffff;
@@ -413,6 +416,9 @@
   --form-ic-filled: #96a3b7;
   --form-label-enabled: #1e232d;
   --form-label-filled: #858d9d;
+  --form-select-item-enabled: #ffffff;
+  --form-select-item-hover: #f6f6fa;
+  --form-select-item-selected: #ebebf0;
   --header-main-bg: #ebebf0;
   --header-main-border: #ebebf0;
   --header-top-bg: #ebebf0;
@@ -664,6 +670,9 @@
   --form-ic-filled: #ffffff7a;
   --form-label-enabled: #ffffff;
   --form-label-filled: #ffffff7a;
+  --form-select-item-enabled: #2c2c2e;
+  --form-select-item-hover: #393939;
+  --form-select-item-selected: #1c1c1e;
   --header-main-bg: #393939;
   --header-main-border: #393939;
   --header-top-bg: #1c1c1e;
@@ -902,8 +911,8 @@
   --drop-shadow-error-focused: #ff6a6129;
   --drop-shadow-focused: #acd4ff;
   --form-bg-disabled: #ffffff14;
-  --form-bg-enabled: #ffffff;
-  --form-bg-focused: #ffffff;
+  --form-bg-enabled: #ff826f;
+  --form-bg-focused: #ff4c30;
   --form-border-disabled: #ffffff7a;
   --form-border-enabled: #ffffff1f;
   --form-border-error: #ff8f89;
@@ -915,6 +924,9 @@
   --form-ic-filled: #ffffff94;
   --form-label-enabled: #ffffff;
   --form-label-filled: #ffffff99;
+  --form-select-item-enabled: #ff644c;
+  --form-select-item-hover: #ff644c;
+  --form-select-item-selected: #ff4c30;
   --header-main-bg: #ff644c;
   --header-main-border: #ff644c;
   --header-top-bg: #ff644c;

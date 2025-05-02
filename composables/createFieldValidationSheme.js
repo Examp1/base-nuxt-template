@@ -1,29 +1,64 @@
-import { computed } from "vue";
 import * as zod from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
 
-export const createFiedlValidationRules = (field) => {
-    let validator = zod.string();
-    if (field.rules.required) {
-        validator = validator.min(
-            1,
-            field.messages.required || "Required field",
-        );
+export const createFiedlValidationRules = (field, field_type = "str") => {
+    let validator;
+
+    switch (field_type) {
+        case "bool":
+        case "boll": // на всякий случай
+            validator = zod.boolean();
+            break;
+        case "num":
+            validator = zod.number();
+            break;
+        default:
+            validator = zod.string('negru pidarasu');
+            break;
     }
-    if (field.rules.email) {
-        validator = validator.email(field.messages.email || "Invalida email");
+
+    // Обязательное поле
+    if (field.rules?.required === true) {
+        if (field_type === "bool") {
+            validator = validator.refine((val) => val === true, {
+                message: field.messages?.required || "Required field",
+            });
+        } else if (field_type === "str") {
+            validator = validator.min(
+                1,
+                field.messages?.required || "Required field",
+            );
+        }
     }
-    if (field.rules.min > 1) {
+
+    // Email
+    if (field_type === "str" && field.rules?.email === true) {
+        validator = validator.email(field.messages?.email || "Invalid email");
+    }
+
+    // Минимум символов (только если задано)
+    if (
+        field_type === "str" &&
+        typeof field.rules?.min === "number" &&
+        field.rules.min > 0
+    ) {
         validator = validator.min(
             field.rules.min,
-            field.messages.min || `min value ${field.rules.min}`,
+            field.messages?.min || `Min value ${field.rules.min}`,
         );
     }
-    if (field.rules.max > 1) {
+
+    // Максимум символов (только если задано)
+    if (
+        field_type === "str" &&
+        typeof field.rules?.max === "number" &&
+        field.rules.max > 0
+    ) {
         validator = validator.max(
             field.rules.max,
-            field.messages.max || `max value ${field.rules.max}`,
+            field.messages?.max || `Max value ${field.rules.max}`,
         );
     }
-    return computed(() => toTypedSchema(validator))
+
+    return toTypedSchema(validator);
 };
