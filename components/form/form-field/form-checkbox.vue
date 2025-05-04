@@ -7,26 +7,30 @@ const props = defineProps({
         required: true,
     },
 });
+const {
+    form_data: { field__name, field__title, field__placeholder },
+    rules,
+} = props.field;
 
 const fieldRules = createFiedlValidationRules(props.field, "bool");
-const { value, errorMessage } = useField(props.field.name, fieldRules, {
+const { value, errorMessage } = useField(field__name, fieldRules, {
     initialValue: false,
 });
-const setValue = () => {
-    if (value) {
-        value = false;
-    } else {
-        value = true;
-    }
-};
+// const setValue = () => {
+//     if (value) {
+//         value = false;
+//     } else {
+//         value = true;
+//     }
+// };
 </script>
 
 <template>
-    <div class="form-field" :class="{ required: field.rules.required }">
+    <div class="form-field" :class="{ required: rules.required }">
         <label class="checkbox">
-            <input type="checkbox" v-model="value" :name="field.name" />
+            <input type="checkbox" v-model="value" :name="field__name" />
             <p>
-                <span>{{ field.label }}</span>
+                <span>{{ field__placeholder }}</span>
             </p>
         </label>
         <span class="error">{{ errorMessage }}</span>

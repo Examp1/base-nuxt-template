@@ -10,13 +10,18 @@ const props = defineProps({
         required: true,
     },
 });
+const {
+    form_data: { field__name, field__title, field__placeholder },
+    rules,
+} = props.field;
+
 const emit = defineEmits(["update:modelValue"]);
 
 const isOpen = ref(false);
 const wrapperRef = ref(null);
 
 const fieldRules = createFiedlValidationRules(props.field);
-const { value, errorMessage } = useField(props.field.name, fieldRules, {
+const { value, errorMessage } = useField(field__name, fieldRules, {
     initialValue: "",
 });
 
@@ -32,16 +37,16 @@ watch(value, () => {
 <template>
     <div
         class="form-field underline"
-        :class="{ required: field.rules.required }"
+        :class="{ required: rules.required }"
         ref="wrapperRef"
     >
-        <span class="field-title with-padding">{{ field.label }}</span>
-        <div class="block-text md">{{ field.placeholder }}</div>
+        <span class="field-title with-padding">{{ field__title }}</span>
+        <div class="block-text md">{{ field__placeholder }}</div>
         <input
             type="hidden"
-            :name="field.name"
+            :name="field__name"
             v-model="value"
-            :id="`${field.name}_selected`"
+            :id="`${field__name}_selected`"
         />
         <div class="select">
             <div class="selected-option" @click="isOpen = !isOpen">

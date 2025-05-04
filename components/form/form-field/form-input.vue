@@ -8,20 +8,25 @@ const props = defineProps({
     },
 });
 
+const {
+    form_data: { field__name, field__title, field__placeholder },
+    rules,
+} = props.field;
+
 const fieldRules = createFiedlValidationRules(props.field);
-const { value, errorMessage } = useField(props.field.name, fieldRules, {
+const { value, errorMessage } = useField(field__name, fieldRules, {
     initialValue: "",
 });
 </script>
 <template>
     <!-- <?= $item['field_style'] ?: 'outlined' ?></div> -->
-    <div class="form-field" :class="{ required: field.rules.required }">
-        <span class="field-title">{{ field.label }}</span>
+    <div class="form-field" :class="{ required: rules.required }">
+        <span class="field-title">{{ field__title }}</span>
         <input
             type="text"
             v-model="value"
-            :placeholder="field.placeholder"
-            :name="field.name"
+            :placeholder="field__placeholder"
+            :name="field__name"
         />
         <span class="error">{{ errorMessage }}</span>
     </div>
