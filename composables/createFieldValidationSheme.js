@@ -12,8 +12,11 @@ export const createFiedlValidationRules = (field, field_type = "str") => {
         case "num":
             validator = zod.number();
             break;
+        case "date":
+            validator = zod.coerce.date().transform((val) => val.toISOString());
+            break;
         default:
-            validator = zod.string('negru pidarasu');
+            validator = zod.string("negru pidarasu");
             break;
     }
 
