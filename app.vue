@@ -7,9 +7,9 @@ import theStickyMedia from "./components/common/the-sticky-media.vue";
 useWindowSizeRange();
 </script>
 <template>
-    <div>
+    <div id="app-root">
         <NuxtLoadingIndicator />
-        <theHeader></theHeader>
+        <theHeader />
         <NuxtRouteAnnouncer />
         <NuxtPage />
         <theFooter />

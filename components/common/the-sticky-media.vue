@@ -5,6 +5,7 @@ const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 const isClose = ref(false);
+const isFullSize = ref(false)
 
 const videoRef = useTemplateRef("videoRef");
 const isPlay = ref(true);
@@ -27,16 +28,23 @@ const playVideo = () => {
 const pauseVideo = () => {
     videoRef.value?.pause();
 };
+const openOnFullSize = () => {
+    isFullSize.value = !isFullSize.value
+    if (videoRef.value) {
+        videoRef.value.muted = false;
+        videoRef.value.volume = 1;
+    }
+}
 </script>
 
 <template>
     <transition name="slideInLeft" mode="out-in">
-        <div v-if="!isClose" class="sticky-media">
+        <div v-if="!isClose" class="sticky-media" :class="{'full-size': isFullSize}" @click="openOnFullSize">
             <div class="close icon-x" @click="isClose = !isClose"></div>
             <div
                 class="playOrPause"
                 :class="isPlay ? 'icon-menu-1' : 'icon-play-filled'"
-                @click="playOrPause"
+                @click.stop="playOrPause"
             ></div>
             <img
                 v-if="
@@ -72,8 +80,12 @@ const pauseVideo = () => {
     height: 180px;
     border-radius: var(--img-radius-md);
     transition: .3s;
-    &:hover{
+    &:not(.full-size):hover{
         transform: scale(1.2);
+    }
+    &.full-size{
+        width: 250px;
+        height: 400px;
     }
     .close {
         position: absolute;

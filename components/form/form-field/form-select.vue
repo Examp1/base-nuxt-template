@@ -58,9 +58,9 @@ watch(value, () => {
                     :key="opt + '-' + idx"
                     class="select-option"
                     :data-value="opt"
-                    @click="value = opt"
+                    @click="value = opt.text"
                 >
-                    {{ opt }}
+                    {{ opt.text }}
                 </div>
             </div>
         </div>
