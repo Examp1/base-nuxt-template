@@ -58,7 +58,7 @@ onMounted(() => {
 </template>
 
 <style>
-section {
+.constructor-container section {
     position: relative;
     transition: 0.3s;
     *{
