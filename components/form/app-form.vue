@@ -25,6 +25,7 @@ const components = [
     "form-select",
     "form-editor",
     "form-checkbox",
+    "form-radiogroup",
 ];
 
 const componentMap = components.reduce((map, name) => {
@@ -71,7 +72,7 @@ const onSubmit = handleSubmit((values) => {
             </div>
         </div>
     </form>
-    <div v-else class="success">
+    <div v-else class="success" :class="theme">
         <div class="success-header">
             <h3>{{ successData.success_title || "success title" }}</h3>
         </div>
