@@ -69,10 +69,13 @@ const cardClasses = computed(() => {
             : null,
         props.card.gap ? `gap-${props.card.gap}` : null,
         props.card.cardType || "vertical",
-        props.card.imgSize ? `img-size-${props.card.imgSize}` : "img-size-md",
+        props.card.imgSize ? `img-size-${props.card.imgSize}` : "img-size-auto",
         { adaptive: props.card.adaptive },
         props.card.contentPosition
             ? `content-position-${props.card.contentPosition}`
+            : null,
+        props.card.imageAspectRatio
+            ? `ratio-${props.card.imageAspectRatio}`
             : null,
         props.card.customClass,
         props.card.background,
@@ -170,7 +173,6 @@ const hasText = computed(() => {
 </template>
 
 <style
-    scoped
     lang="scss"
     src="../../assets/scss/system/components/cards/card-component.scss"
 ></style>

@@ -16,6 +16,7 @@ const enhanceCard = (cardObj) => {
         noBg: true,
         gap: "md",
         imageReverse: true,
+        imgRounding: "md",
     };
 };
 </script>

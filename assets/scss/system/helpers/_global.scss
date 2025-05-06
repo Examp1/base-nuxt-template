@@ -135,4 +135,7 @@ scrollbar-thumb {
 .swiper-slide {
     display: flex !important;
     height: auto !important;
+    .card{
+        width: 100%;
+    }
 }

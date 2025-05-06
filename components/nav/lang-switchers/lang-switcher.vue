@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from "vue";
 import AppSprite from "~/components/common/app-sprite.vue";
-const { locale, locales, setLocale } = useI18n();
+const { locale, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
 const availableLocales = computed(() => {
     return locales.value.filter((i) => i.code !== locale.value);
@@ -21,8 +22,7 @@ const lolizedValue = {
             <NuxtLink
                 v-for="locale in availableLocales"
                 :key="locale.code"
-                :to="locale.code"
-                @click.prevent="setLocale(locale.code)"
+                :to="switchLocalePath(locale.code)"
                 class="other-lang"
             >
                 <AppSprite :id="locale.code"></AppSprite

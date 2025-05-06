@@ -67,10 +67,12 @@ const enhancedCards = computed(() => {
 
 <style lang="scss" scoped>
 :deep(.card) {
+    .card{
+        width: 100%;
+    }
     .card-header {
         img {
             /* aspect-ratio: 0.55; */
-            object-fit: cover;
         }
     }
 }

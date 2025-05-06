@@ -27,7 +27,7 @@ defineProps({
                 <div class="info-text">
                     {{ $t("sisidev-info-text") }}
                 </div>
-                <TheThemeCircle v-if="width > 576" class="dn-576" />
+                <TheThemeCircle v-if="false" class="dn-576" />
             </div>
             <div v-if="width > 1024" class="menu aic dn-1024">
                 <nuxt-link

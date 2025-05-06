@@ -27,6 +27,7 @@ defineProps({
     height: auto;
     margin-bottom: -6px;
     background-color: transparent;
+    transition: .3s;
     svg path {
         fill: var(--bg-default);
     }
