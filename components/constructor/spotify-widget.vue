@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue"
 defineProps({
     content: {
         type: Object,
@@ -6,9 +7,11 @@ defineProps({
     },
 });
 const themes = ["bg-light", "bg-light-2", "bg-dark", "bg-color"];
+const blockTheme = ref('bg-color')
+
 </script>
 <template>
-    <div class="container">
+    <div class="container" :class="blockTheme">
         <div class="text-block">
             <div class="block-title xxxl">{{ content.title }}</div>
             <div
@@ -22,8 +25,8 @@ const themes = ["bg-light", "bg-light-2", "bg-dark", "bg-color"];
                     v-for="theme in themes"
                     :key="theme"
                     :class="theme"
-                    :data-theme="theme"
-                    class="theme sisi-dev-theme"
+                    @click="blockTheme = theme"
+                    class="theme"
                 ></div>
             </div>
         </div>
@@ -39,7 +42,6 @@ const themes = ["bg-light", "bg-light-2", "bg-dark", "bg-color"];
     text-align: center;
     gap: 60px;
     border-radius: var(--card-border-radius-md);
-    background-color: var(--bg-accent);
 }
 .text-block {
     display: grid;
