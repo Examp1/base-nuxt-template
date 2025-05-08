@@ -2,7 +2,7 @@
 import appSectionTitle from "~/components/common/app-section-title.vue";
 import { slideToggle } from "@/composables/useSlideAnimations.ts";
 
-defineProps({
+const props = defineProps({
     content: {
         type: Object,
         required: true,
@@ -21,7 +21,10 @@ defineProps({
             v-for="(accordion_item, idx) in content.cards_list"
             :key="'accordion_item' + idx"
             class="accordion-block-row"
-            :class="!!accordion_item.text_editor || 'no-content'"
+            :class="[
+                !!accordion_item.text_editor || 'no-content',
+                !!accordion_item.image ? 'hasImage' : 'noImage',
+            ]"
         >
             <img :src="path(accordion_item.image)" alt="" />
             <div class="accordion-wrapper">
@@ -29,7 +32,10 @@ defineProps({
                     class="accorion-trigger"
                     @click="slideToggle($event.target)"
                 >
-                    <div class="block-title xxxl">
+                    <div
+                        class="block-title"
+                        :class="accordion_item.titleSize || 'xxxl'"
+                    >
                         {{ accordion_item.title }}
                     </div>
                     <div class="tag-list">
@@ -55,13 +61,15 @@ defineProps({
 <style lang="scss" scoped>
 .accordion-block-row {
     display: grid;
-    grid-template-columns: 0.25fr 0.75fr;
-    gap: 120px;
     align-items: start;
     border-bottom: 1px solid var(--border-light);
     padding: var(--accordeon-body-padding-y-md)
         var(--accordeon-body-padding-y-md) 48px
         var(--accordeon-body-padding-y-md);
+    &.hasImage {
+        grid-template-columns: 0.25fr 0.75fr;
+        gap: 120px;
+    }
     @include bp-820 {
         grid-template-columns: 1fr;
         gap: 32px;

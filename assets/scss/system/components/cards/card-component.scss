@@ -281,11 +281,11 @@ $sizes: "sm", "xs", "md", "lg", "xl";
         background-color: rgba(#000, 0.3);
         z-index: 1;
     }
-    &:hover{
-     .card-image img{
-        transform: scale(1.1);
-     }               
-    }
+    // &:hover{
+    //  .card-image img{
+        // transform: scale(1.1);
+    //  }               
+    // }
 }
 .vertical {
     display: flex;
