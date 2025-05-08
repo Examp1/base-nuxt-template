@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { BASE_URL } from "@/constants";
 import { useForm } from "vee-validate";
+const emit = defineEmits("success");
 
 const isSuccess = ref(false);
 let successData = ref(null);
@@ -46,6 +47,7 @@ const onSubmit = handleSubmit((values) => {
         },
     });
     successData.value = data;
+    emit("success");
     isSuccess.value = true;
 });
 </script>
@@ -73,7 +75,7 @@ const onSubmit = handleSubmit((values) => {
         </div>
     </form>
     <div v-else class="success" :class="theme">
-        <div class="success-header">
+        <div class="success-header bg-color">
             <h3>{{ successData.success_title || "success title" }}</h3>
         </div>
         <div class="success-body">

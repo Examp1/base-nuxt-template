@@ -40,6 +40,7 @@ const enhancedCards = computed(() => {
         bodyPadding: "none",
         noBg: true,
         gap: "md",
+        imgRounding: "md"
     }));
 });
 </script>

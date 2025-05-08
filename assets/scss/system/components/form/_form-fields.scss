@@ -389,9 +389,9 @@
         align-items: flex-start;
         gap: var(--modal-header-gap-sm);
         align-self: stretch;
-        background: var(--alert-success-bg-light);
+        // background: var(--alert-success-bg-light);
         h3 {
-            color: var(--alert-success-text);
+            // color: var(--alert-success-text);
             font-size: var(--typography-title-font-size-md);
             font-style: normal;
             font-weight: 500;

@@ -84,6 +84,7 @@ defineProps({
 }
 .header-body,
 .header-logo {
+    border-radius: var(--header-main-border-radius-md);
     background: var(--header-main-bg);
     height: var(--header-main-height);
     padding: 10px var(--header-main-padding-x);
