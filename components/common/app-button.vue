@@ -9,9 +9,7 @@ defineProps({
     },
 });
 const opneModal = ref(false);
-const loadForm = (form_id) => {
-    alert(`form_id: ${form_id}`);
-};
+
 </script>
 
 <template>
@@ -21,14 +19,14 @@ const loadForm = (form_id) => {
         @click="opneModal = true"
         :class="[btn.size, btn.type, 'icon-' + btn.icon]"
     >
-        {{ btn.text }}
+        {{ btn.text || btn.name }}
     </div>
     <NuxtLink
         v-else
         :to="btn.link"
         class="btn"
         :class="[btn.size, btn.type, 'icon-' + btn.icon]"
-        >{{ btn.text }}</NuxtLink
+        >{{ btn.text || btn.name }}</NuxtLink
     >
     <Transition name="fade">
         <Teleport v-if="opneModal" to="#app-root">

@@ -2,6 +2,11 @@
 import { useWindowSize } from "@vueuse/core";
 import TheThemeCircle from "./the-theme-circle.vue";
 import { useModalStore } from "~/store/modal";
+import { useSettingStore } from "~/store/app-settings.js";
+import appButton from "~/components/common/app-button.vue";
+const {
+    settings: { head_btn },
+} = useSettingStore();
 
 const { width } = useWindowSize();
 const modal = useModalStore();
@@ -47,16 +52,21 @@ defineProps({
                                 v-if="link2lvl.children.length"
                                 class="dropdown"
                             >
-                                {{ link2lvl.children }}!
+                                {{ link2lvl.children }}
                             </div>
                         </nuxt-link>
                     </div>
                 </nuxt-link>
             </div>
             <div class="actions-wrapper df">
-                <div v-if="width > 576" class="btn fill md dn-576">
-                    Почати співпрацю
-                </div>
+                <appButton
+                    v-if="width > 576"
+                    class="dn-576"
+                    :btn="{ ...head_btn, size: 'md', type: 'fill', type_link: 'form' }"
+                ></appButton>
+                <!-- <div  class="btn fill md dn-576">
+                    {{ head_btn.name || 'Почати співпрацю' }}
+                </div> -->
                 <div
                     v-if="width <= 1024"
                     class="btn tint md icon-menu"
