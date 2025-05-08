@@ -8,16 +8,15 @@ onBeforeUnmount(() => {
     document.body.style.overflow = "";
 });
 
-const isSuccess = false
-
 </script>
 <template>
     <div class="modal-overlay" @click.self="emit('close')">
         <div class="modal-content">
-            <div class="close-btn btn text sm" :class="{'bg-color': isSuccess}" @click="emit('close')">
+            {{ isSuccess }}
+            <div class="close-btn btn text sm" @click="emit('close')">
                 {{ $t("close_btn") }} <i class="icon-x"></i>
             </div>
-            <slot @success="isSuccess = true"/>
+            <slot/>
         </div>
     </div>
 </template>
@@ -31,6 +30,11 @@ const isSuccess = false
     display: flex;
     justify-content: center;
     align-items: center;
+    &:has(.success){
+        .close-btn{
+            color: #fff
+        }
+    }
 }
 .close-btn {
     position: absolute;

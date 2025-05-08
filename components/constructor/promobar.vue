@@ -55,6 +55,8 @@ const transformedImagesList = computed(() => {
 </template>
 
 <style scoped lang="scss">
+
+
 .marquee-infinite {
     width: 100%;
     height: fit-content;
