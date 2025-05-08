@@ -20,7 +20,7 @@ const { value, errorMessage } = useField(field__name, fieldRules, {
 </script>
 <template>
     <!-- <?= $item['field_style'] ?: 'outlined' ?></div> -->
-    <div class="form-field" :class="{ required: rules.required }">
+    <div class="form-field sm" :class="{ required: rules.required }">
         <span class="field-title">{{ field__title }}</span>
         <input
             type="text"

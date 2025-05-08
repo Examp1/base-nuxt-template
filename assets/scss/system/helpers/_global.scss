@@ -68,8 +68,8 @@ video {
 
 /* Для WebKit-браузеров */
 ::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
+    width: 5px;
+    height: 5px;
 }
 
 // ::-webkit-scrollbar-track {
@@ -77,13 +77,14 @@ video {
 // }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888;
+    background-color: #ff4c30;
+    cursor: grab;
 }
 
 /* Для Firefox */
 scrollbar {
-    width: 2px;
-    height: 2px;
+    width: 5px;
+    height: 5px;
 }
 
 // scrollbar-track {
@@ -91,7 +92,8 @@ scrollbar {
 // }
 
 scrollbar-thumb {
-    background-color: #888;
+    background-color: #ff4c30;
+    cursor: grab;
 }
 .swiper {
     width: 100% !important;

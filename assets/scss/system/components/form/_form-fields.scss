@@ -31,6 +31,7 @@
         padding: var(--form-input-padding-y-lg);
     }
     .field-title {
+        display: block;
         font-size: var(--typography-form-label-font-size-font-size-lg);
         padding-bottom: var(--form-label-padding-y-lg);
     }
@@ -140,7 +141,6 @@
     }
     .field-title {
         color: var(--text-default);
-        text-align: center;
         font-style: normal;
         font-weight: 500;
         line-height: 120%;

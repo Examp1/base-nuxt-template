@@ -1,5 +1,6 @@
 <script setup>
-const { locale, locales, setLocale } = useI18n();
+const { locale, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 const lolizedValue = {
     uk: "Укр",
     en: "Eng",
@@ -11,8 +12,7 @@ const lolizedValue = {
         <NuxtLink
             v-for="lang in locales"
             :key="lang.code"
-            :to="lang.code"
-            @click.prevent="setLocale(lang.code)"
+            :to="switchLocalePath(lang.code)"
             class="btn tint sm"
             :class="{ stroke: locale === lang.code }"
         >

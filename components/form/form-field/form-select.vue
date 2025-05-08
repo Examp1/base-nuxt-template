@@ -36,7 +36,7 @@ watch(value, () => {
 
 <template>
     <div
-        class="form-field underline"
+        class="form-field sm"
         :class="{ required: rules.required }"
         ref="wrapperRef"
     >

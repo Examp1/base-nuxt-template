@@ -57,7 +57,7 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
             </div>
             <div class="footer-cta">
                 <div class="block-title md">
-                    Узнавайте першими про оновлення та важливі новини БукКіпер
+                    Узнавайте першими про оновлення та важливі новини Sisi.dev
                 </div>
                 <form class="form-cta" data-form="4385">
                     <div class="form-field required md" id="form-cta-input">
