@@ -62,6 +62,7 @@ const transformedImagesList = computed(() => {
 }
 .marquee-wrp {
     padding: 10px;
+    overflow: hidden;
     img {
         max-height: 100px;
         object-fit: contain;
