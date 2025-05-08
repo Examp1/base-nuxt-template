@@ -38,14 +38,14 @@ onMounted(() => {
 .constructor-container section {
     position: relative;
     transition: 0.3s;
-    *{
+    * {
         transition: 0.3s;
     }
     .theme-switch {
         position: absolute;
         right: 20px;
         top: 20px;
-        padding: 10px;
+        padding: 2px;
         background-color: #fff;
         border-radius: 50px;
         display: flex;
@@ -53,6 +53,7 @@ onMounted(() => {
         z-index: 1;
         border: 1px solid #ccc;
         transition: 0.3s;
+        overflow: hidden;
         opacity: 0;
         visibility: hidden;
         div {
@@ -67,6 +68,28 @@ onMounted(() => {
         .theme-switch {
             opacity: 1;
             visibility: visible;
+        }
+    }
+    svg {
+        [data-theme="bg-light"] {
+            fill: #ffffff;
+        }
+        [data-theme="bg-light-2"] {
+            fill: #ebebf0;
+        }
+        [data-theme="bg-dark"] {
+            fill: #1c1c1e;
+        }
+        [data-theme="bg-color"] {
+            fill: #ff4c30;
+        }
+        path {
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        path:hover {
+            transform-origin: center;
+            transform: scale(1.2);
         }
     }
 }

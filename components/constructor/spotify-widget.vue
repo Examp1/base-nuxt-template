@@ -5,10 +5,10 @@ defineProps({
         required: true,
     },
 });
-const themes = ["theme1", "theme2", "theme3", "theme1"];
+const themes = ["bg-light", "bg-light-2", "bg-dark", "bg-color"];
 </script>
 <template>
-    <div class="container bg-color">
+    <div class="container">
         <div class="text-block">
             <div class="block-title xxxl">{{ content.title }}</div>
             <div
@@ -22,7 +22,8 @@ const themes = ["theme1", "theme2", "theme3", "theme1"];
                     v-for="theme in themes"
                     :key="theme"
                     :class="theme"
-                    class="theme"
+                    :data-theme="theme"
+                    class="theme sisi-dev-theme"
                 ></div>
             </div>
         </div>
@@ -38,6 +39,7 @@ const themes = ["theme1", "theme2", "theme3", "theme1"];
     text-align: center;
     gap: 60px;
     border-radius: var(--card-border-radius-md);
+    background-color: var(--bg-accent);
 }
 .text-block {
     display: grid;
@@ -72,6 +74,7 @@ const themes = ["theme1", "theme2", "theme3", "theme1"];
             left: 0;
             z-index: 1;
             border-radius: 50%;
+            background-color: inherit;
         }
         &::before {
             content: "";
