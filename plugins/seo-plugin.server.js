@@ -4,7 +4,6 @@ import { defineNuxtPlugin } from "#app";
 
 import {
     fetchSettings,
-    fetchMenus,
 } from "~/composables/fetchMenusAndProjectSettings.js";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
@@ -27,13 +26,19 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         ],
     });
 
-    if (!menuCount.value) {
-        const menus = await fetchMenus([54, 55, 61], locale);
-        menuCount.value = menus.length;
-        headerMenu.value = menus[54];
-        navBarMenu.value = menus[61];
-        footerMenu.value = menus[55];
-    }
+    // if (!menuCount.value) {
+    //     const menus = await fetchMenus([54, 55, 61], locale);
+    //     menuCount.value = menus.length;
+    //     if ( menus[54] ){
+    //         headerMenu.value = menus[54];
+    //     }
+    //     if ( menus[61] ){
+    //         navBarMenu.value = menus[61];
+    //     }
+    //     if ( menus[55] ){
+    //         footerMenu.value = menus[55];
+    //     }
+    // }
 
     nuxtApp.$i18n.onBeforeLanguageSwitch(() => {
         console.log("locale switch");

@@ -4,7 +4,6 @@ import { defineNuxtPlugin } from "#app";
 
 import {
     fetchSettings,
-    fetchMenus,
 } from "~/composables/fetchMenusAndProjectSettings.js";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -21,10 +20,10 @@ export default defineNuxtPlugin((nuxtApp) => {
             title: settings.value.sitename,
         });
 
-        const menus = await fetchMenus([54, 55, 61], locale);
-        menuCount.value = menus.length;
-        headerMenu.value = menus[54];
-        navBarMenu.value = menus[61];
-        footerMenu.value = menus[55];
+        // const menus = await fetchMenus([54, 55, 61], locale);
+        // menuCount.value = menus.length;
+        // headerMenu.value = menus[54];
+        // navBarMenu.value = menus[61];
+        // footerMenu.value = menus[55];
     });
 });

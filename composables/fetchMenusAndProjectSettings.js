@@ -10,7 +10,7 @@ export const fetchMenus = async (ids, lang) => {
         });
         return data?.value.items;
     } catch (error) {
-        throw new Error("Ошибка при загрузке меню:", error);
+        console.error("Ошибка при загрузке меню:", error);
     }
 };
 
@@ -22,6 +22,6 @@ export const fetchSettings = async (lang) => {
         });
         return data?.value.items;
     } catch (error) {
-        throw new Error("Ошибка при загрузке настроек:", error);
+        console.error("Ошибка при загрузке настроек:", error);
     }
 };
