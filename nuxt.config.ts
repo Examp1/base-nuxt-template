@@ -42,7 +42,8 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "@nuxtjs/google-fonts",
     ],
-    plugins: ["~/plugins/seo-plugin.server.js", "~/plugins/change-locale.js"],
+    // "~/plugins/seo-plugin.server.js",
+    plugins: [ "~/plugins/change-locale.js", "~/plugins/load-app-settings.server.js"],
     i18n: {
         locales: [
             { code: "uk", name: "Ukrainian", file: "uk.json" },

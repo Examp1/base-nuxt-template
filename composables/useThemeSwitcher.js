@@ -39,7 +39,7 @@ export function useThemeSwitcher() {
                 />
             </svg>`;
         sections.forEach((section) => {
-            if (section.classList.contains("block-first-screen") || section.classList.contains("block-spotify-widget")) return;
+            if (!section.closest('.constructor-container') || section.classList.contains("block-first-screen") || section.classList.contains("block-spotify-widget")) return;
             const div = document.createElement("div");
             div.classList.add("theme-switch");
             div.innerHTML = themeHTML;

@@ -9,14 +9,16 @@ import pagePreloader from "./components/common/page-preloader.vue";
 import { useThemeSwitcher } from "~/composables/useThemeSwitcher";
 useWindowSizeRange();
 useThemeSwitcher();
-const showPreloader = ref(true);
+const isPageReady = ref(false);
+const route = useRoute()
+
 onMounted(() => {
     const nuxtApp = useNuxtApp();
     nuxtApp.hook("page:start", () => {
-        showPreloader.value = true;
+        isPageReady.value = false;
     });
     nuxtApp.hook("page:finish", () => {
-        showPreloader.value = false;
+        isPageReady.value = true;
     });
 });
 </script>
@@ -25,11 +27,13 @@ onMounted(() => {
         <NuxtLoadingIndicator />
         <theHeader />
         <NuxtRouteAnnouncer />
-        <NuxtPage />
+        <!-- <transition name="fade" mode="out-in"> -->
+            <NuxtPage :key="route.fullPath"/>
+        <!-- </transition> -->
         <theFooter />
         <theStickyMedia />
         <transition name="fade" mode="out-in">
-            <pagePreloader v-if="showPreloader" />
+            <pagePreloader v-if="!isPageReady" />
         </transition>
     </div>
 </template>

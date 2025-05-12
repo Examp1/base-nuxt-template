@@ -1,8 +1,7 @@
 <script setup>
 import { useApiRequest } from "@/composables/useApiRequest";
 import ConstructorRender from "~/components/constructor/constructor-render.vue";
-const { data, status } = useApiRequest("home", "api/page/get-by-slug", {
-    lang: "uk",
+const { data, status } = useApiRequest("api/page/get-by-slug", {
     slug: "/",
 });
 </script>

@@ -13,18 +13,18 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     if (!settings.value?.seo) {
         const data = await fetchSettings(locale);
-        settings.value = data;
+        // settings.value = data;
     }
-    useHead({
-        title: settings.value.sitename,
-        link: [
-            {
-                rel: "shortcut icon",
-                href: path(settings.value.favicon),
-                type: "image/png",
-            },
-        ],
-    });
+    // useHead({
+    //     title: '123',
+    //     link: [
+    //         {
+    //             rel: "shortcut icon",
+    //             href: path(settings.value.favicon),
+    //             type: "image/png",
+    //         },
+    //     ],
+    // });
 
     // if (!menuCount.value) {
     //     const menus = await fetchMenus([54, 55, 61], locale);

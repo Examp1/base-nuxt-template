@@ -136,6 +136,7 @@ const asyncComponents = {
         z-index: 2;
         overflow-x: hidden;
         position: relative;
+        margin-top: -100px;
     }
     .simple-text:first-of-type .redactor > * {
         color: var(--text-light);

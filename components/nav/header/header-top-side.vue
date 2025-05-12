@@ -20,9 +20,9 @@ defineProps({
         <div class="container jcsb">
             <div class="col-l aic">
                 <a
-                    v-if="contactsInfo.phone?.[0]"
+                    v-if="contactsInfo.phone?.[0] && width >= 576"
                     :href="`tel:${contactsInfo.phone[0].number}`"
-                    class="nav-link sm text-light"
+                    class="nav-link sm text-light dn-576"
                     >{{ contactsInfo.phone[0].title }}</a
                 >
                 <div
