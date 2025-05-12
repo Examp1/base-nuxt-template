@@ -6,7 +6,7 @@ export const addMetaTags = (meta) => {
     console.log(settings);
     if (!meta) return;
     useHead({
-        title: settings.value.sitename,
+        title: settings.value.sitename || "Sisi.dev",
         meta: [
             meta.description && {
                 name: "description",
