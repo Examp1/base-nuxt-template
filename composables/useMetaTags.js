@@ -3,7 +3,6 @@ import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 export const addMetaTags = (meta) => {
     const { settings } = storeToRefs(useSettingStore());
-    console.log(settings);
     if (!meta) return;
     useHead({
         title: settings.value.sitename || "Sisi.dev",
