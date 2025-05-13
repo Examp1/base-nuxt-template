@@ -102,7 +102,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
         color: var(--text-brand);
     }
     .card-text {
-        --row-clamp: 5;
+        --row-clamp: 10;
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
