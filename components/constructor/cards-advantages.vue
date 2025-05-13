@@ -28,8 +28,8 @@ const sliderOptions = {
     breakpoints: {
         576: { slidesPerView: 1.2 },
         1024: { slidesPerView: 3.1 },
-        1440: { slidesPerView: 4 },
-        1600: { slidesPerView: 5 },
+        // 1440: { slidesPerView: 4 },
+        1600: { slidesPerView: 4 },
     },
 };
 
