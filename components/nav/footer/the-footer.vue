@@ -18,7 +18,7 @@ const { contactSettings, logosSettings, footerMenu, navBarMenu } =
                         Стабільність. Масштабованість. Надійність
                     </div>
                 </div>
-                <div class="accent">
+                <div class="accent-block">
                     <h2 class="block-title xxl">Сайти, які роблять жінки</h2>
                     <div class="block-text sm">Від ідеї до реалізації</div>
                 </div>
@@ -116,7 +116,7 @@ footer {
                 text-align: center;
             }
         }
-        .accent {
+        .accent-block {
             text-align: center;
             border-radius: 12px;
             background: var(--bg-accent);

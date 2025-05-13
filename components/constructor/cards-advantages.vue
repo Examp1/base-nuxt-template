@@ -52,7 +52,7 @@ const enhancedCards = computed(() => {
             :title="content.title"
         ></appSectionTitle>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <swiper v-bind="sliderOptions" :modules="[Autoplay]">
             <swiper-slide
                 class="slide_item"
