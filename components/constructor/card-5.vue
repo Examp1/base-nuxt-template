@@ -44,6 +44,16 @@ const enhanceCard = (cardObj) => {
     .card-body {
         .card-text {
             margin-top: 120px;
+            @include bp-576 {
+                margin-top: 48px;
+            }
+        }
+    }
+}
+:deep(.card) {
+    @include bp-576 {
+        .card-additional-btns {
+            margin-bottom: 80px;
         }
     }
 }

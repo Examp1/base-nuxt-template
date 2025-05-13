@@ -9,7 +9,6 @@ import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 const { width } = useWindowSize();
 const modal = useModalStore();
-
 defineProps({
     logos: {
         type: Object,
@@ -34,14 +33,14 @@ defineProps({
                 <TheThemeCircle v-if="false" class="dn-576" />
             </div>
             <div v-if="width > 1024" class="menu aic dn-1024">
-                <nuxt-link
+                <NuxtLink
                     :to="link.url"
                     v-for="(link, idx) in headerMenu"
                     :key="'link' + idx"
                     class="nav-link md text-light link-1lvl"
                     >{{ link.name }}
                     <div v-if="link.children.length" class="dropdown">
-                        <nuxt-link
+                        <NuxtLink
                             :to="link2lvl.url"
                             v-for="(link2lvl, idx) in link.children"
                             :key="'link' + idx"
@@ -53,9 +52,9 @@ defineProps({
                             >
                                 {{ link2lvl.children }}
                             </div>
-                        </nuxt-link>
+                        </NuxtLink>
                     </div>
-                </nuxt-link>
+                </NuxtLink>
             </div>
             <div class="actions-wrapper df">
                 <appButton
@@ -92,6 +91,7 @@ defineProps({
     z-index: 100;
     height: fit-content;
     /* top: 100%; */
+    margin-top: 13px;
     @include bp-576 {
         grid-template-columns: 80px auto;
     }

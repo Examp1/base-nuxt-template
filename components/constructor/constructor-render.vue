@@ -120,6 +120,7 @@ const asyncComponents = {
         padding-top: 260px;
         padding-bottom: 300px;
         background-color: #000;
+        overflow-x: hidden;
         & > section {
             background-color: #000;
         }

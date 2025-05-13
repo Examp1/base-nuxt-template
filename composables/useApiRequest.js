@@ -8,7 +8,6 @@ export const useApiRequest = (url, reqOptions) => {
 
 
     if (cacheData) {
-        console.log(cacheData);
         addMetaTags(cacheData.seo)
         return {
             data: cacheData,

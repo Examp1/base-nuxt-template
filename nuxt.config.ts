@@ -43,19 +43,33 @@ export default defineNuxtConfig({
         "@nuxtjs/google-fonts",
     ],
     // "~/plugins/seo-plugin.server.js",
-    plugins: [ "~/plugins/change-locale.js", "~/plugins/load-app-settings.server.js"],
+    plugins: [
+        "~/plugins/change-locale.js",
+        "~/plugins/load-app-settings.server.js",
+    ],
     i18n: {
-        locales: [
-            { code: "uk", name: "Ukrainian", file: "uk.json" },
-            { code: "en", name: "English", file: "en.json" },
-        ],
+        strategy: "prefix_except_default",
         defaultLocale: "uk",
+        locales: [
+            { code: "uk", file: "uk.json" },
+            { code: "en", file: "en.json" },
+        ],
+        lazy: true,
+        langDir: "locales/",
+        detectBrowserLanguage: false,
+        // detectBrowserLanguage: {
+        //     useCookie: true,
+        //     cookieKey: "i18n_redirected",
+        //     fallbackLocale: "uk",
+        //     alwaysRedirect: false, // <<< ВАЖНО
+        //     redirectOn: "root",
+        // },
     },
     googleFonts: {
         // stylePath: 'assets/css/google-fonts.css',
-        outputDir: 'assets/',
+        outputDir: "assets/",
         families: {
-            "Roboto": true,
+            Roboto: true,
         },
     },
 });

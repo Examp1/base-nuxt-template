@@ -71,6 +71,7 @@ defineProps({
     justify-content: space-between;
     align-items: center;
     height: var(--header-top-haight);
+    border-bottom: 1px solid var(--header-top-border);
     .col-l {
         gap: var(--header-top-gap-outter);
     }

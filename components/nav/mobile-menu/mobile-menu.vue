@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from "vue";
 import { NuxtLink } from "#components";
+import { useSettingStore } from "~/store/app-settings.js";
 import { useModalStore } from "~/store/modal";
 import langSwitcherRow from "../lang-switchers/lang-switcher-row.vue";
+import appButton from "~/components/common/app-button.vue";
 import otherLvlMenu from "./other-lvl-menu.vue";
 const modal = useModalStore();
+const { settings } = storeToRefs(useSettingStore());
 let otherMenuLvl = ref(null);
 defineProps({
     logos: {
@@ -54,7 +57,14 @@ defineProps({
             </transition>
         </div>
         <div class="center">
-            <div class="btn fill lg">Почати співпрацю</div>
+            <appButton
+                :btn="{
+                    ...settings.head_btn,
+                    size: 'lg',
+                    type: 'fill',
+                    type_link: 'form',
+                }"
+            ></appButton>
         </div>
         <div class="mobile-menu-footer">
             <a
@@ -74,12 +84,12 @@ defineProps({
                 {{ contactsInfo.schedule[0].time }}
             </div>
             <nav class="socials" v-if="contactsInfo.socials">
-                <nuxt-link
+                <NuxtLink
                     :to="link.link"
                     v-for="(link, idx) in contactsInfo.socials"
                     :key="'navMenuLink' + idx"
                     class="nav-link md text-light"
-                    >{{ link.type }}</nuxt-link
+                    >{{ link.type }}</NuxtLink
                 >
             </nav>
             <langSwitcherRow />
@@ -102,6 +112,7 @@ defineProps({
         .logo {
             img {
                 width: 48px;
+                border-radius: unset;
             }
         }
         .info-text {

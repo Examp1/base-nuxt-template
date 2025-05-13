@@ -43,9 +43,6 @@ const enhancedCards = computed(() => {
 
 <style lang="scss" scoped>
 :deep(.card) {
-    .card-body {
-        align-items: center;
-    }
     .card-header img {
         object-fit: contain;
         border-radius: unset;

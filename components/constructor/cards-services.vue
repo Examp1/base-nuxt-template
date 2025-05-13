@@ -18,6 +18,7 @@ const enhanceCard = (cardObj) => {
         titleSize: "xl",
         imageReverse: true,
         imgRounding: "none",
+        textColorClass: "text-light",
     };
 };
 </script>
@@ -47,9 +48,15 @@ const enhanceCard = (cardObj) => {
     }
     .card-image {
         max-width: 220px;
+        max-height: 130px;
         img {
             border-radius: unset;
         }
+    }
+}
+:deep(.card ){
+    .card-body .card-info{
+        gap: 24px;
     }
 }
 </style>

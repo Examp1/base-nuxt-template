@@ -63,16 +63,14 @@ const props = defineProps({
     display: grid;
     align-items: start;
     border-bottom: 1px solid var(--border-light);
-    padding: var(--accordeon-body-padding-y-md)
-        var(--accordeon-body-padding-y-md) 48px
-        var(--accordeon-body-padding-y-md);
+    padding: var(--accordeon-body-padding-y-md);
     &.hasImage {
         grid-template-columns: 0.25fr 0.75fr;
         gap: 120px;
     }
     @include bp-820 {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
     }
     img {
         object-fit: contain;
@@ -82,12 +80,11 @@ const props = defineProps({
     .accordion-wrapper {
         .accorion-trigger {
             display: grid;
-            gap: 24px;
-            padding-bottom: 24px;
             position: relative;
             cursor: pointer;
             padding-right: 34px;
             &.active {
+                padding-bottom: 24px;
                 &::after {
                     transform: rotate(180deg);
                 }
