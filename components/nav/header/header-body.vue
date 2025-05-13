@@ -105,7 +105,7 @@ defineProps({
 }
 .header-logo {
     img {
-        width: 58px;
+        height: 58px;
         object-fit: contain;
         border-radius: unset;
         @include bp-576 {

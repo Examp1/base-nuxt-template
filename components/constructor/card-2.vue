@@ -54,6 +54,11 @@ const enhancedCards = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.card {
+    @include bp-576 {
+        grid-template-columns: 100px auto;
+    }
+}
 .container > * {
     position: relative;
     z-index: 1;
@@ -86,6 +91,9 @@ const enhancedCards = computed(() => {
         }
         @include bp-1024 {
             grid-column: 130px;
+        }
+        @include bp-576 {
+             min-height: 90px;
         }
     }
     .laravel {

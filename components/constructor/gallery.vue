@@ -26,7 +26,7 @@ const sliderOptions = {
         disableOnInteraction: false,
     },
     breakpoints: {
-        380: { slidesPerView: breakpointsArray[3] },
+        440: { slidesPerView: breakpointsArray[3] },
         576: { slidesPerView: breakpointsArray[2] },
         1024: { slidesPerView: breakpointsArray[1] },
         1440: { slidesPerView: breakpointsArray[0] },

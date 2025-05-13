@@ -57,7 +57,7 @@ defineProps({
                     >
                 </nav>
             </div>
-            <div class="col-r">
+            <div v-if="width >= 768" class="col-r dn-768">
                 <LangSwitcher></LangSwitcher>
             </div>
         </div>
@@ -69,9 +69,15 @@ defineProps({
     background: var(--header-top-bg);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: var(--header-top-haight);
     .col-l {
         gap: var(--header-top-gap-outter);
+    }
+    @include bp-768{
+        .jcsb{
+            justify-content: center;
+        }
     }
 }
 </style>
