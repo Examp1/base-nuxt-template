@@ -1,14 +1,18 @@
 import { BASE_URL } from "~/constants";
-export default defineNuxtPlugin((nuxtApp) => {
-    const pinia = nuxtApp.$pinia.state.value;
+import { useSettingStore } from "~/store/app-settings.js";
+export default defineNuxtPlugin(async (nuxtApp) => {
+    const { settings, headerMenu, footerMenu, navBarMenu } =
+        storeToRefs(useSettingStore());
     const locale = nuxtApp.$i18n.locale.value;
     const fetchSettings = async () => {
+        console.log("fetchSettings-plugin");
+        console.log(settings);
         try {
             const { data } = await useFetch(`${BASE_URL}/api/setting/get`, {
                 method: "POST",
                 body: { lang: locale },
             });
-            pinia["setting-store"].settings = data?.value.items;
+            settings.value = data?.value.items;
         } catch (error) {
             console.error("Ошибка при загрузке настроек:", error);
         }
