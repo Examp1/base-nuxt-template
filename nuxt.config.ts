@@ -42,9 +42,7 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "@nuxtjs/google-fonts",
     ],
-    // "~/plugins/seo-plugin.server.js",
     plugins: [
-        "~/plugins/change-locale.js",
         "~/plugins/load-app-settings.server.js",
     ],
     i18n: {

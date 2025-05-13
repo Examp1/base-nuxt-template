@@ -8,9 +8,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                 method: "POST",
                 body: { lang: locale },
             });
-            console.log(pinia["setting-store"].settings);
             pinia["setting-store"].settings = data?.value.items;
-            console.log(pinia["setting-store"].settings);
         } catch (error) {
             console.error("Ошибка при загрузке настроек:", error);
         }
