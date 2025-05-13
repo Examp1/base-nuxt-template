@@ -5,8 +5,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         storeToRefs(useSettingStore());
     const locale = nuxtApp.$i18n.locale.value;
     const fetchSettings = async () => {
-        console.log("fetchSettings-plugin");
-        console.log(settings);
         try {
             const { data } = await useFetch(`${BASE_URL}/api/setting/get`, {
                 method: "POST",

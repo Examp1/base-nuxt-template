@@ -15,7 +15,6 @@ export const fetchMenus = async (ids, lang) => {
 };
 
 export const fetchSettings = async (lang) => {
-    console.log('fetchSettings-composible');
     try {
         const { data } = await useFetch(`${BASE_URL}/api/setting/get`, {
             method: "POST",
