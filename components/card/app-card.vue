@@ -34,7 +34,7 @@ const props = defineProps({
 
 const isBottom = computed(() => {
     return (
-        props.card.imageReverse ||
+        !!props.card.imageReverse ||
         (props.content.image_position === "bottom" &&
             props.content.type === "image")
     );
