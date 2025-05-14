@@ -78,9 +78,9 @@ onUnmounted(() => {
                 muted=""
                 playsinline=""
                 loop=""
-                src="https://yescenter.com.ua/yes.mov"
+                :src="getMediaPath(settings.company_info_video)"
                 ></video>
-                <!-- :src="getMediaPath(settings.company_info_video)" -->
+                <!-- src="https://yescenter.com.ua/yes.mov" -->
         </div>
     </transition>
 </template>
