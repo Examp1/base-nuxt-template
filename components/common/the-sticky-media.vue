@@ -20,33 +20,38 @@ const playOrPause = () => {
     }
 };
 
+let SisiDevCtaBlock;
+
 const playVideo = () => {
-    alert('playVideo')
     videoRef.value?.play();
 };
 
 const pauseVideo = () => {
-    alert('pauseVideo')
     videoRef.value?.pause();
 };
 const openOnFullSize = () => {
     isFullSize.value = !isFullSize.value;
-    alert('openOnFullSize')
     if (videoRef.value) {
         videoRef.value.muted = !isFullSize.value;
     }
 };
 
 const scrollHandler = () => {
-    isShow.value = window.scrollY > 1500
-} 
+    const elOffest = SisiDevCtaBlock.getBoundingClientRect().top
+    if ( elOffest - 1000 > 0 ) {
+        isShow.value = window.scrollY > 1500;
+    } else {
+        isShow.value = false
+    }
+};
 
 onMounted(() => {
-    window.addEventListener('scroll', scrollHandler)
+    SisiDevCtaBlock = document.querySelector(".block-sisi-dev-cta");
+    window.addEventListener("scroll", scrollHandler);
 });
 onUnmounted(() => {
-  window.removeEventListener('scroll', scrollHandler);
-})
+    window.removeEventListener("scroll", scrollHandler);
+});
 </script>
 
 <template>
@@ -57,10 +62,13 @@ onUnmounted(() => {
             :class="{ 'full-size': isFullSize }"
             @click="openOnFullSize"
         >
-            <div class="close icon-x" @click.self.stop="isClose = !isClose"></div>
+            <div
+                class="close icon-x"
+                @click.self.stop="isClose = !isClose"
+            ></div>
             <div
                 class="playOrPause"
-                :class="isPlay ?  'icon-play-filled' : 'icon-menu-1'"
+                :class="isPlay ? 'icon-play-filled' : 'icon-menu-1'"
                 @click.self.stop="playOrPause"
             ></div>
             <img
@@ -80,11 +88,11 @@ onUnmounted(() => {
                 playsinline=""
                 loop=""
                 :src="getMediaPath(settings.company_info_video)"
-                ></video>
-                <!-- src="https://yescenter.com.ua/yes.mov" -->
+            ></video>
+            <!-- src="https://yescenter.com.ua/yes.mov" -->
         </div>
     </transition>
-    </template>
+</template>
 
 <style lang="scss" scoped>
 .sticky-media {

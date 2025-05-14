@@ -31,6 +31,9 @@ const asyncComponents = {
     "card-5": defineAsyncComponent(
         () => import("~/components/constructor/card-5.vue"),
     ),
+    "seotext": defineAsyncComponent(
+        () => import("~/components/constructor/seotext.vue"),
+    ),
     "cards-galyzi": defineAsyncComponent(
         () => import("~/components/constructor/cards-galyzi.vue"),
     ),
