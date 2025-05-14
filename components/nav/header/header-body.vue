@@ -63,7 +63,7 @@ defineProps({
                     :btn="{
                         ...settings.head_btn,
                         size: 'md',
-                        type: 'fill',
+                        type: 'sisi-dev',
                         type_link: 'form',
                     }"
                 ></appButton>

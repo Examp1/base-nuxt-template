@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useSettingStore } from "~/store/app-settings.js";
 const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
-const isClose = ref(false);
-const isFullSize = ref(false)
+const isClose = ref(true);
+const isFullSize = ref(false);
 
 const videoRef = useTemplateRef("videoRef");
 const isPlay = ref(true);
@@ -13,10 +13,8 @@ const isPlay = ref(true);
 const playOrPause = () => {
     isPlay.value = !isPlay.value;
     if (isPlay.value) {
-        // isPlay.value = false;
         pauseVideo();
     } else {
-        // isPlay.value = true;
         playVideo();
     }
 };
@@ -29,17 +27,33 @@ const pauseVideo = () => {
     videoRef.value?.pause();
 };
 const openOnFullSize = () => {
-    isFullSize.value = !isFullSize.value
+    isFullSize.value = !isFullSize.value;
     if (videoRef.value) {
         videoRef.value.muted = false;
         videoRef.value.volume = 1;
     }
-}
+};
+
+const scrollHandler = () => {
+    isClose.value = window.scrollY < 1500
+} 
+
+onMounted(() => {
+    window.addEventListener('scroll', scrollHandler)
+});
+onUnmounted(() => {
+  window.removeEventListener('scroll', scrollHandler);
+})
 </script>
 
 <template>
     <transition name="slideInLeft" mode="out-in">
-        <div v-if="!isClose" class="sticky-media" :class="{'full-size': isFullSize}" @click="openOnFullSize">
+        <div
+            v-if="!isClose"
+            class="sticky-media"
+            :class="{ 'full-size': isFullSize }"
+            @click="openOnFullSize"
+        >
             <div class="close icon-x" @click="isClose = !isClose"></div>
             <div
                 class="playOrPause"
@@ -79,11 +93,11 @@ const openOnFullSize = () => {
     width: 130px;
     height: 180px;
     border-radius: var(--img-radius-md);
-    transition: .3s;
-    &:not(.full-size):hover{
+    transition: 0.3s;
+    &:not(.full-size):hover {
         transform: scale(1.2);
     }
-    &.full-size{
+    &.full-size {
         width: 250px;
         height: 400px;
     }

@@ -18,7 +18,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
             img {
                 border-radius: unset;
                 object-fit: cover;
-                transition: .3s;
+                transition: 0.3s;
             }
         }
         .card-header-wrapper {
@@ -150,19 +150,24 @@ $sizes: "sm", "xs", "md", "lg", "xl";
             }
         }
     }
-    &.ratio{
-        &-16-9{
-            .card-image{
+    &.ratio {
+        &-16-9 {
+            .card-image {
                 aspect-ratio: 16/9;
             }
         }
-        &-4-3{
-            .card-image{
+        &-9-16 {
+            .card-image {
+                aspect-ratio: 9/16;
+            }
+        }
+        &-4-3 {
+            .card-image {
                 aspect-ratio: 4/3;
             }
         }
-        &-3-4{
-            .card-image{
+        &-3-4 {
+            .card-image {
                 aspect-ratio: 3/4;
             }
         }
@@ -283,12 +288,18 @@ $sizes: "sm", "xs", "md", "lg", "xl";
     }
     // &:hover{
     //  .card-image img{
-        // transform: scale(1.1);
-    //  }               
+    // transform: scale(1.1);
+    //  }
     // }
 }
 .vertical {
     display: flex;
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+    }
     &:not(.reverse) {
         flex-direction: column;
     }

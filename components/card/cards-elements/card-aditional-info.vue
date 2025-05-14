@@ -31,6 +31,7 @@ defineProps({
 <style lang="scss" scoped>
 .card-additional-btns {
     justify-content: flex-end;
+    flex-wrap: wrap;
     display: flex;
     gap: var(--actions-inner-gap-md);
     margin-top: 48px;

@@ -149,8 +149,10 @@
         background-size: 115%;
         background-repeat: no-repeat;
         background-position: center -100%;
+        transition: 1s;
         &:hover {
-            background-position: center 100%;
+            background-position: center 99%;
+             border: 1px solid var(--button-filled-bg-hover);
         }
     }
     &.fill {
