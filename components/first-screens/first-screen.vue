@@ -10,7 +10,7 @@ onMounted(() => {
         ".bg-video",
         { scale: 0.4 },
         {
-            scale: 1.2,
+            scale: 2,
             ease: "none",
             scrollTrigger: {
                 trigger: ".main-screen-container",

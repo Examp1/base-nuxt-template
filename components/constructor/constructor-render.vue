@@ -50,7 +50,7 @@ const asyncComponents = {
     gallery: defineAsyncComponent(
         () => import("~/components/constructor/gallery.vue"),
     ),
-    'gallery-with-tags': defineAsyncComponent(
+    "gallery-with-tags": defineAsyncComponent(
         () => import("~/components/constructor/gallery-with-tags.vue"),
     ),
     accordeon: defineAsyncComponent(
@@ -96,7 +96,7 @@ const asyncComponents = {
         <div class="constructor-container">
             <svgSeparator></svgSeparator>
             <div class="block-wrapper bg-light-2">
-                <appForm v-if="false"/>
+                <appForm v-if="false" />
                 <section
                     v-for="(
                         { component, visible, content }, idx
@@ -118,9 +118,13 @@ const asyncComponents = {
 .index {
     .main-screen-container {
         padding-top: 260px;
-        padding-bottom: 300px;
+        padding-bottom: 0px;
         background-color: #000;
-        overflow-x: hidden;
+        overflow: hidden;
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+       
         & > section {
             background-color: #000;
         }
@@ -132,12 +136,21 @@ const asyncComponents = {
             padding-top: 140px;
             padding-bottom: 0;
         }
+         @include bp-768 {
+            height: auto;
+            position: static;
+            padding-top: 140px;
+            padding-bottom: 200px;
+        }
     }
     .constructor-container {
         z-index: 2;
         overflow-x: hidden;
         position: relative;
-        margin-top: -120px;
+        margin-top: 90vh;
+        @include bp-768 {
+            margin-top: -200px;
+        }
     }
     .simple-text:first-of-type .redactor > * {
         color: var(--text-light);
