@@ -4,10 +4,11 @@ import { useSettingStore } from "~/store/app-settings.js";
 const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
-const isClose = ref(true);
+const isClose = ref(false);
 const isFullSize = ref(false);
 
 const videoRef = useTemplateRef("videoRef");
+const isShow = ref(true);
 const isPlay = ref(true);
 
 const playOrPause = () => {
@@ -37,7 +38,7 @@ const openOnFullSize = () => {
 };
 
 const scrollHandler = () => {
-    isClose.value = window.scrollY < 1500
+    isShow.value = window.scrollY > 1500
 } 
 
 onMounted(() => {
@@ -51,7 +52,7 @@ onUnmounted(() => {
 <template>
     <transition name="slideInLeft" mode="out-in">
         <div
-            v-if="!isClose"
+            v-if="isShow && !isClose"
             class="sticky-media"
             :class="{ 'full-size': isFullSize }"
             @click="openOnFullSize"
@@ -83,7 +84,7 @@ onUnmounted(() => {
                 <!-- src="https://yescenter.com.ua/yes.mov" -->
         </div>
     </transition>
-</template>
+    </template>
 
 <style lang="scss" scoped>
 .sticky-media {
@@ -92,7 +93,7 @@ onUnmounted(() => {
     bottom: 30px;
     left: 30px;
     z-index: 100;
-    z-index: 111;
+    z-index: 500;
     width: 130px;
     height: 180px;
     border-radius: var(--img-radius-md);

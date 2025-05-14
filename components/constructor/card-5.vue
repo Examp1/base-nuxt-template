@@ -13,8 +13,8 @@ defineProps({
 const enhanceCard = (cardObj) => {
     return {
         ...cardObj,
-        wrapPadding: "xl",
-        titleSize: "xxl",
+        wrapPadding: "lg",
+        titleSize: "xl",
         colorTextSize: "xl",
         hideHeader: true,
     };
@@ -51,8 +51,9 @@ const enhanceCard = (cardObj) => {
     }
 }
 :deep(.card) {
-    @include bp-576 {
-        .card-additional-btns {
+    .card-additional-btns {
+        margin-top: 0px;
+        @include bp-576 {
             margin-bottom: 80px;
         }
     }
