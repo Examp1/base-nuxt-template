@@ -83,6 +83,7 @@ const props = defineProps({
             position: relative;
             cursor: pointer;
             padding-right: 34px;
+            gap: 24px;
             &.active {
                 padding-bottom: 24px;
                 &::after {
