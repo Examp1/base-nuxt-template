@@ -41,21 +41,13 @@ const enhanceCard = (cardObj) => {
 
 <style lang="scss" scoped>
 :deep(.cards-wrapper) {
-    .card-body {
-        .card-text {
-            margin-top: 120px;
-            @include bp-576 {
-                margin-top: 48px;
-            }
-        }
+    .block-title.xl:first-of-type{
+        height: 60px;
     }
 }
 :deep(.card) {
     .card-additional-btns {
         margin-top: 20px;
-        @include bp-576 {
-            margin-bottom: 80px;
-        }
     }
 }
 </style>
