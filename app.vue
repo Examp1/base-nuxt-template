@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useNuxtApp } from "#app";
 import { useWindowSizeRange } from "~/composables/useWindowSizeRange";
 import theHeader from "./components/nav/header/the-header.vue";
@@ -7,10 +7,17 @@ import theFooter from "./components/nav/footer/the-footer.vue";
 import theStickyMedia from "./components/common/the-sticky-media.vue";
 import pagePreloader from "./components/common/page-preloader.vue";
 import { useThemeSwitcher } from "~/composables/useThemeSwitcher";
+import { useSettingStore } from "~/store/app-settings.js";
+const { locale } = useI18n();
+const { loadSettings } = useSettingStore();
+loadSettings(locale.value);
+watch(locale, () => {
+    loadSettings(locale.value);
+});
 useWindowSizeRange();
 useThemeSwitcher();
 const isPageReady = ref(false);
-const route = useRoute()
+const route = useRoute();
 
 onMounted(() => {
     const nuxtApp = useNuxtApp();
@@ -28,7 +35,7 @@ onMounted(() => {
         <theHeader />
         <NuxtRouteAnnouncer />
         <!-- <transition name="fade" mode="out-in"> -->
-            <NuxtPage :key="route.fullPath"/>
+        <NuxtPage :key="route.fullPath" />
         <!-- </transition> -->
         <theFooter />
         <theStickyMedia />

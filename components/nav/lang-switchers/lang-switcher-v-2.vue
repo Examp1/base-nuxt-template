@@ -50,5 +50,8 @@ const lolizedValue = {
         z-index: 101;
         background-color: #f4f4f4;
     }
+    a{
+        color: inherit
+    }
 }
 </style>

@@ -42,9 +42,6 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "@nuxtjs/google-fonts",
     ],
-    plugins: [
-        "~/plugins/load-app-settings.server.js",
-    ],
     i18n: {
         strategy: "prefix_except_default",
         defaultLocale: "uk",
