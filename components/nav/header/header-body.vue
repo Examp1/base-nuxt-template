@@ -1,4 +1,5 @@
 <script setup>
+import { NuxtLink } from "#components";
 import { useWindowSize } from "@vueuse/core";
 import TheThemeCircle from "./the-theme-circle.vue";
 import { useModalStore } from "~/store/modal";
@@ -9,6 +10,7 @@ import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 const { width } = useWindowSize();
 const modal = useModalStore();
+const route = useRoute();
 defineProps({
     logos: {
         type: Object,
@@ -22,9 +24,13 @@ defineProps({
 </script>
 <template>
     <div class="container sticky-header bg-light">
-        <div class="header-logo">
+        <component
+            :is="route.name.includes('index') ? 'div' : NuxtLink"
+            to="/"
+            class="header-logo"
+        >
             <img :src="getMediaPath(logos.header)" alt="" />
-        </div>
+        </component>
         <div class="header-body">
             <div class="custom-feature aic">
                 <div class="info-text">

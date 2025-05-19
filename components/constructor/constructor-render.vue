@@ -31,7 +31,7 @@ const asyncComponents = {
     "card-5": defineAsyncComponent(
         () => import("~/components/constructor/card-5.vue"),
     ),
-    "seotext": defineAsyncComponent(
+    seotext: defineAsyncComponent(
         () => import("~/components/constructor/seotext.vue"),
     ),
     "cards-galyzi": defineAsyncComponent(
@@ -81,12 +81,31 @@ const asyncComponents = {
 </script>
 
 <template>
-    <div class="index">
-        <div class="main-screen-container">
+    <div
+        v-if="Object.keys(constructorMainScreen).length"
+        class="main-screen-container"
+    >
+        <section
+            v-for="(
+                { component, visible, content }, idx
+            ) in constructorMainScreen"
+            :key="`${component}-${idx}`"
+            :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
+        >
+            <component
+                :is="asyncComponents[component]"
+                :content="content"
+            ></component>
+        </section>
+    </div>
+    <div class="constructor-container">
+        <svgSeparator
+            v-if="Object.keys(constructorMainScreen).length"
+        ></svgSeparator>
+        <div class="block-wrapper bg-light-2">
+            <appForm v-if="false" />
             <section
-                v-for="(
-                    { component, visible, content }, idx
-                ) in constructorMainScreen"
+                v-for="({ component, visible, content }, idx) in constructor"
                 :key="`${component}-${idx}`"
                 :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
             >
@@ -95,24 +114,6 @@ const asyncComponents = {
                     :content="content"
                 ></component>
             </section>
-        </div>
-        <div class="constructor-container">
-            <svgSeparator></svgSeparator>
-            <div class="block-wrapper bg-light-2">
-                <appForm v-if="false" />
-                <section
-                    v-for="(
-                        { component, visible, content }, idx
-                    ) in constructor"
-                    :key="`${component}-${idx}`"
-                    :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
-                >
-                    <component
-                        :is="asyncComponents[component]"
-                        :content="content"
-                    ></component>
-                </section>
-            </div>
         </div>
     </div>
 </template>
@@ -127,7 +128,7 @@ const asyncComponents = {
         position: fixed;
         inset: 0;
         height: 100vh;
-       
+
         & > section {
             background-color: #000;
         }
@@ -139,7 +140,7 @@ const asyncComponents = {
             padding-top: 140px;
             padding-bottom: 0;
         }
-         @include bp-768 {
+        @include bp-768 {
             height: auto;
             position: static;
             padding-top: 140px;

@@ -17,8 +17,4 @@ const { data, status } = useApiRequest(route.params.page, 'api/page/get-by-slug'
 </template>
 
 <style scoped>
-.block {
-    height: 400px;
-    background-color: coral;
-}
 </style>

@@ -131,6 +131,9 @@ scrollbar-thumb {
 .helpcrunch-iframe {
     bottom: 90px;
 }
+.not-home-page {
+    padding-top: 100px !important;
+}
 // swiper fix
 .swiper-wrapper {
     align-items: stretch;
@@ -139,7 +142,7 @@ scrollbar-thumb {
 .swiper-slide {
     display: flex !important;
     height: auto !important;
-    .card{
+    .card {
         width: 100%;
     }
 }

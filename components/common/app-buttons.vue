@@ -9,7 +9,7 @@ import AppButton from './app-button.vue';
 
 defineProps({
     btns: {
-        type: Array,
+        type: [Array, Object],
         required: true
     }
 })
