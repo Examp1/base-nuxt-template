@@ -11,30 +11,28 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="container">
-        <div class="card wrap-padding-md gap-md img-size-sm img-rounding-md">
-            <div class="card-body body-direction-horizontal">
-                <div class="card-pictogram">
-                    <img
-                        :src="getMediaPath(content.image)"
-                        alt="Default image description"
-                    />
+    <div class="card wrap-padding-md gap-md img-size-sm img-rounding-md">
+        <div class="card-body body-direction-horizontal">
+            <div class="card-pictogram">
+                <img
+                    :src="getMediaPath(content.image)"
+                    alt="Default image description"
+                />
+            </div>
+            <div class="card-info">
+                <div class="block-title" :class="content.titleSize || 'md'">
+                    {{ content.title }}
                 </div>
-                <div class="card-info">
-                    <div class="block-title" :class="content.titleSize || 'md'">
-                        {{ content.title }}
-                    </div>
-                    <div class="card-color-text block-title sm">
-                        {{ content.colorText }}
-                    </div>
+                <div class="card-color-text block-title sm">
+                    {{ content.colorText }}
                 </div>
-                <div
-                    class="card-text block-text md italic"
-                    v-html="content.text"
-                ></div>
-                <div class="card-additional-btns">
-                    <appButton v-if="content.btns[0]" :btn="content.btns[0]" />
-                </div>
+            </div>
+            <div
+                class="card-text block-text md italic"
+                v-html="content.text"
+            ></div>
+            <div class="card-additional-btns">
+                <appButton v-if="content.btns[0]" :btn="content.btns[0]" />
             </div>
         </div>
     </div>

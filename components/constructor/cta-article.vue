@@ -9,26 +9,24 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="container">
-        <div
-            class="card wrap-padding-lg vertical gap-md img-size-sm img-rounding-md"
-        >
-            <div class="card-body body-direction-horizontal">
-                <div class="card-info">
-                    <div class="block-title" :class="content.titleSize || 'md'">
-                        {{ content.title }}
-                    </div>
-                    <div
-                        class="card-text block-text md"
-                        v-html="content.text"
-                    ></div>
+    <div
+        class="card wrap-padding-lg vertical gap-md img-size-sm img-rounding-md"
+    >
+        <div class="card-body body-direction-horizontal">
+            <div class="card-info">
+                <div class="block-title" :class="content.titleSize || 'md'">
+                    {{ content.title }}
                 </div>
-                <div class="card-additional-btns">
-                    <div class="card-color-text block-title xxl">
-                        {{ content.colorText }}
-                    </div>
-                    <appButton v-if="content.btns[0]" :btn="content.btns[0]" />
+                <div
+                    class="card-text block-text md"
+                    v-html="content.text"
+                ></div>
+            </div>
+            <div class="card-additional-btns">
+                <div class="card-color-text block-title xxl">
+                    {{ content.colorText }}
                 </div>
+                <appButton v-if="content.btns[0]" :btn="content.btns[0]" />
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <script setup>
 import { useApiRequest } from "@/composables/useApiRequest";
 import appBreadcrumbs from "~/components/nav/app-breadcrumbs.vue";
-import constructorRender from "~/components/constructor/constructor-render.vue";
+import constructorRender from "~/components/common/constructor-render.vue";
 import useUtils from "@/composables/useUtils.js";
 const { getMediaPath } = useUtils();
 const route = useRoute();

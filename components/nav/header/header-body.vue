@@ -23,7 +23,7 @@ defineProps({
 });
 </script>
 <template>
-    <nuxt-link to="/blog/test-001">blog/test-001</nuxt-link>
+    <!-- <nuxt-link to="/blog/test-001">blog/test-001</nuxt-link> -->
     <div class="container sticky-header bg-light">
         <component
             :is="route.name.includes('index') ? 'div' : NuxtLink"

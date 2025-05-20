@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute()
 import { useApiRequest } from "@/composables/useApiRequest"
-import ConstructorRender from "~/components/constructor/constructor-render.vue";
+import ConstructorRender from "~/components/common/constructor-render.vue";
 const { data, status } = useApiRequest(route.params.page, 'api/page/get-by-slug',
     { lang: 'uk', slug: route.params.page },
 )
