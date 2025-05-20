@@ -18,7 +18,7 @@ defineProps({
 <!-- TODO btn object -->
 <template>
     <div
-        v-if="btns?.length || Object.keys(btns).length"
+        v-if="btns && (btns?.length || Object.keys(btns).length)"
         class="card-additional-btns"
     >
         <AppButton

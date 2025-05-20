@@ -23,6 +23,7 @@ defineProps({
 });
 </script>
 <template>
+    <nuxt-link to="/blog/test-001">blog/test-001</nuxt-link>
     <div class="container sticky-header bg-light">
         <component
             :is="route.name.includes('index') ? 'div' : NuxtLink"
@@ -63,16 +64,17 @@ defineProps({
                 </NuxtLink>
             </div>
             <div class="actions-wrapper df">
-                <appButton
-                    v-if="width > 576"
-                    class="dn-576"
-                    :btn="{
-                        ...settings.head_btn,
-                        size: 'md',
-                        type: 'sisi-dev',
-                        type_link: 'form',
-                    }"
-                ></appButton>
+                <div class="dn-576">
+                    <appButton
+                        v-if="width > 576"
+                        :btn="{
+                            ...settings.head_btn,
+                            size: 'md',
+                            type: 'sisi-dev',
+                            type_link: 'form',
+                        }"
+                    ></appButton>
+                </div>
                 <!-- <div  class="btn fill md dn-576">
                     {{ head_btn.name || 'Почати співпрацю' }}
                 </div> -->

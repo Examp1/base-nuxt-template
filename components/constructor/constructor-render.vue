@@ -1,8 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import svgSeparator from "../common/svg-separator.vue";
-import appForm from "../form/app-form.vue";
-
+const route = useRoute();
 defineProps({
     constructor: {
         type: Object,
@@ -15,65 +14,18 @@ defineProps({
     },
 });
 
-const asyncComponents = {
-    "simple-text": defineAsyncComponent(
-        () => import("~/components/constructor/simple-text.vue"),
-    ),
-    "card-1": defineAsyncComponent(
-        () => import("~/components/constructor/card-1.vue"),
-    ),
-    "card-2": defineAsyncComponent(
-        () => import("~/components/constructor/card-2.vue"),
-    ),
-    "card-4": defineAsyncComponent(
-        () => import("~/components/constructor/card-4.vue"),
-    ),
-    "card-5": defineAsyncComponent(
-        () => import("~/components/constructor/card-5.vue"),
-    ),
-    seotext: defineAsyncComponent(
-        () => import("~/components/constructor/seotext.vue"),
-    ),
-    "cards-galyzi": defineAsyncComponent(
-        () => import("~/components/constructor/cards-galyzi.vue"),
-    ),
-    cta: defineAsyncComponent(() => import("~/components/constructor/cta.vue")),
-    "cards-advantages": defineAsyncComponent(
-        () => import("~/components/constructor/cards-advantages.vue"),
-    ),
-    "cards-services": defineAsyncComponent(
-        () => import("~/components/constructor/cards-services.vue"),
-    ),
-    "sisi-dev-cta": defineAsyncComponent(
-        () => import("~/components/constructor/sisi-dev-cta.vue"),
-    ),
-    "spotify-widget": defineAsyncComponent(
-        () => import("~/components/constructor/spotify-widget.vue"),
-    ),
-    gallery: defineAsyncComponent(
-        () => import("~/components/constructor/gallery.vue"),
-    ),
-    "gallery-with-tags": defineAsyncComponent(
-        () => import("~/components/constructor/gallery-with-tags.vue"),
-    ),
-    accordeon: defineAsyncComponent(
-        () => import("~/components/constructor/accordeon.vue"),
-    ),
-    "text-2-columns": defineAsyncComponent(
-        () => import("~/components/constructor/text-2-columns.vue"),
-    ),
-    "cards-partners": defineAsyncComponent(
-        () => import("~/components/constructor/cards-partners.vue"),
-    ),
-    "quick-inks": defineAsyncComponent(
-        () => import("~/components/constructor/quick-inks.vue"),
-    ),
-    "cards-for-clients": defineAsyncComponent(
-        () => import("~/components/constructor/cards-for-clients.vue"),
-    ),
-    promobar: defineAsyncComponent(
-        () => import("~/components/constructor/promobar.vue"),
-    ),
+const modules = import.meta.glob("@/components/constructor/*.vue");
+
+const asyncComponents = Object.entries(modules).reduce(
+    (map, [path, loader]) => {
+        const name = path.split("/").pop().replace(".vue", "");
+        map[name] = defineAsyncComponent(loader);
+        return map;
+    },
+    {},
+);
+
+const firstScrennComponents = {
     "first-screen": defineAsyncComponent(
         () => import("~/components/first-screens/first-screen.vue"),
     ),
@@ -93,7 +45,7 @@ const asyncComponents = {
             :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
         >
             <component
-                :is="asyncComponents[component]"
+                :is="firstScrennComponents[component]"
                 :content="content"
             ></component>
         </section>
@@ -102,8 +54,10 @@ const asyncComponents = {
         <svgSeparator
             v-if="Object.keys(constructorMainScreen).length"
         ></svgSeparator>
-        <div class="block-wrapper bg-light-2">
-            <appForm v-if="false" />
+        <div
+            class="block-wrapper"
+            :class="route.name.includes('index') ? ' bg-light-2' : ' bg-none'"
+        >
             <section
                 v-for="({ component, visible, content }, idx) in constructor"
                 :key="`${component}-${idx}`"

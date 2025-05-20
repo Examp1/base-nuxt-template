@@ -10,7 +10,7 @@ defineProps({
     <div class="separator-container bg-light-2">
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1921 490"
+            viewBox="0 0 1920 490"
             fill="none"
         >
             <path

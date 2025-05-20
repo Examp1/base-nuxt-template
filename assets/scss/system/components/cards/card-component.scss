@@ -38,8 +38,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
             gap: 24px;
             align-items: center;
             @include bp-768 {
-                grid-template-columns: 1fr;
-                text-align: center;
+                grid-template-columns: 1fr !important;
                 .additional-info {
                     justify-content: center;
                     .block-title {
@@ -294,7 +293,7 @@ $sizes: "sm", "xs", "md", "lg", "xl";
 }
 .vertical {
     display: flex;
-    .card-body {
+    .card-body:not(.body-direction-horizontal) {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
