@@ -52,8 +52,8 @@ watch(value, () => {
             <div
                 v-for="(opt, idx) in field.options"
                 :key="opt + '-' + idx"
-                class="btn stroke-neutral sm"
-                :class="{active: value === opt}"
+                class="btn sm"
+                :class="{ active: value === opt }"
                 @click="value = opt"
             >
                 {{ opt }}
@@ -67,7 +67,14 @@ watch(value, () => {
 .radio-group {
     margin-top: 5px;
 }
+.btn {
+    border-radius: var(--button-input-radius-sm);
+    border: var(--button-input-border) solid
+        var(--button-input-border-default);
+    background: var(--button-input-bg-default);
+}
 .btn:hover, .active {
-    background-color: var(--form-select-item-hover);
+    background: var(--button-input-bg-selected);
+    color: #fff;
 }
 </style>

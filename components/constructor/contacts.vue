@@ -1,6 +1,7 @@
 <script setup>
 import appSectionTitle from "~/components/common/app-section-title.vue";
 import { useSettingStore } from "@/store/app-settings.js";
+import appForm from "../form/app-form.vue";
 
 const { contactSettings } = storeToRefs(useSettingStore());
 defineProps({
@@ -78,6 +79,9 @@ const getIcon = (type) => {
                         >
                     </div>
                 </div>
+                <div class="contact-item">
+                    <appForm :content="contactSettings.form_data" :form_id="contactSettings.form_id"/>
+                </div>
             </div>
         </div>
     </div>
@@ -114,6 +118,12 @@ const getIcon = (type) => {
                 }
             }
         }
+    }
+}
+:deep(.contact-item) {
+    .form-body{
+        padding: 0;
+        background-color: transparent;
     }
 }
 </style>
