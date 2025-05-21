@@ -39,7 +39,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-    <!-- <nuxt-link to="/blog/test-001">blog/test-001</nuxt-link> -->
+    <nuxt-link to="/contacts">test</nuxt-link>
     <div class="container sticky-header bg-light" ref="sticky-header">
         <component
             :is="route.name.includes('index') ? 'div' : NuxtLink"
