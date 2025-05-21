@@ -1,4 +1,5 @@
 <script setup>
+import { NuxtLink } from "#components";
 defineProps({
     breadcrumbs: [Array, Object],
 });
@@ -6,8 +7,14 @@ defineProps({
 
 <template>
     <ul class="breadcrumbs">
+        <li><nuxt-link to="/" class="icon-home-2"></nuxt-link></li>
         <li v-for="(item, idx) in breadcrumbs" :key="idx">
-            <a :href="item.url" class="block-text md">{{ item.title || item.name }}</a>
+            <component
+                :is="idx !== breadcrumbs.length - 1 ? NuxtLink : 'span'"
+                :to="item.link"
+                class="block-text md"
+                >{{ item.title || item.name }}</component
+            >
         </li>
     </ul>
 </template>
@@ -24,30 +31,25 @@ defineProps({
     }
 
     li {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 140%;
-        text-align: center;
-        color: #cacaca;
         position: relative;
-
         @media (max-width: 576px) {
             white-space: nowrap;
-            margin-bottom: 10px;
+            /* margin-bottom: 10px; */
         }
 
-        &:last-of-type {
-            color: #000;
-            pointer-events: none;
+        span {
+            color: var(--text-light);
         }
 
         &:not(:last-of-type) {
             margin-right: 26px;
 
             &::after {
-                content: ">";
+                font-family: "fontello";
+                content: "\e823";
                 position: absolute;
-                top: 55%;
+                font-size: 12px;
+                top: 50%;
                 transform: translateY(-50%);
                 right: -16px;
                 line-height: 140%;
