@@ -21,10 +21,26 @@ defineProps({
         default: () => {},
     },
 });
+const stickyHeader = useTemplateRef("sticky-header");
+
+const scrollHandler = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 0) {
+        stickyHeader.value.style.marginTop = "-20px";
+    } else {
+         stickyHeader.value.style.marginTop = "13px";
+    }
+};
+onMounted(() => {
+    window.addEventListener("scroll", scrollHandler);
+});
+onUnmounted(() => {
+    window.removeEventListener("scroll", scrollHandler);
+});
 </script>
 <template>
     <!-- <nuxt-link to="/blog/test-001">blog/test-001</nuxt-link> -->
-    <div class="container sticky-header bg-light">
+    <div class="container sticky-header bg-light" ref="sticky-header">
         <component
             :is="route.name.includes('index') ? 'div' : NuxtLink"
             to="/"
@@ -98,6 +114,7 @@ defineProps({
     transform: translateX(-50%);
     z-index: 100;
     height: fit-content;
+    transition: .3s;
     /* top: 100%; */
     margin-top: 13px;
     @include bp-576 {

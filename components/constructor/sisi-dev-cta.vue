@@ -3,8 +3,10 @@ import { computed, onMounted, onUnmounted } from "vue";
 import getSpriteImage from "@/utils/getSpriteImage";
 import appCard from "~/components/card/app-card.vue";
 import { useSettingStore } from "~/store/app-settings.js";
-const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
+import useVideoControl from "@/composables/useVideoControl.js";
+
+const { settings } = useSettingStore();
 const { getMediaPath } = useUtils();
 // import SvgSeparator from "../common/svg-separator.vue";
 
@@ -14,8 +16,8 @@ const props = defineProps({
         required: true,
     },
 });
-const isShow = ref(false);
-let SisiDevCtaBlock;
+// const isShow = ref(false);
+// let SisiDevCtaBlock;
 const arrayWithKeys = Object.values(props.content.btns).map((value) => ({
     ...value,
 }));
@@ -34,44 +36,8 @@ const cardOption = computed(() => {
     };
 });
 const videoRef = useTemplateRef("videoRef");
-const isFullSize = ref(false);
-const isPlay = ref(true);
-const scrollHandler = () => {
-    const elOffest = SisiDevCtaBlock.getBoundingClientRect().top;
-    isShow.value = elOffest - 700 < 0;
-};
-
-const playOrPause = () => {
-    isPlay.value = !isPlay.value;
-    if (isPlay.value) {
-        pauseVideo();
-    } else {
-        playVideo();
-    }
-};
-
-const playVideo = () => {
-    videoRef.value?.play();
-};
-
-const pauseVideo = () => {
-    videoRef.value?.pause();
-};
-const openOnFullSize = () => {
-    isFullSize.value = !isFullSize.value;
-    if (videoRef.value) {
-        videoRef.value.muted = !isFullSize.value;
-    }
-};
-
-onMounted(() => {
-    SisiDevCtaBlock = document.querySelector(".block-sisi-dev-cta");
-    window.addEventListener("scroll", scrollHandler);
-});
-
-onUnmounted(() => {
-    window.removeEventListener("scroll", scrollHandler);
-});
+const { isFullSize, isShow, isPlay, playOrPause, openOnFullSize } =
+    useVideoControl(videoRef, true);
 </script>
 
 <template>

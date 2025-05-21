@@ -1,6 +1,8 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import svgSeparator from "../common/svg-separator.vue";
+import { useThemeSwitcher } from "~/composables/useThemeSwitcher";
+useThemeSwitcher()
 const route = useRoute();
 defineProps({
     constructor: {

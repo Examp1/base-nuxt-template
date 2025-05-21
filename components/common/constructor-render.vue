@@ -15,7 +15,6 @@ defineProps({
 const componentConstructor = import.meta.glob("@/components/constructor/*.vue");
 const componentFirstScreens = import.meta.glob("@/components/first-screens/*.vue");
 const modules = {...componentConstructor, ...componentFirstScreens}
-console.log(modules);
 const asyncComponents = Object.entries(modules).reduce(
     (map, [path, loader]) => {
         const name = path.split("/").pop().replace(".vue", "");
@@ -29,10 +28,6 @@ const asyncComponents = Object.entries(modules).reduce(
 
 <template>
     <div class="constructor-container">
-        <!-- <div
-            class="block-wrapper"
-            :class="route.name.includes('index') ? ' bg-light-2' : ' bg-none'"
-        > -->
             <section
                 v-for="({ component, visible, content }, idx) in constructor"
                 :key="`${component}-${idx}`"
@@ -44,49 +39,7 @@ const asyncComponents = Object.entries(modules).reduce(
                 ></component>
             </section>
         </div>
-    <!-- </div> -->
 </template>
 
 <style lang="scss" scoped>
-.index {
-    .main-screen-container {
-        padding-top: 260px;
-        padding-bottom: 0px;
-        background-color: #000;
-        overflow: hidden;
-        position: fixed;
-        inset: 0;
-        height: 100vh;
-
-        & > section {
-            background-color: #000;
-        }
-        &.active {
-            position: fixed;
-            z-index: 0;
-        }
-        @include bp-1440 {
-            padding-top: 140px;
-            padding-bottom: 0;
-        }
-        @include bp-768 {
-            height: auto;
-            position: static;
-            padding-top: 140px;
-            padding-bottom: 200px;
-        }
-    }
-    .constructor-container {
-        z-index: 2;
-        overflow-x: hidden;
-        position: relative;
-        margin-top: 90vh;
-        @include bp-768 {
-            margin-top: -200px;
-        }
-    }
-    .simple-text:first-of-type .redactor > * {
-        color: var(--text-light);
-    }
-}
 </style>

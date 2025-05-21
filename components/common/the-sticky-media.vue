@@ -1,57 +1,13 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
 import { useSettingStore } from "~/store/app-settings.js";
-const { settings } = useSettingStore();
 import useUtils from "@/composables/useUtils.js";
+import useVideoControl from "@/composables/useVideoControl.js";
+const { settings } = useSettingStore();
 const { getMediaPath } = useUtils();
-const isClose = ref(false);
-const isFullSize = ref(false);
 
 const videoRef = useTemplateRef("videoRef");
-const isShow = ref(true);
-const isPlay = ref(true);
-
-const playOrPause = () => {
-    isPlay.value = !isPlay.value;
-    if (isPlay.value) {
-        pauseVideo();
-    } else {
-        playVideo();
-    }
-};
-
-let SisiDevCtaBlock;
-
-const playVideo = () => {
-    videoRef.value?.play();
-};
-
-const pauseVideo = () => {
-    videoRef.value?.pause();
-};
-const openOnFullSize = () => {
-    isFullSize.value = !isFullSize.value;
-    if (videoRef.value) {
-        videoRef.value.muted = !isFullSize.value;
-    }
-};
-
-const scrollHandler = () => {
-    const elOffest = SisiDevCtaBlock.getBoundingClientRect().top
-    if ( elOffest - 1000 > 0 ) {
-        isShow.value = window.scrollY > 1500;
-    } else {
-        isShow.value = false
-    }
-};
-
-onMounted(() => {
-    SisiDevCtaBlock = document.querySelector(".block-sisi-dev-cta");
-    window.addEventListener("scroll", scrollHandler);
-});
-onUnmounted(() => {
-    window.removeEventListener("scroll", scrollHandler);
-});
+const { isFullSize, isShow, isPlay, playOrPause, openOnFullSize } =
+    useVideoControl(videoRef);
 </script>
 
 <template>

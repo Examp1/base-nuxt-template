@@ -6,7 +6,6 @@ import theHeader from "./components/nav/header/the-header.vue";
 import theFooter from "./components/nav/footer/the-footer.vue";
 import theStickyMedia from "./components/common/the-sticky-media.vue";
 import pagePreloader from "./components/common/page-preloader.vue";
-import { useThemeSwitcher } from "~/composables/useThemeSwitcher";
 import { useSettingStore } from "~/store/app-settings.js";
 const { locale } = useI18n();
 const { loadSettings } = useSettingStore();
@@ -15,7 +14,6 @@ watch(locale, () => {
     loadSettings(locale.value);
 });
 useWindowSizeRange();
-useThemeSwitcher();
 const isPageReady = ref(false);
 const route = useRoute();
 
