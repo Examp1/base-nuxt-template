@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { BASE_URL } from "@/constants";
 import { useForm } from "vee-validate";
-const emit = defineEmits("success");
+const emit = defineEmits("close");
 
 const isSuccess = ref(false);
 let successData = ref(null);
@@ -38,8 +38,8 @@ const componentMap = components.reduce((map, name) => {
 
 const { validateField, handleSubmit } = useForm();
 
-const onSubmit = handleSubmit((values) => {
-    const data = $fetch(`${BASE_URL}/api/request/send`, {
+const onSubmit = handleSubmit(async (values) => {
+    const data = await $fetch(`${BASE_URL}/api/request/send`, {
         method: "POST",
         body: {
             form_id: props.form_id,
@@ -47,7 +47,6 @@ const onSubmit = handleSubmit((values) => {
         },
     });
     successData.value = data;
-    emit("success");
     isSuccess.value = true;
 });
 </script>
@@ -81,6 +80,9 @@ const onSubmit = handleSubmit((values) => {
     <div v-else class="success" :class="theme">
         <div class="success-header bg-color">
             <h3>{{ successData.success_title || "success title" }}</h3>
+            <div class="close-btn btn text sm" @click="emit('close')">
+                {{ $t("close_btn") }} <i class="icon-x"></i>
+            </div>
         </div>
         <div class="success-body">
             <p>{{ successData.success_text || "success text" }}</p>

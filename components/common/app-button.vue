@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import modalOverlay from "./components/modal/modal-overlay.vue";
-import appForm from "../form/app-form.vue";
+import modalForm from "../modal/modal-form.vue";
 defineProps({
     btn: {
         type: Object,
@@ -9,7 +8,6 @@ defineProps({
     },
 });
 const openModal = ref(false);
-
 </script>
 
 <template>
@@ -30,9 +28,10 @@ const openModal = ref(false);
     >
     <Transition name="fade">
         <Teleport v-if="openModal" to="#app-root">
-            <modalOverlay @close="openModal = false">
-                <appForm :content="btn.form_data" :form_id="btn.form_id" />
-            </modalOverlay>
+            <modalForm
+                @close="openModal = false"
+                :form="{ form_data: btn.form_data, form_id: btn.form_id }"
+            />
         </Teleport>
     </Transition>
 </template>

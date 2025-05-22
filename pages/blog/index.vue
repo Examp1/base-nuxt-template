@@ -9,17 +9,23 @@ const enhanceCard = (article) => {
         title: article.name,
         link: article.url,
         colorText: article.public_date,
-        wrapPadding: "md",
+        wrapPadding: "none",
+        bodyPadding: "md",
         hideHead: true,
         gap: "md",
-        imgRounding: "md",
+        image: article.image,
+        cardType: 'horizontal',
+        // noBg: true,
+        titleSize: 'xxl',
+        imgSize: 'xl',
+        imgRounding: "none",
     };
 };
 </script>
 
 <template v-if="status === 'success'">
     <div class="container">
-        <div class="cards-wrapper card-in-row-4 mt-MD mb-MD">
+        <div class="cards-wrapper card-in-row-2 mt-MD mb-MD">
             <appCard
                 v-for="article in data.items"
                 :card="enhanceCard(article)"

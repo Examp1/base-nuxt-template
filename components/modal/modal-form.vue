@@ -1,5 +1,10 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from "vue";
+import { onMounted, onBeforeUnmount } from "vue";
+import appForm from "../form/app-form.vue";
+defineProps({
+    form: Object,
+    required: true,
+});
 const emit = defineEmits(["close"]);
 onMounted(() => {
     document.body.style.overflow = "hidden";
@@ -16,7 +21,11 @@ onBeforeUnmount(() => {
                     {{ $t("close_btn") }} <i class="icon-x"></i>
                 </div>
             </div>
-            <slot />
+            <appForm
+                :content="form.form_data"
+                :form_id="form.form_id"
+                @close="emit('close')"
+            />
         </div>
     </div>
 </template>
@@ -31,7 +40,7 @@ onBeforeUnmount(() => {
     justify-content: center;
     align-items: center;
     &:has(.success) {
-        .modal-content-top{
+        .modal-content-top {
             display: none;
         }
         .close-btn {

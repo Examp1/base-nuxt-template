@@ -31,10 +31,8 @@ export default function useVideoControl(
         if (targetBlock) {
             const offset = targetBlock.getBoundingClientRect().top;
             if (offset - 1000 > 0) {
-                console.log('show');
                 isShow.value = window.scrollY > 1500;
             } else {
-                console.log('hide')
                 isShow.value = false;
             }
         }

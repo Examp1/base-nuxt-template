@@ -14,7 +14,6 @@ const { contactSettings, logosSettings, headerMenu, navBarMenu } =
 const stickyHeader = useTemplateRef("sticky-header");
 
 const scrollHandler = () => {
-    console.log(window.scrollY);
     if (window.scrollY > 0) {
         stickyHeader.value.classList.add("hide-top-side");
     } else {
