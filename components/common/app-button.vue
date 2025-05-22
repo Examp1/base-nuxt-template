@@ -8,7 +8,7 @@ defineProps({
         required: true,
     },
 });
-const opneModal = ref(false);
+const openModal = ref(false);
 
 </script>
 
@@ -16,7 +16,7 @@ const opneModal = ref(false);
     <div
         v-if="btn.type_link === 'form'"
         class="btn"
-        @click="opneModal = true"
+        @click="openModal = true"
         :class="[btn.size, btn.type, 'icon-' + btn.icon]"
     >
         {{ btn.text || btn.name }}
@@ -29,9 +29,9 @@ const opneModal = ref(false);
         >{{ btn.text || btn.name }}</NuxtLink
     >
     <Transition name="fade">
-        <Teleport v-if="opneModal" to="#app-root">
-            <modalOverlay @close="opneModal = false">
-                <appForm :content="btn.form_data" :form_id="btn.form_id" :theme="'bg-light'" />
+        <Teleport v-if="openModal" to="#app-root">
+            <modalOverlay @close="openModal = false">
+                <appForm :content="btn.form_data" :form_id="btn.form_id" />
             </modalOverlay>
         </Teleport>
     </Transition>

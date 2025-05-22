@@ -59,7 +59,11 @@ const onSubmit = handleSubmit((values) => {
         :class="theme"
         @submit="onSubmit"
     >
-        <!-- <div class="form-header"></div> -->
+        <!-- <div class="form-header">
+            <div class="close-btn btn text sm" @click="emit('close')">
+                {{ $t("close_btn") }} <i class="icon-x"></i>
+            </div>
+        </div> -->
         <div class="form-body">
             <component
                 v-for="field in content?.list"

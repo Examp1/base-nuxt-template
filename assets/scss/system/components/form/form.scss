@@ -9,6 +9,7 @@
     padding: var(--modal-padding-sm);
     gap: var(--modal-header-gap-md);
     background: var(--modal-header-bg);
+    justify-content: end;
     .block-title {
       padding-right: 15px;
     }
