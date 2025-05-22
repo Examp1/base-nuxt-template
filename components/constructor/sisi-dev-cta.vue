@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, onUnmounted } from "vue";
+import { computed } from "vue";
 import getSpriteImage from "@/utils/getSpriteImage";
 import appCard from "~/components/card/app-card.vue";
 import { useSettingStore } from "~/store/app-settings.js";
@@ -8,7 +8,6 @@ import useVideoControl from "@/composables/useVideoControl.js";
 
 const { settings } = useSettingStore();
 const { getMediaPath } = useUtils();
-// import SvgSeparator from "../common/svg-separator.vue";
 
 const props = defineProps({
     content: {
@@ -16,8 +15,6 @@ const props = defineProps({
         required: true,
     },
 });
-// const isShow = ref(false);
-// let SisiDevCtaBlock;
 const arrayWithKeys = Object.values(props.content.btns).map((value) => ({
     ...value,
 }));
@@ -41,7 +38,6 @@ const { isFullSize, isShow, isPlay, playOrPause, openOnFullSize } =
 </script>
 
 <template>
-    <!-- <SvgSeparator></SvgSeparator> -->
     <div class="container-sm">
         <transition name="slideInLeft" mode="out-in">
             <div v-if="isShow" class="cta-media" :class="{ 'full-size': isFullSize }">
