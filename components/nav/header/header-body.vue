@@ -21,87 +21,70 @@ defineProps({
         default: () => {},
     },
 });
-const stickyHeader = useTemplateRef("sticky-header");
-
-const scrollHandler = () => {
-    console.log(window.scrollY);
-    if (window.scrollY > 0) {
-        stickyHeader.value.style.marginTop = "-20px";
-    } else {
-         stickyHeader.value.style.marginTop = "13px";
-    }
-};
-onMounted(() => {
-    window.addEventListener("scroll", scrollHandler);
-});
-onUnmounted(() => {
-    window.removeEventListener("scroll", scrollHandler);
-});
 </script>
 <template>
-    <!-- <nuxt-link to="/contacts">test</nuxt-link> -->
-    <div class="container sticky-header bg-light" ref="sticky-header">
-        <component
-            :is="route.name.includes('index') ? 'div' : NuxtLink"
-            to="/"
-            class="header-logo"
-        >
-            <img :src="getMediaPath(logos.header)" alt="" />
-        </component>
-        <div class="header-body">
-            <div class="custom-feature aic">
-                <div class="info-text">
-                    {{ $t("sisidev-info-text") }}
-                </div>
-                <TheThemeCircle v-if="false" class="dn-576" />
-            </div>
-            <div v-if="width > 1024" class="menu aic dn-1024">
-                <NuxtLink
-                    :to="link.url"
-                    v-for="(link, idx) in headerMenu"
-                    :key="'link' + idx"
-                    class="nav-link md text-light link-1lvl"
-                    >{{ link.name }}
-                    <div v-if="link.children.length" class="dropdown">
-                        <NuxtLink
-                            :to="link2lvl.url"
-                            v-for="(link2lvl, idx) in link.children"
-                            :key="'link' + idx"
-                            class="nav-link md text-light link-1lvl"
-                            >{{ link2lvl.name }}
-                            <div
-                                v-if="link2lvl.children.length"
-                                class="dropdown"
-                            >
-                                {{ link2lvl.children }}
-                            </div>
-                        </NuxtLink>
+        <div class="container sticky-header bg-light">
+            <component
+                :is="route.name.includes('index') ? 'div' : NuxtLink"
+                to="/"
+                class="header-logo"
+            >
+                <img :src="getMediaPath(logos.header)" alt="" />
+            </component>
+            <div class="header-body">
+                <div class="custom-feature aic">
+                    <div class="info-text">
+                        {{ $t("sisidev-info-text") }}
                     </div>
-                </NuxtLink>
-            </div>
-            <div class="actions-wrapper df">
-                <div class="dn-576">
-                    <appButton
-                        v-if="width > 576"
-                        :btn="{
-                            ...settings.head_btn,
-                            size: 'md',
-                            type: 'sisi-dev',
-                            type_link: 'form',
-                        }"
-                    ></appButton>
+                    <TheThemeCircle v-if="false" class="dn-576" />
                 </div>
-                <!-- <div  class="btn fill md dn-576">
+                <div v-if="width > 1024" class="menu aic dn-1024">
+                    <NuxtLink
+                        :to="link.url"
+                        v-for="(link, idx) in headerMenu"
+                        :key="'link' + idx"
+                        class="nav-link md text-light link-1lvl"
+                        >{{ link.name }}
+                        <div v-if="link.children.length" class="dropdown">
+                            <NuxtLink
+                                :to="link2lvl.url"
+                                v-for="(link2lvl, idx) in link.children"
+                                :key="'link' + idx"
+                                class="nav-link md text-light link-1lvl"
+                                >{{ link2lvl.name }}
+                                <div
+                                    v-if="link2lvl.children.length"
+                                    class="dropdown"
+                                >
+                                    {{ link2lvl.children }}
+                                </div>
+                            </NuxtLink>
+                        </div>
+                    </NuxtLink>
+                </div>
+                <div class="actions-wrapper df">
+                    <div class="dn-576">
+                        <appButton
+                            v-if="width > 576"
+                            :btn="{
+                                ...settings.head_btn,
+                                size: 'md',
+                                type: 'sisi-dev',
+                                type_link: 'form',
+                            }"
+                        ></appButton>
+                    </div>
+                    <!-- <div  class="btn fill md dn-576">
                     {{ head_btn.name || 'Почати співпрацю' }}
                 </div> -->
-                <div
-                    v-if="width <= 1024"
-                    class="btn tint md icon-menu"
-                    @click="modal.openModal('mobile-menu')"
-                ></div>
+                    <div
+                        v-if="width <= 1024"
+                        class="btn tint md icon-menu"
+                        @click="modal.openModal('mobile-menu')"
+                    ></div>
+                </div>
             </div>
         </div>
-    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -109,13 +92,10 @@ onUnmounted(() => {
     display: grid;
     grid-template-columns: 90px auto;
     background: transparent;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 100;
     height: fit-content;
-    transition: .3s;
-    /* top: 100%; */
+    transition: 0.3s;
+    width: 100%;
     margin-top: 13px;
     @include bp-576 {
         grid-template-columns: 80px auto;

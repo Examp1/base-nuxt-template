@@ -101,6 +101,7 @@ const firstScrennComponents = {
             position: static;
             padding-top: 140px;
             padding-bottom: 200px;
+            margin-top: -111px;
         }
     }
     .constructor-container {

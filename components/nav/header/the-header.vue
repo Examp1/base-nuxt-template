@@ -10,10 +10,28 @@ const modal = useModalStore();
 
 const { contactSettings, logosSettings, headerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
+
+const stickyHeader = useTemplateRef("sticky-header");
+
+const scrollHandler = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 0) {
+        stickyHeader.value.classList.add("hide-top-side");
+    } else {
+        stickyHeader.value.classList.remove("hide-top-side");
+    }
+};
+
+onMounted(() => {
+    window.addEventListener("scroll", scrollHandler);
+});
+onUnmounted(() => {
+    window.removeEventListener("scroll", scrollHandler);
+});
 </script>
 
 <template>
-    <header>
+    <header ref="sticky-header">
         <HeaderTopSide
             :contacts-info="contactSettings"
             :nav-menu="navBarMenu"
@@ -35,7 +53,13 @@ const { contactSettings, logosSettings, headerMenu, navBarMenu } =
 
 <style lang="scss" scoped>
 header {
-    position: relative;
+    position: sticky;
     z-index: 1000;
+    top: 0;
+    transition: 0.3s;
+    width: 100%;
+    &.hide-top-side {
+        transform: translateY(-32px);
+    }
 }
 </style>

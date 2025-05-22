@@ -6,7 +6,7 @@ const { settings } = useSettingStore();
 const { getMediaPath } = useUtils();
 
 const videoRef = useTemplateRef("videoRef");
-const { isFullSize, isShow, isPlay, playOrPause, openOnFullSize } =
+const { isFullSize, isShow, isPlay, isClose, playOrPause, openOnFullSize } =
     useVideoControl(videoRef);
 </script>
 
