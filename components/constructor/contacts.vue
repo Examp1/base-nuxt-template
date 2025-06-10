@@ -2,6 +2,8 @@
 import appSectionTitle from "~/components/common/app-section-title.vue";
 import { useSettingStore } from "@/store/app-settings.js";
 import appForm from "../form/app-form.vue";
+import useUtils from "@/composables/useUtils.js";
+const { getMediaPath } = useUtils();
 
 const { contactSettings } = storeToRefs(useSettingStore());
 defineProps({
@@ -59,7 +61,7 @@ const getIcon = (type) => {
                         >
                     </div>
                 </div>
-                <img src="" alt="" />
+                <img :src="getMediaPath(content.img)" alt="" />
                 <div class="contact-item">
                     <div class="block-title lg">{{ $t("contacts.item5") }}</div>
                     <div class="block-text sm">
