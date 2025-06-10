@@ -5,7 +5,7 @@ export const addMetaTags = (meta) => {
     const { settings } = storeToRefs(useSettingStore());
     if (!meta) return;
     useHead({
-        title: settings.value.sitename || "Sisi.dev",
+        title: meta.title || settings.value.sitename || "Sisi.dev",
         meta: [
             meta.description && {
                 name: "description",
