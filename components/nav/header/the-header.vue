@@ -5,12 +5,9 @@ import HeaderTopSide from "./header-top-side.vue";
 import MobileMenu from "~/components/nav/mobile-menu/mobile-menu.vue";
 import { useSettingStore } from "~/store/app-settings.js";
 import { useModalStore } from "~/store/modal";
-
 const modal = useModalStore();
-
 const { contactSettings, logosSettings, headerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
-
 const stickyHeader = useTemplateRef("sticky-header");
 
 const scrollHandler = () => {

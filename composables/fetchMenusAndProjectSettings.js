@@ -13,15 +13,16 @@ export const fetchMenus = async (ids, lang) => {
         console.error("Ошибка при загрузке меню:", error);
     }
 };
-
-export const fetchSettings = async (lang) => {
-    try {
-        const { data } = await useFetch(`${BASE_URL}/api/setting/get`, {
-            method: "POST",
-            body: { lang },
-        });
-        return data?.value.items;
-    } catch (error) {
-        console.error("Ошибка при загрузке настроек:", error);
-    }
-};
+// fetchMenus()
+// export const fetchSettings = async (lang) => {
+//     try {
+//         const { data } = await useFetch(`${BASE_URL}/api/setting/get`, {
+//             method: "POST",
+//             body: { lang },
+//         });
+//         return data?.value.items;
+//     } catch (error) {
+//         console.error("Ошибка при загрузке настроек:", error);
+//     }
+// };
+// fetchSettings()

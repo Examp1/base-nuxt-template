@@ -61,7 +61,7 @@ const getIcon = (type) => {
                         >
                     </div>
                 </div>
-                <img :src="getMediaPath(content.img)" alt="" />
+                <img :src="getMediaPath(content.img)" alt="" class="contctsImg" />
                 <div class="contact-item">
                     <div class="block-title lg">{{ $t("contacts.item5") }}</div>
                     <div class="block-text sm">
@@ -90,6 +90,10 @@ const getIcon = (type) => {
 </template>
 
 <style lang="scss" scoped>
+.contctsImg{
+    height: 370px;
+    object-fit: cover;
+}
 .col-l,
 .col-r {
     display: grid;
