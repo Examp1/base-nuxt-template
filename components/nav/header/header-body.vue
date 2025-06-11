@@ -163,4 +163,7 @@ defineProps({
         }
     }
 }
+.menu{
+    justify-content: flex-end;
+}
 </style>

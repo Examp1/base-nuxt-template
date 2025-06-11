@@ -156,6 +156,21 @@
              border: 1px solid var(--button-filled-bg-hover);
         }
     }
+    &.sisi-dev-v2 {
+        background-image: url("~/assets/img/sisidev-separator-black-btn.svg");
+        color: var(--button-filled-neutral-label-default);
+        background-color: var(--button-filled-bg-hover);
+        border: 1px solid var(--button-filled-bg-hover);
+        background-size: 115%;
+        background-repeat: no-repeat;
+        background-position: center -100%;
+        transition: 1s;
+        z-index: 10;
+        &:hover {
+            background-position: center 99%;
+             border: 1px solid var(--button-filled-neutral-bg-default);
+        }
+    }
     &.fill {
         @include set-btn-colors(
             --button-filled-bg-default,
