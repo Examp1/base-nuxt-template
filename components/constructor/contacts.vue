@@ -16,9 +16,9 @@ const iconsList = {
     telegram: "icon-telegram",
     whatsapp: "icon-whatsapp",
     instagram: "icon-instagram",
-    linkedin: "icon-linkedin-simple",
+    linkedin: "icon-linkedin",
     facebook: "icon-facebook",
-    tiktok: "icon-tiktok-simple",
+    tiktok: "icon-tiktok",
 };
 
 const getIcon = (type) => {

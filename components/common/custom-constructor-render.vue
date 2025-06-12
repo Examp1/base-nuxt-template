@@ -2,7 +2,7 @@
 import { defineAsyncComponent } from "vue";
 import svgSeparator from "../common/svg-separator.vue";
 import { useThemeSwitcher } from "~/composables/useThemeSwitcher";
-useThemeSwitcher()
+useThemeSwitcher();
 const route = useRoute();
 defineProps({
     constructor: {
@@ -60,16 +60,20 @@ const firstScrennComponents = {
             class="block-wrapper"
             :class="route.name.includes('index') ? ' bg-light-2' : ' bg-none'"
         >
-            <section
+            <template
                 v-for="({ component, visible, content }, idx) in constructor"
                 :key="`${component}-${idx}`"
-                :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
             >
-                <component
-                    :is="asyncComponents[component]"
-                    :content="content"
-                ></component>
-            </section>
+                <section
+                    v-if="+visible === 1"
+                    :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
+                >
+                    <component
+                        :is="asyncComponents[component]"
+                        :content="content"
+                    ></component>
+                </section>
+            </template>
         </div>
     </div>
 </template>

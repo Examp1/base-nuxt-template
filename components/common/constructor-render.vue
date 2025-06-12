@@ -13,8 +13,10 @@ defineProps({
 });
 
 const componentConstructor = import.meta.glob("@/components/constructor/*.vue");
-const componentFirstScreens = import.meta.glob("@/components/first-screens/*.vue");
-const modules = {...componentConstructor, ...componentFirstScreens}
+const componentFirstScreens = import.meta.glob(
+    "@/components/first-screens/*.vue",
+);
+const modules = { ...componentConstructor, ...componentFirstScreens };
 const asyncComponents = Object.entries(modules).reduce(
     (map, [path, loader]) => {
         const name = path.split("/").pop().replace(".vue", "");
@@ -23,14 +25,16 @@ const asyncComponents = Object.entries(modules).reduce(
     },
     {},
 );
-
 </script>
 
 <template>
     <div class="constructor-container">
+        <template
+            v-for="({ component, visible, content }, idx) in constructor"
+            :key="`${component}-${idx}`"
+        >
             <section
-                v-for="({ component, visible, content }, idx) in constructor"
-                :key="`${component}-${idx}`"
+                v-if="+visible === 1"
                 :class="`mt-${content.top_separator} mb-${content.bottom_separator} ${content.preset} block-${component} section-separator-${content.separator_section}`"
             >
                 <component
@@ -38,8 +42,8 @@ const asyncComponents = Object.entries(modules).reduce(
                     :content="content"
                 ></component>
             </section>
-        </div>
+        </template>
+    </div>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
