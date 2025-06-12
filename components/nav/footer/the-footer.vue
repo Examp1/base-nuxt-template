@@ -88,9 +88,9 @@ const bgType = computed(() => {
             <div class="footer-bottom-side">
                 <div class="footer-bottom-menu">
                     <LangSwitcherV2 />
-                    <div v-for="li in footerMenu" class="nav-link sm">
+                    <NuxtLink v-for="li in footerMenu" class="nav-link sm" :to="li.url">
                         {{ li.name }}
-                    </div>
+                    </NuxtLink>
                 </div>
                 <div class="nav-link sm">
                     Зроблено з любовʼю в Україні <span>💛💙</span> Sisi.dev©
