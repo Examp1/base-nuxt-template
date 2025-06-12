@@ -22,7 +22,7 @@ const openModal = ref(false);
     <NuxtLink
         v-else
         :to="btn.link"
-        class="btn"
+        class="btn icon-right"
         :class="[btn.size, btn.type, 'icon-' + btn.icon]"
         >{{ btn.text || btn.name }}</NuxtLink
     >
