@@ -112,6 +112,7 @@ const props = defineProps({
         gap: 8px;
         .tag {
             border-radius: 100px;
+            color: var(--button-stroke-label-hover);
             border: var(--link-ext-border, 1px) solid
                 var(--button-stroke-neutral-border-default, rgba(0, 0, 0, 0.16));
         }
