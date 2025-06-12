@@ -56,7 +56,6 @@ const { isFullSize, isShow, isPlay, isClose, playOrPause, openOnFullSize } =
     position: fixed;
     bottom: 30px;
     left: 30px;
-    z-index: 100;
     z-index: 500;
     width: 130px;
     height: 180px;

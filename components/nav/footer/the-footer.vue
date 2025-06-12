@@ -7,7 +7,7 @@ const route = useRoute();
 const bgType = computed(() => {
     return {
         main: route.name.includes("index") ? "bg-light-2" : "bg-light",
-        container: !route.name.includes("index") ? "bg-light-2" : "bg-light"
+        container: !route.name.includes("index") ? "bg-light-2" : "bg-light",
     };
 });
 </script>
@@ -36,8 +36,8 @@ const bgType = computed(() => {
                     target="_blank"
                     v-for="(soc, idx) in contactSettings.socials"
                     :key="'soc' + idx"
-                    class="icon-facebook-circle"
-                    style="color: #000; font-size: 36px"
+                    class="soc-link"
+                    :class="`icon-${soc.type}`"
                 ></a>
             </div>
             <div class="footer-body">
@@ -52,14 +52,19 @@ const bgType = computed(() => {
                 </div>
                 <div class="footer-contacts-info">
                     <div class="block-title md">Пишіть нам в месенджери:</div>
-                    <a
+                    <temaplate
                         v-for="(messenger, idx) in contactSettings.messengers"
-                        :key="'messanger' + idx"
-                        :to="messenger.link"
-                        class="nav-link md"
                     >
-                        {{ messenger.type }}: {{ messenger.nickname }}
-                    </a>
+                        <a
+                            v-if="messenger.nikname"
+                            :key="'messanger' + idx"
+                            :to="messenger.link"
+                            class="nav-link md"
+                            style="display: block"
+                        >
+                            {{ messenger.type }}: {{ messenger.nikname }}
+                        </a>
+                    </temaplate>
                 </div>
             </div>
             <div class="footer-cta">
@@ -175,5 +180,17 @@ footer {
             }
         }
     }
+}
+.soc-link {
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 5px;
 }
 </style>
