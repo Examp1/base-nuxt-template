@@ -13,7 +13,7 @@ const openModal = ref(false);
 <template>
     <div
         v-if="btn.type_link === 'form'"
-        class="btn"
+        class="btn icon-right"
         @click="openModal = true"
         :class="[btn.size, btn.type, 'icon-' + btn.icon]"
     >
