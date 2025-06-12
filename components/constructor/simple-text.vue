@@ -20,6 +20,7 @@ defineProps({
         ></appSectionTitle>
         <div
             class="redactor fade"
+            :class="content.redactor_size"
             v-if="content.text"
             v-html="content.text"
         ></div>
