@@ -3,10 +3,17 @@ import { useSettingStore } from "~/store/app-settings.js";
 import LangSwitcherV2 from "../lang-switchers/lang-switcher-v-2.vue";
 const { contactSettings, logosSettings, footerMenu, navBarMenu } =
     storeToRefs(useSettingStore());
+const route = useRoute();
+const bgType = computed(() => {
+    return {
+        main: route.name.includes("index") ? "bg-light-2" : "bg-light",
+        container: !route.name.includes("index") ? "bg-light-2" : "bg-light"
+    };
+});
 </script>
 <template>
-    <footer class="bg-none bg-light-2">
-        <div class="container bg-light footer-container">
+    <footer class="bg-none" :class="bgType.main">
+        <div class="container footer-container" :class="bgType.container">
             <div class="footer-top-side">
                 <div class="credo aic">
                     <img

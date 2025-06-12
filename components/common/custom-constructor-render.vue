@@ -93,7 +93,7 @@ const firstScrennComponents = {
             z-index: 0;
         }
         @include bp-1440 {
-            padding-top: 140px;
+            padding-top: 90px;
             padding-bottom: 0;
         }
         @include bp-768 {
