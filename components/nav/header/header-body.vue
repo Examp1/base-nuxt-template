@@ -9,6 +9,7 @@ const { settings } = storeToRefs(useSettingStore());
 const { width } = useWindowSize();
 const modal = useModalStore();
 const route = useRoute();
+const localePath = useLocalePath()
 defineProps({
     logos: {
         type: Object,
@@ -21,68 +22,68 @@ defineProps({
 });
 </script>
 <template>
-        <div class="container sticky-header bg-light">
-            <component
-                :is="route.name.includes('index') ? 'div' : NuxtLink"
-                to="/"
-                class="header-logo"
-            >
-                <img :src="getPath(logos.header)" alt="" />
-            </component>
-            <div class="header-body">
-                <div class="custom-feature aic">
-                    <div class="info-text">
-                        {{ $t("sisidev-info-text") }}
-                    </div>
-                    <TheThemeCircle v-if="false" class="dn-576" />
+    <div class="container sticky-header bg-light">
+        <component
+            :is="route.name.includes('index') ? 'div' : NuxtLink"
+            :to="localePath('/123123')"
+            class="header-logo"
+        >
+            <img :src="getPath(logos.header)" alt="" />
+        </component>
+        <div class="header-body">
+            <div class="custom-feature aic">
+                <div class="info-text">
+                    {{ $t("sisidev-info-text") }}
                 </div>
-                <div v-if="width > 1024" class="menu aic dn-1024">
-                    <NuxtLink
-                        :to="link.url"
-                        v-for="(link, idx) in headerMenu"
-                        :key="'link' + idx"
-                        class="nav-link md text-light link-1lvl"
-                        >{{ link.name }}
-                        <div v-if="link.children.length" class="dropdown">
-                            <NuxtLink
-                                :to="link2lvl.url"
-                                v-for="(link2lvl, idx) in link.children"
-                                :key="'link' + idx"
-                                class="nav-link md text-light link-1lvl"
-                                >{{ link2lvl.name }}
-                                <div
-                                    v-if="link2lvl.children.length"
-                                    class="dropdown"
-                                >
-                                    {{ link2lvl.children }}
-                                </div>
-                            </NuxtLink>
-                        </div>
-                    </NuxtLink>
-                </div>
-                <div class="actions-wrapper df">
-                    <div class="dn-576">
-                        <appButton
-                            v-if="width > 576"
-                            :btn="{
-                                ...settings.head_btn,
-                                size: 'md',
-                                type: 'sisi-dev',
-                                type_link: 'form',
-                            }"
-                        ></appButton>
+                <TheThemeCircle v-if="false" class="dn-576" />
+            </div>
+            <div v-if="width > 1024" class="menu aic dn-1024">
+                <NuxtLink
+                    :to="link.url"
+                    v-for="(link, idx) in headerMenu"
+                    :key="'link' + idx"
+                    class="nav-link md text-light link-1lvl"
+                    >{{ link.name }}
+                    <div v-if="link.children.length" class="dropdown">
+                        <NuxtLink
+                            :to="link2lvl.url"
+                            v-for="(link2lvl, idx) in link.children"
+                            :key="'link' + idx"
+                            class="nav-link md text-light link-1lvl"
+                            >{{ link2lvl.name }}
+                            <div
+                                v-if="link2lvl.children.length"
+                                class="dropdown"
+                            >
+                                {{ link2lvl.children }}
+                            </div>
+                        </NuxtLink>
                     </div>
-                    <!-- <div  class="btn fill md dn-576">
+                </NuxtLink>
+            </div>
+            <div class="actions-wrapper df">
+                <div class="dn-576">
+                    <appButton
+                        v-if="width > 576"
+                        :btn="{
+                            ...settings.head_btn,
+                            size: 'md',
+                            type: 'sisi-dev',
+                            type_link: 'form',
+                        }"
+                    ></appButton>
+                </div>
+                <!-- <div  class="btn fill md dn-576">
                     {{ head_btn.name || 'Почати співпрацю' }}
                 </div> -->
-                    <div
-                        v-if="width <= 1024"
-                        class="btn tint md icon-menu"
-                        @click="modal.openModal('mobile-menu')"
-                    ></div>
-                </div>
+                <div
+                    v-if="width <= 1024"
+                    class="btn tint md icon-menu"
+                    @click="modal.openModal('mobile-menu')"
+                ></div>
             </div>
         </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -161,7 +162,7 @@ defineProps({
         }
     }
 }
-.menu{
+.menu {
     justify-content: flex-end;
 }
 </style>

@@ -41,17 +41,3 @@ export const useApiRequest = (url, reqOptions) => {
         return { data, status };
     }
 };
-// import { BASE_URL } from "~/constants";
-// export const fetchData = async (url, reqOptions) => {
-//     const locale = useNuxtApp().$i18n.locale;
-//     const result = await useAsyncData("home", () =>
-//         $fetch(`${BASE_URL}/${url}`, {
-//             method: "POST",
-//             body: {
-//                 lang: locale.value,
-//                 ...reqOptions,
-//             },
-//         }),
-//     );
-//     return result
-// };

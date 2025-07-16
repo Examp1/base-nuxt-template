@@ -1,11 +1,9 @@
 <script setup>
-import { useApiRequest } from "@/composables/useApiRequest";
 import appBreadcrumbs from "~/components/nav/app-breadcrumbs.vue";
 import theSharingBlock from "~/components/common/the-sharing-block.vue";
 import constructorRender from "~/components/common/constructor-render.vue";
 const route = useRoute();
-const localePath = useLocalePath()
-const { data, status } = useApiRequest("api/blog/article/get-by-slug", {
+const { data, status } = useApi("api/blog/article/get-by-slug", {
     slug: route.params.article,
 });
 </script>

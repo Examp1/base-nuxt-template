@@ -1,7 +1,6 @@
 <script setup>
 import appCard from "~/components/card/app-card.vue";
-import { useApiRequest } from "@/composables/useApiRequest";
-const { data, status } = useApiRequest("api/blog/article/list", {
+const { data, status } = useApi("api/blog/article/list", {
     page: 1,
 });
 const enhanceCard = (article) => {
