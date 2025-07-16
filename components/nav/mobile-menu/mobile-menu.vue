@@ -29,7 +29,7 @@ defineProps({
     <div class="mobile-menu bg-light">
         <div class="mobile-menu-header">
             <div class="logo">
-                <img :src="path(logos.header)" alt="sisi.dev logo" />
+                <img :src="getPath(logos.header)" alt="sisi.dev logo" />
             </div>
             <div class="info-text">
                 {{ $t("sisidev-info-text") }}

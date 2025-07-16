@@ -3,8 +3,6 @@ import { useApiRequest } from "@/composables/useApiRequest";
 import appBreadcrumbs from "~/components/nav/app-breadcrumbs.vue";
 import theSharingBlock from "~/components/common/the-sharing-block.vue";
 import constructorRender from "~/components/common/constructor-render.vue";
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 const route = useRoute();
 const localePath = useLocalePath()
 const { data, status } = useApiRequest("api/blog/article/get-by-slug", {
@@ -25,7 +23,7 @@ const { data, status } = useApiRequest("api/blog/article/get-by-slug", {
         </div>
         <img
             v-if="data.model.image"
-            :src="getMediaPath(data.model.image)"
+            :src="getPath(data.model.image)"
             :alt="data.model.name"
         />
         <div class="article-wrapper mt-SM mb-SM">

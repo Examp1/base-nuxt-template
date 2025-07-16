@@ -1,6 +1,4 @@
 <script setup>
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 defineProps({
     video: {
         type: String,
@@ -15,7 +13,7 @@ defineProps({
             muted=""
             playsinline=""
             loop=""
-            :src="getMediaPath(video)"
+            :src="getPath(video)"
         ></video>
     </div>
 </template>

@@ -12,8 +12,6 @@ import cardColorText from "./cards-elements/card-color-text.vue";
 import cardText from "./cards-elements/card-text.vue";
 import cardAdditionalInfo from "./cards-elements/card-aditional-info.vue";
 import cardVideo from "./cards-elements/card-video.vue";
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 
 // defineProps<{id: number}>()
 
@@ -109,7 +107,7 @@ const hasText = computed(() => {
         >
             <cardImage
                 v-if="card.image"
-                :image="card.customImage ? card.image : getMediaPath(card.image)"
+                :image="card.customImage ? card.image : getPath(card.image)"
                 :alt="card.imageAlt"
             />
             <cardVideo

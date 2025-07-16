@@ -1,7 +1,5 @@
 <script setup>
 import appButton from "../common/app-button.vue";
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 const props = defineProps({
     content: {
         type: Object,
@@ -15,7 +13,7 @@ const props = defineProps({
         <div class="card-body body-direction-horizontal">
             <div class="card-pictogram">
                 <img
-                    :src="getMediaPath(content.image)"
+                    :src="getPath(content.image)"
                     alt="Default image description"
                 />
             </div>

@@ -1,6 +1,4 @@
 import { useSettingStore } from "~/store/app-settings.js";
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 export const addMetaTags = (meta) => {
     const { settings } = storeToRefs(useSettingStore());
     if (!meta) return;
@@ -32,7 +30,7 @@ export const addMetaTags = (meta) => {
         link: [
             {
                 rel: "icon",
-                href: getMediaPath(settings.value.favicon),
+                href: getPath(settings.value.favicon),
                 type: "image/x-icon",
             },
         ].filter(Boolean),

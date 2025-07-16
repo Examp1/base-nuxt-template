@@ -1,9 +1,8 @@
 <script setup>
 import { useSettingStore } from "~/store/app-settings.js";
-import useUtils from "@/composables/useUtils.js";
 import useVideoControl from "@/composables/useVideoControl.js";
 const { settings } = useSettingStore();
-const { getMediaPath } = useUtils();
+
 
 const videoRef = useTemplateRef("videoRef");
 const { isFullSize, isShow, isPlay, isClose, playOrPause, openOnFullSize } =
@@ -33,7 +32,7 @@ const { isFullSize, isShow, isPlay, isClose, playOrPause, openOnFullSize } =
                     settings.company_info_video.includes('png') ||
                     settings.company_info_video.includes('webp')
                 "
-                :src="getMediaPath(settings.company_info_video)"
+                :src="getPath(settings.company_info_video)"
                 alt=""
             />
             <video
@@ -43,7 +42,7 @@ const { isFullSize, isShow, isPlay, isClose, playOrPause, openOnFullSize } =
                 muted=""
                 playsinline=""
                 loop=""
-                :src="getMediaPath(settings.company_info_video)"
+                :src="getPath(settings.company_info_video)"
             ></video>
             <!-- src="https://yescenter.com.ua/yes.mov" -->
         </div>

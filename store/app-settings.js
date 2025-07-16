@@ -3,6 +3,108 @@ import { defineStore } from "pinia";
 
 export const useSettingStore = defineStore("setting-store", {
     state: () => ({
+        test: {
+            id: "13",
+            btnName: "Отримати консультацію",
+            data: [
+                {
+                    _custom: {
+                        type: "reactive",
+                        stateTypeName: "Reactive",
+                        value: {
+                            label: "Заголовок",
+                            visibility: "1",
+                            type: "form-title",
+                            value: "Залиште заявку",
+                        },
+                    },
+                },
+                {
+                    _custom: {
+                        type: "reactive",
+                        stateTypeName: "Reactive",
+                        value: {
+                            label: "Input",
+                            visibility: "1",
+                            type: "form-input",
+                            name: "name",
+                            title: null,
+                            placeholder: "Ім’я",
+                            show_in_message: "1",
+                            shown_name: "Ім’я",
+                            rules: {
+                                required: true,
+                                email: false,
+                                min: 0,
+                                max: 0,
+                            },
+                            messages: {
+                                required: null,
+                                email: null,
+                                min: null,
+                                max: null,
+                            },
+                        },
+                    },
+                },
+                {
+                    _custom: {
+                        type: "reactive",
+                        stateTypeName: "Reactive",
+                        value: {
+                            label: "Input",
+                            visibility: "1",
+                            type: "form-input",
+                            name: "phone",
+                            title: null,
+                            placeholder: "Телефон",
+                            show_in_message: "1",
+                            shown_name: "Телефон",
+                            rules: {
+                                required: true,
+                                email: false,
+                                min: 0,
+                                max: 0,
+                            },
+                            messages: {
+                                required: null,
+                                email: null,
+                                min: null,
+                                max: null,
+                            },
+                        },
+                    },
+                },
+                {
+                    _custom: {
+                        type: "reactive",
+                        stateTypeName: "Reactive",
+                        value: {
+                            label: "Textarea",
+                            visibility: "1",
+                            type: "form-editor",
+                            name: "text",
+                            title: null,
+                            placeholder: "Введіть Ваш запит  або запитання",
+                            show_in_message: "1",
+                            shown_name: "Текст",
+                            rules: {
+                                required: false,
+                                email: false,
+                                min: 0,
+                                max: 0,
+                            },
+                            messages: {
+                                required: null,
+                                email: null,
+                                min: null,
+                                max: null,
+                            },
+                        },
+                    },
+                },
+            ],
+        },
         menuCount: null,
         settings: null,
         headerMenu: null,

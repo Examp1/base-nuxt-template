@@ -26,7 +26,7 @@ const props = defineProps({
                 !!accordion_item.image ? 'hasImage' : 'noImage',
             ]"
         >
-            <img v-if="accordion_item.image" :src="path(accordion_item.image)" alt="" />
+            <img v-if="accordion_item.image" :src="getPath(accordion_item.image)" alt="" />
             <div class="accordion-wrapper">
                 <div
                     class="accorion-trigger"

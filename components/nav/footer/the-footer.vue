@@ -17,7 +17,7 @@ const bgType = computed(() => {
             <div class="footer-top-side">
                 <div class="credo aic">
                     <img
-                        :src="path(logosSettings.footer)"
+                        :src="getPath(logosSettings.footer)"
                         alt="footer logo"
                         class="footer-logo"
                     />

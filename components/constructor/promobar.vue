@@ -37,7 +37,7 @@ const transformedImagesList = computed(() => {
             <div class="marquee-wrp">
                 <img
                     v-for="(item, index) in transformedImagesList"
-                    :src="path(item.img)"
+                    :src="getPath(item.img)"
                     alt="image"
                     :key="index"
                 />
@@ -45,7 +45,7 @@ const transformedImagesList = computed(() => {
             <div class="marquee-wrp">
                 <img
                     v-for="(item, index) in transformedImagesList"
-                    :src="path(item.img)"
+                    :src="getPath(item.img)"
                     alt="image"
                     :key="index"
                 />

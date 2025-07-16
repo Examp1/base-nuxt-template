@@ -3,11 +3,9 @@ import { computed } from "vue";
 import getSpriteImage from "@/utils/getSpriteImage";
 import appCard from "~/components/card/app-card.vue";
 import { useSettingStore } from "~/store/app-settings.js";
-import useUtils from "@/composables/useUtils.js";
 import useVideoControl from "@/composables/useVideoControl.js";
 
 const { settings } = useSettingStore();
-const { getMediaPath } = useUtils();
 
 const props = defineProps({
     content: {
@@ -54,7 +52,7 @@ const { isFullSize, isShow, isPlay, playOrPause, openOnFullSize } =
                     loop=""
                     class="cta-video"
                     @click.self="openOnFullSize"
-                    :src="getMediaPath(settings.company_info_video)"
+                    :src="getPath(settings.company_info_video)"
                 ></video>
             </div>
         </transition>

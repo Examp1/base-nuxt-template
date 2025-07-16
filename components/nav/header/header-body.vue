@@ -6,8 +6,6 @@ import { useModalStore } from "~/store/modal";
 import { useSettingStore } from "~/store/app-settings.js";
 import appButton from "~/components/common/app-button.vue";
 const { settings } = storeToRefs(useSettingStore());
-import useUtils from "@/composables/useUtils.js";
-const { getMediaPath } = useUtils();
 const { width } = useWindowSize();
 const modal = useModalStore();
 const route = useRoute();
@@ -29,7 +27,7 @@ defineProps({
                 to="/"
                 class="header-logo"
             >
-                <img :src="getMediaPath(logos.header)" alt="" />
+                <img :src="getPath(logos.header)" alt="" />
             </component>
             <div class="header-body">
                 <div class="custom-feature aic">

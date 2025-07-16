@@ -15,7 +15,7 @@ const cardOption = computed(() => {
     return {
         title: props.content.title,
         text: props.content.text,
-        backgroundImage: path(props.content.image),
+        backgroundImage: getPath(props.content.image),
         wrapPadding: "xxl",
         customClass: "bg-dark cta-card",
         titleSize: "xxxxl",
