@@ -2,7 +2,7 @@ import { APP_ENUM } from "./APP_ENUM";
 import { useI18n } from "vue-i18n";
 import { handleApiError } from "../composables/handleApiError";
 
-export async function useApi<T = any>(url: string, requestBody: Record<string, any>) {
+export async function testUseApi<T = any>(url: string, requestBody: Record<string, any>) {
     const { locale } = useI18n();
     const cacheKey = `${locale.value}-${requestBody?.slug ?? url}`;
     

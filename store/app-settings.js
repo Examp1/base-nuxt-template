@@ -151,12 +151,12 @@ export const useSettingStore = defineStore("setting-store", {
                         key: cacheKey,
                         method: "POST",
                         body: {
-                            ids: [63, 64],
+                            ids: [62, 63, 64],
                             lang: locale,
                         },
                     },
                 );
-                // this.headerMenu = data.items[62];
+                this.headerMenu = data.items[62];
                 this.footerMenu = data.items[64];
                 this.navBarMenu = data.items[63];
             } catch (error) {

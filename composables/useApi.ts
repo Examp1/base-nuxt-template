@@ -15,22 +15,24 @@ const fetchData = async <T>(url: string, body: Record<string, any>) => {
 
 // 2. Метод для обработки ошибок
 const handleApiError = (error: any) => {
-    if (process.server) {
+    if (import.meta.server) {
         throw createError({
             statusCode: error.statusCode || 500,
-            statusMessage: `Server error: ${error.statusMessage}` || "API Error Server",
+            statusMessage:
+                `Server error: ${error.statusMessage}` || "API Error Server",
             fatal: true,
         });
     } else {
         showError({
             statusCode: error.statusCode || 404,
-            statusMessage: `Client error: ${error.statusMessage}` || "Api Error Client",
+            statusMessage:
+                `Client error: ${error.statusMessage}` || "Api Error Client",
         });
     }
 };
 
 // Главный метод, который будем использовать в компонентах
-export const useApi2 = async <T = any>(
+export const useApi = async <T = any>(
     url: string,
     body: Record<string, any>,
 ) => {

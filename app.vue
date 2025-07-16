@@ -13,7 +13,7 @@ loadSettings(locale.value);
 loadMenus(locale.value);
 watch(locale, () => {
     loadSettings(locale.value);
-    loadMenus(locale.value);
+    // loadMenus(locale.value);
 });
 useWindowSizeRange();
 const isPageReady = ref(false);

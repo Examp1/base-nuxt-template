@@ -1,4 +1,5 @@
 <script setup>
+import { useApi } from "../composables/useApi";
 import appCard from "~/components/card/app-card.vue";
 const { data, status } = useApi("api/blog/article/list", {
     page: 1,

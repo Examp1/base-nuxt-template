@@ -1,8 +1,8 @@
 <script setup>
 import ConstructorRender from "~/components/common/constructor-render.vue";
 const route = useRoute();
-import { useApi2 } from "../composables/useApi";
-const { data, status } = await useApi2("/api/page/get-by-slug", {
+import { useApi } from "../composables/useApi";
+const { data, status } = await useApi("/api/page/get-by-slug", {
     slug: route.params.page,
 });
 
