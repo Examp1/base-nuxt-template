@@ -1,12 +1,12 @@
 import { APP_ENUM } from "./APP_ENUM";
 import { useI18n } from "vue-i18n";
-import { handleApiError } from "./handleApiError";
+import { handleApiError } from "../composables/handleApiError";
 
-export function useApi<T = any>(url: string, requestBody: Record<string, any>) {
+export async function useApi<T = any>(url: string, requestBody: Record<string, any>) {
     const { locale } = useI18n();
     const cacheKey = `${locale.value}-${requestBody?.slug ?? url}`;
-
-    const { data, error, status, refresh } = useAsyncData<T>(cacheKey, () =>
+    
+    const { data, error, status, refresh } = await useAsyncData<T>(cacheKey, () =>
         $fetch(APP_ENUM.BASE_URL + url, {
             method: "POST",
             body: {
@@ -17,13 +17,13 @@ export function useApi<T = any>(url: string, requestBody: Record<string, any>) {
     );
 
     if (error.value) {
-        // if (error.value) {
-        //     handleApiError(error.value);
-        // }
-        showError({
-            statusCode: error.value?.statusCode || 500,
-            statusMessage: error.value?.statusMessage || "Something went wrong",
-        });
+        console.log(error._value);
+        console.log("error if");
+        console.log(locale.value || "ne rabotaet syka");
+
+        if (error.value) {
+            handleApiError(error);
+        }
     }
 
     return {

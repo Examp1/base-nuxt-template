@@ -11,10 +11,10 @@ const { locale } = useI18n();
 const { loadSettings, loadMenus } = useSettingStore();
 loadSettings(locale.value);
 loadMenus(locale.value);
-// watch(locale, () => {
-//     loadSettings(locale.value);
-//     loadMenus(locale.value);
-// });
+watch(locale, () => {
+    loadSettings(locale.value);
+    loadMenus(locale.value);
+});
 useWindowSizeRange();
 const isPageReady = ref(false);
 const route = useRoute();

@@ -2,7 +2,7 @@
 import LangSwitcher from "../lang-switchers/lang-switcher.vue";
 import { useWindowSize } from "@vueuse/core";
 
-const { width } = useWindowSize();
+// const { width } = useWindowSize();
 
 defineProps({
     contactsInfo: {
@@ -19,26 +19,30 @@ defineProps({
     <div class="header-top-side bg-dark">
         <div class="container jcsb">
             <div class="col-l aic">
+                <!-- && width >= 576 -->
                 <a
-                    v-if="contactsInfo.phone?.[0] && width >= 576"
+                    v-if="contactsInfo.phone?.[0]"
                     :href="`tel:${contactsInfo.phone[0].number}`"
                     class="nav-link sm text-light dn-576"
                     >{{ contactsInfo.phone[0].title }}</a
                 >
+                <!-- && width >= 768 -->
                 <div
                     class="block-text sm-m text-light dn-768"
-                    v-if="contactsInfo.address && width >= 768"
+                    v-if="contactsInfo.address"
                 >
                     {{ contactsInfo.address }}
                 </div>
+                <!-- && width >= 768 -->
                 <div
                     class="block-text sm-m text-light dn-768"
-                    v-if="contactsInfo.schedule?.[0].title && width >= 768"
+                    v-if="contactsInfo.schedule?.[0].title"
                 >
                     {{ contactsInfo.schedule[0].title }}
                     {{ contactsInfo.schedule[0].time }}
                 </div>
-                <nav class="menu dn-768" v-if="navMenu && width >= 768">
+                <!-- && width >= 768 -->
+                <nav class="menu dn-768" v-if="navMenu">
                     <nuxt-link
                         :to="link.url"
                         v-for="(link, idx) in navMenu"
@@ -57,7 +61,8 @@ defineProps({
                     >
                 </nav>
             </div>
-            <div v-if="width >= 768" class="col-r dn-768">
+            <!--  v-if="width >= 768" -->
+            <div class="col-r dn-768">
                 <LangSwitcher></LangSwitcher>
             </div>
         </div>
@@ -75,8 +80,8 @@ defineProps({
     .col-l {
         gap: var(--header-top-gap-outter);
     }
-    @include bp-768{
-        .jcsb{
+    @include bp-768 {
+        .jcsb {
             justify-content: center;
         }
     }

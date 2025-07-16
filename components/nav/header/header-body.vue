@@ -6,7 +6,7 @@ import { useModalStore } from "~/store/modal";
 import { useSettingStore } from "~/store/app-settings.js";
 import appButton from "~/components/common/app-button.vue";
 const { settings } = storeToRefs(useSettingStore());
-const { width } = useWindowSize();
+// const { width } = useWindowSize();
 const modal = useModalStore();
 const route = useRoute();
 const localePath = useLocalePath()
@@ -37,7 +37,8 @@ defineProps({
                 </div>
                 <TheThemeCircle v-if="false" class="dn-576" />
             </div>
-            <div v-if="width > 1024" class="menu aic dn-1024">
+            <!-- v-if="width > 1024" -->
+            <div class="menu aic dn-1024">
                 <NuxtLink
                     :to="link.url"
                     v-for="(link, idx) in headerMenu"
@@ -62,9 +63,9 @@ defineProps({
                 </NuxtLink>
             </div>
             <div class="actions-wrapper df">
+                 <!-- v-if="width > 576" -->
                 <div class="dn-576">
                     <appButton
-                        v-if="width > 576"
                         :btn="{
                             ...settings.head_btn,
                             size: 'md',
@@ -76,8 +77,8 @@ defineProps({
                 <!-- <div  class="btn fill md dn-576">
                     {{ head_btn.name || 'Почати співпрацю' }}
                 </div> -->
+                <!-- v-if="width <= 1024" -->
                 <div
-                    v-if="width <= 1024"
                     class="btn tint md icon-menu"
                     @click="modal.openModal('mobile-menu')"
                 ></div>

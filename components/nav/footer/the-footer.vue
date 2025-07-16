@@ -56,7 +56,7 @@ const bgType = computed(() => {
                         v-for="(messenger, idx) in contactSettings.messengers"
                     >
                         <a
-                            v-if="messenger.nikname"
+                            v-if="messenger?.nikname"
                             :key="'messanger' + idx"
                             :to="messenger.link"
                             class="nav-link md"
@@ -88,7 +88,11 @@ const bgType = computed(() => {
             <div class="footer-bottom-side">
                 <div class="footer-bottom-menu">
                     <LangSwitcherV2 />
-                    <NuxtLink v-for="li in footerMenu" class="nav-link sm" :to="li.url">
+                    <NuxtLink
+                        v-for="li in footerMenu"
+                        class="nav-link sm"
+                        :to="li.url"
+                    >
                         {{ li.name }}
                     </NuxtLink>
                 </div>

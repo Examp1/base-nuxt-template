@@ -1,7 +1,7 @@
 <script setup>
 import customConstructorRender from "~/components/common/custom-constructor-render.vue";
-
-const { data, status, error } = await useApi("/api/page/get-by-slug", {
+import { useApi2 } from "../composables/useApi";
+const { data, status, error } = await useApi2("/api/page/get-by-slug", {
     slug: "/",
 });
 </script>
