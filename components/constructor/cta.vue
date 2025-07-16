@@ -8,9 +8,12 @@ const props = defineProps({
         required: true,
     },
 });
-const arrayWithKeys = Object.values(props.content.btns).map((value) => ({
-    ...value,
-}));
+const arrayWithKeys = ref([]);
+if (props.content.btns) {
+    arrayWithKeys.value = Object.values(props.content.btns).map((value) => ({
+        ...value,
+    }));
+}
 const cardOption = computed(() => {
     return {
         title: props.content.title,

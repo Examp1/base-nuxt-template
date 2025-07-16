@@ -17,9 +17,13 @@ export function useApi<T = any>(url: string, requestBody: Record<string, any>) {
     );
 
     if (error.value) {
-        if (error.value) {
-            handleApiError(error.value);
-        }
+        // if (error.value) {
+        //     handleApiError(error.value);
+        // }
+        showError({
+            statusCode: error.value?.statusCode || 500,
+            statusMessage: error.value?.statusMessage || "Something went wrong",
+        });
     }
 
     return {

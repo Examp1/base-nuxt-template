@@ -52,7 +52,7 @@ const bgType = computed(() => {
                 </div>
                 <div class="footer-contacts-info">
                     <div class="block-title md">Пишіть нам в месенджери:</div>
-                    <temaplate
+                    <template
                         v-for="(messenger, idx) in contactSettings.messengers"
                     >
                         <a
@@ -64,7 +64,7 @@ const bgType = computed(() => {
                         >
                             {{ messenger.type }}: {{ messenger.nikname }}
                         </a>
-                    </temaplate>
+                    </template>
                 </div>
             </div>
             <div class="footer-cta">
