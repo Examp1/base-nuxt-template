@@ -1,7 +1,6 @@
 import { useI18n } from "vue-i18n";
 import { APP_ENUM } from "../utils/APP_ENUM";
 
-// 1. Метод для выполнения запроса
 const fetchData = async <T>(url: string, body: Record<string, any>) => {
     const { locale } = useI18n();
     const cacheKey = `${locale.value}-${body?.slug ?? url}`;
@@ -13,7 +12,6 @@ const fetchData = async <T>(url: string, body: Record<string, any>) => {
     );
 };
 
-// 2. Метод для обработки ошибок
 const handleApiError = (error: any) => {
     if (import.meta.server) {
         throw createError({
@@ -31,20 +29,16 @@ const handleApiError = (error: any) => {
     }
 };
 
-// Главный метод, который будем использовать в компонентах
 export const useApi = async <T = any>(
     url: string,
     body: Record<string, any>,
 ) => {
-    // Шаг 1: Делаем запрос
-    const { data, error, status } = await fetchData<T>(url, body);
+    const { data, error, status, refresh } = await fetchData<T>(url, body);
 
-    // Шаг 2: Проверяем ошибки
     if (error.value) {
         handleApiError(error.value);
         return { data: null, error: error.value, status };
     }
 
-    // Шаг 3: Возвращаем успешные данные
-    return { data, error: null, status };
+    return { data, error: null, status, refresh };
 };

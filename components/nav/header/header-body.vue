@@ -25,7 +25,7 @@ defineProps({
     <div class="container sticky-header bg-light">
         <component
             :is="route.name.includes('index') ? 'div' : NuxtLink"
-            :to="localePath('/test-page')"
+            :to="localePath('/')"
             class="header-logo"
         >
             <img :src="getPath(logos.header)" alt="" />

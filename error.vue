@@ -10,6 +10,8 @@ const handleError = () => clearError({ redirect: "/" });
 <template>
   <div class="error-container">
     <div class="error-content">
+      <pre>
+      </pre>
       <h1 class="error-code">{{ error?.statusCode }}</h1>
       <p class="error-message" v-if="error?.message">
         {{ error.message }}
@@ -30,6 +32,7 @@ const handleError = () => clearError({ redirect: "/" });
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </button>
+      <div class="error-stack" v-html="error.stack"></div>
     </div>
   </div>
 </template>

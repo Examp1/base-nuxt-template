@@ -1,28 +1,41 @@
 import { APP_ENUM } from "./APP_ENUM";
 import { useI18n } from "vue-i18n";
-import { handleApiError } from "../composables/handleApiError";
 
-export async function testUseApi<T = any>(url: string, requestBody: Record<string, any>) {
+export async function testUseApi<T = any>(
+    url: string,
+    requestBody: Record<string, any>,
+) {
     const { locale } = useI18n();
     const cacheKey = `${locale.value}-${requestBody?.slug ?? url}`;
-    
-    const { data, error, status, refresh } = await useAsyncData<T>(cacheKey, () =>
-        $fetch(APP_ENUM.BASE_URL + url, {
-            method: "POST",
-            body: {
-                lang: locale.value,
-                ...requestBody,
-            },
-        }),
+
+    const { data, error, status, refresh } = await useAsyncData<T>(
+        cacheKey,
+        () =>
+            $fetch(APP_ENUM.BASE_URL + url, {
+                method: "POST",
+                body: {
+                    lang: locale.value,
+                    ...requestBody,
+                },
+            }),
     );
 
     if (error.value) {
-        console.log(error._value);
-        console.log("error if");
-        console.log(locale.value || "ne rabotaet syka");
-
-        if (error.value) {
-            handleApiError(error);
+        if (import.meta.server) {
+            throw createError({
+                statusCode: error.statusCode || 500,
+                statusMessage:
+                    `Server error: ${error.statusMessage}` ||
+                    "API Error Server",
+                fatal: true,
+            });
+        } else {
+            showError({
+                statusCode: error.statusCode || 404,
+                statusMessage:
+                    `Client error: ${error.statusMessage}` ||
+                    "Api Error Client",
+            });
         }
     }
 
