@@ -53,7 +53,7 @@ const generateJsonLd = (schemes: string[]) => {
 //     return scripts;
 // };
 export const useSeo = (meta: any, paginateData?: any) => {
-    const { locale, locales } = useI18n();
+    const { locale, locales, defaultLocale } = useI18n();
     const route = useRoute();
 
     // Обработка тайтла и описания
@@ -68,17 +68,32 @@ export const useSeo = (meta: any, paginateData?: any) => {
     }
 
     // Базовый URL
-    const baseUrl = "http://sidev.digital";
+    const baseUrl = "https://sidev.digital";
+    const currentPath = route.fullPath.replace(/^\/(en|ru)(\/|$)/, "/");
 
     // Alternate-ссылки
-    const alternateLinks = locales.value.map((loc: any) => ({
-        rel: "alternate",
-        hreflang: loc.code,
-        href:
-            loc.code === "uk"
-                ? `${baseUrl}${route.path}`
-                : `${baseUrl}/${loc.code}${route.path}`,
-    }));
+    // const alternateLinks = locales.value.map((loc: any) => ({
+    //     rel: "alternate",
+    //     hreflang: loc.code,
+    //     href:
+    //         loc.code === defaultLocale
+    //             ? `${baseUrl}${currentPath}`
+    //             : `${baseUrl}/${loc.code}${currentPath}`,
+    // }));
+    const alternateLinks = locales.value.map((loc) => {
+        let href =
+            loc.code === defaultLocale
+                ? `${baseUrl}${currentPath}`
+                : `${baseUrl}/${loc.code}${currentPath}`;
+        if (href.endsWith("/")) {
+            href = href.slice(0, -1);
+        }
+        return {
+            rel: "alternate",
+            hreflang: loc.code,
+            href,
+        };
+    });
 
     // Основные мета-теги
     useSeoMeta({
