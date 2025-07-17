@@ -108,6 +108,9 @@ export const useSeo = (meta: any, paginateData?: any) => {
 
     // Скрипты и микроразметка
     useHead({
+        htmlAttrs: {
+            lang: locale.value,
+        },
         link: [
             { rel: "canonical", href: `${baseUrl}${route.path}` },
             ...alternateLinks,
