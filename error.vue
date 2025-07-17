@@ -32,7 +32,7 @@ const handleError = () => clearError({ redirect: "/" });
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </button>
-      <div class="error-stack" v-html="error.stack"></div>
+      <!-- <div class="error-stack" v-html="error.stack"></div> -->
     </div>
   </div>
 </template>
