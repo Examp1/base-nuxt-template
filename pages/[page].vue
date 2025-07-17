@@ -2,10 +2,11 @@
 import ConstructorRender from "~/components/common/constructor-render.vue";
 const route = useRoute();
 import { useApi } from "../composables/useApi";
+import { useSeo } from "../composables/useSeo";
 const { data, status } = await useApi("/api/page/get-by-slug", {
     slug: route.params.page,
 });
-
+useSeo(data.value.seo);
 </script>
 
 <template>
