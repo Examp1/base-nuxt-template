@@ -2,7 +2,7 @@
 import { useSeo } from "../../composables/useSeo";
 import { useApi } from "../composables/useApi";
 import appCard from "~/components/card/app-card.vue";
-const { data, status } = useApi("api/blog/article/list", {
+const { data, status } = useApi("/api/blog/article/list", {
     page: 1,
 });
 useSeo(data.value.seo);
