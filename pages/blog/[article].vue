@@ -5,7 +5,7 @@ import theSharingBlock from "~/components/common/the-sharing-block.vue";
 import constructorRender from "~/components/common/constructor-render.vue";
 import { useSeo } from "../../composables/useSeo";
 const route = useRoute();
-const { data, status } = useApi("/api/blog/article/get-by-slug", {
+const { data, status } = await useApi("/api/blog/article/get-by-slug", {
     slug: route.params.article,
 });
 useSeo(data.value.seo);
