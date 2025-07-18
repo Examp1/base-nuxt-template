@@ -4,6 +4,7 @@ import appBreadcrumbs from "~/components/nav/app-breadcrumbs.vue";
 import theSharingBlock from "~/components/common/the-sharing-block.vue";
 import constructorRender from "~/components/common/constructor-render.vue";
 import { useSeo } from "../../composables/useSeo";
+const localePath = useLocalePath()
 const route = useRoute();
 const { data, status } = await useApi("/api/blog/article/get-by-slug", {
     slug: route.params.article,
